@@ -1,12 +1,13 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
+import { TextError } from '@/atomics';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { IRegistryControlField } from '@/models';
 import { InputProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { IInputProps } from './Input';
 import { InputStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
 
-export interface IInputControlProps extends Omit<IInputProps, 'name'>, IControlField {}
+export interface IInputControlProps extends Omit<IInputProps, 'name'>, IRegistryControlField {}
 
 export const InputControl = ({
     name,

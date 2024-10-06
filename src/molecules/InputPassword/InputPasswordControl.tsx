@@ -1,14 +1,15 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
+import { TextError } from '@/atomics';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { IRegistryControlField } from '@/models';
 import { InputProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { IInputPasswordProps } from './InputPassword';
 import { InputStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
 
 export interface IInputPasswordControlProps
     extends Omit<IInputPasswordProps, 'name'>,
-        IControlField {}
+        IRegistryControlField {}
 
 export const InputPasswordControl = ({
     name,

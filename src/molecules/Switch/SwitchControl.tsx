@@ -1,12 +1,13 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
-import { SwitchProps, Switch as AntdSwitch } from 'antd';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { TextError } from '@/atomics';
+import { IRegistryControlField } from '@/models';
+import { Switch as AntdSwitch, SwitchProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { ISwitchProps } from './Switch';
 import { SwitchWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
 
-export interface ISwitchControlProps extends Omit<ISwitchProps, 'name'>, IControlField {}
+export interface ISwitchControlProps extends Omit<ISwitchProps, 'name'>, IRegistryControlField {}
 
 export const SwitchControl = ({
     name,

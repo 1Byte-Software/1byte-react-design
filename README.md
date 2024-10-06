@@ -43,9 +43,8 @@ To use the components from the library, you need to import them into your projec
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { config } from '1byte-react-design';
+import { config, Button } from '1byte-react-design';
 import { globalToken } from '@/assets/styles/customTheme';
-import { Button } from '1byte-react-design';
 
 // Set the design token
 config.designToken = globalToken;
@@ -81,33 +80,13 @@ Before you start, make sure you have a fresh version of [Node.js](https://nodejs
     yarn install
     ```
 
-3. To run and test the app on your local machine (http://localhost:5173):
+3. To build/deploy the app, you can run:
 
     ```sh
-    yarn start:dev
-    ```
-
-    This will start a server instance and begin listening for connections in develop environment from localhost on port 5173.
-
-    ```sh
-    yarn start:pro
-    ```
-
-    This will start a server instance and begin listening for connections in production environment from localhost on port 5173.
-
-4. To build/deploy the app, you can run:
-
-    ```sh
-    yarn build:dev
+    yarn build
     ```
 
     This will place all files needed for deployment for develop server into the [`/dist`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fkenneth_wise%2FWorkspace%2F1ByteSoftware%2FLibrary%2F1byte%3Areact-design%2Fdist%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22cd97981e-fe0d-41e4-b8a7-f07d20b5fc41%22%5D "/Users/kenneth_wise/Workspace/1ByteSoftware/Library/1byte:react-design/dist") directory.
-
-    ```sh
-    yarn build:pro
-    ```
-
-    This will place all files needed for deployment for production server into the [`/dist`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fkenneth_wise%2FWorkspace%2F1ByteSoftware%2FLibrary%2F1byte%3Areact-design%2Fdist%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22cd97981e-fe0d-41e4-b8a7-f07d20b5fc41%22%5D "/Users/kenneth_wise/Workspace/1ByteSoftware/Library/1byte:react-design/dist") directory.
 
 ## License
 
@@ -119,7 +98,7 @@ We welcome contributions to improve this library. Please fork the repository and
 
 ## Authors
 
-- [Your Name](https://github.com/your-github-username)
+- [1byte dev](https://github.com/1Byte-Software/)
 
 ## Acknowledgments
 
@@ -131,5 +110,3 @@ We welcome contributions to improve this library. Please fork the repository and
 
 This library is developed by 1Byte to unify the interface for the company, optimize component reuse, and ensure that our developers do not need to remember conventions. The library is based on the Atomic Design architecture.
 ```
-
-Bạn có thể thay thế các thông tin như "Your Name" và "your-github-username" bằng thông tin của bạn.

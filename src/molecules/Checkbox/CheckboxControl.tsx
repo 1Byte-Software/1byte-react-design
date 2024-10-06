@@ -1,12 +1,12 @@
-import { Control, useController } from 'react-hook-form';
-import { CheckboxStyle, CheckboxWrapper } from './styles';
-import { ILabelField, LabelField } from '../LabelField';
-import { TextError } from '@/designs';
+import { TextError } from '@/atomics';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { IRegistryControlField } from '@/models';
+import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { ICheckboxProps } from './Checkbox';
-import { IControlField } from '@/models';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { CheckboxStyle, CheckboxWrapper } from './styles';
 
-interface ICheckboxControlProps extends Omit<ICheckboxProps, 'name'>, IControlField {}
+interface ICheckboxControlProps extends Omit<ICheckboxProps, 'name'>, IRegistryControlField {}
 
 export const CheckboxControl = ({
     name,

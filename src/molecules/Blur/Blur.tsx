@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import { BlurBody, BlurHeader, BlurTitle, BlurWrapper } from './styles';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 
 interface IBlurProps extends HTMLAttributes<HTMLDivElement> {
     isBlur?: boolean;
@@ -14,14 +15,16 @@ export const Blur = (props: IBlurProps) => {
     if (!isBlur) return children;
 
     return (
-        <BlurWrapper>
-            {!isLoading && (
-                <BlurHeader>
-                    <BlurTitle>{title}</BlurTitle>
-                </BlurHeader>
-            )}
+        <ConfigProviderDesign>
+            <BlurWrapper>
+                {!isLoading && (
+                    <BlurHeader>
+                        <BlurTitle>{title}</BlurTitle>
+                    </BlurHeader>
+                )}
 
-            <BlurBody {...htmlProps}>{children}</BlurBody>
-        </BlurWrapper>
+                <BlurBody {...htmlProps}>{children}</BlurBody>
+            </BlurWrapper>
+        </ConfigProviderDesign>
     );
 };

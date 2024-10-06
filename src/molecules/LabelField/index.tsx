@@ -2,7 +2,7 @@ import { Flex } from 'antd';
 import { PropsWithChildren } from 'react';
 import { Label, LabelDescription, LabelFieldWrapper } from './style';
 import { TAxis } from '@/models';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 
 export interface ILabelField {
     /** Only use when you want a space for the label and the label is empty. */

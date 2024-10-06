@@ -1,7 +1,7 @@
 import { TextAreaProps } from 'antd/es/input';
 import { ILabelField, LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 
 export interface ITextareaProps extends TextAreaProps, ILabelField {}
 

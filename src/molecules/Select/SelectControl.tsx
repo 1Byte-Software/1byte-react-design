@@ -1,12 +1,13 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
-import { SelectProps, Select as AntdSelect } from 'antd';
+import { TextError } from '@/atomics';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { Select as AntdSelect, SelectProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { ISelectProps } from './Select';
 import { SelectWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { IRegistryControlField } from '@/models';
 
-export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IControlField {}
+export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IRegistryControlField {}
 
 export const SelectControl = ({
     name,

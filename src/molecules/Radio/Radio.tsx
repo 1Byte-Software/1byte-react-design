@@ -1,7 +1,7 @@
 import { Radio as RadioAntd, RadioProps } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 
 export interface IRadioProps extends Omit<RadioProps, 'name'>, ILabelField {}
 

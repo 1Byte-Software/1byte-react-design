@@ -1,12 +1,13 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { TextError } from '@/atomics';
 import { TextAreaProps } from 'antd/es/input';
 import { useController } from 'react-hook-form';
+import { LabelField } from '../LabelField';
 import { ITextareaProps } from './TextArea';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { IRegistryControlField } from '@/models';
 
-export interface ITextareaControlProps extends Omit<ITextareaProps, 'name'>, IControlField {}
+export interface ITextareaControlProps extends Omit<ITextareaProps, 'name'>, IRegistryControlField {}
 
 export const TextareaControl = ({
     name,

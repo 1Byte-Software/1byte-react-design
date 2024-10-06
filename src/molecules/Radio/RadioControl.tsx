@@ -1,12 +1,13 @@
-import { RadioProps, Radio as AntdRadio, CheckboxOptionType } from 'antd';
+import { TextError } from '@/atomics';
+import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { Radio as AntdRadio, RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
+import { LabelField } from '../LabelField';
 import { IRadioProps } from './Radio';
 import { RadioWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { IRegistryControlField } from '@/models';
 
-export interface IRadioControlProps extends Omit<IRadioProps, 'name'>, IControlField {}
+export interface IRadioControlProps extends Omit<IRadioProps, 'name'>, IRegistryControlField {}
 
 export const RadioControl = ({
     name,
