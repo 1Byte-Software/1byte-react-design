@@ -7,6 +7,7 @@ export const ConfigProviderDesign = ({ children }: PropsWithChildren) => {
         <ConfigProvider
             theme={{
                 token: config.designToken,
+                components: config.componentToken,
             }}
         >
             {children}

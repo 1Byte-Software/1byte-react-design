@@ -1,7 +1,7 @@
 import { InputNumberProps } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 export interface IInputNumberProps extends InputNumberProps, ILabelField {}
 

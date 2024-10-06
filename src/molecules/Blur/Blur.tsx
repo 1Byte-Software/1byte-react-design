@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 import { BlurBody, BlurHeader, BlurTitle, BlurWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 interface IBlurProps extends HTMLAttributes<HTMLDivElement> {
     isBlur?: boolean;

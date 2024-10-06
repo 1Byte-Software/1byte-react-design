@@ -1,4 +1,4 @@
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { InputProps } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';

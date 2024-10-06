@@ -1,7 +1,7 @@
-import { TextError } from '@/atomics';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
-import { IRegistryControlField } from '@/models';
 import { useController } from 'react-hook-form';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import { IRegistryControlField } from '../../models';
 import { LabelField } from '../LabelField';
 import { ICheckboxProps } from './Checkbox';
 import { CheckboxStyle, CheckboxWrapper } from './styles';

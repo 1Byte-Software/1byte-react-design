@@ -1,4 +1,4 @@
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { Pagination as AntdPagination, PaginationProps } from 'antd';
 import { PaginationWrapper } from './styles';
 

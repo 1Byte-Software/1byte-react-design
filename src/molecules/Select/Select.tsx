@@ -1,7 +1,7 @@
 import { SelectProps, Select as SelectAntd } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { SelectWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 export interface ISelectProps extends SelectProps, ILabelField {}
 

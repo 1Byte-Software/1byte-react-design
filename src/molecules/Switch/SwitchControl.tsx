@@ -1,11 +1,11 @@
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
-import { TextError } from '@/atomics';
-import { IRegistryControlField } from '@/models';
 import { Switch as AntdSwitch, SwitchProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { LabelField } from '../LabelField';
 import { ISwitchProps } from './Switch';
 import { SwitchWrapper } from './styles';
+import { IRegistryControlField } from '../../models';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
 
 export interface ISwitchControlProps extends Omit<ISwitchProps, 'name'>, IRegistryControlField {}
 

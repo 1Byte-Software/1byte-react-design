@@ -1,7 +1,7 @@
 import { Switch as AntdSwitch, SwitchProps } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { SwitchWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 export interface ISwitchProps extends SwitchProps, ILabelField {
     responseType?: 'number' | 'boolean';

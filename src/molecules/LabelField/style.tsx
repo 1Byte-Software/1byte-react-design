@@ -1,6 +1,6 @@
-import { config } from '@/index';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { config } from '../..';
 
 export const LabelFieldWrapper = styled.div``;
 

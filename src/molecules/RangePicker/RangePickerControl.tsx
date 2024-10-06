@@ -1,4 +1,3 @@
-import { TextError } from '@/atomics';
 import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/es/date-picker';
 import { useController } from 'react-hook-form';
@@ -6,6 +5,8 @@ import { LabelField } from '../LabelField';
 import { IRangePickerProps } from './RangePicker';
 import { RangePickerWrapper } from './styles';
 import { IRegistryRangePickerControlField } from '../../models';
+import { TextError } from '../../atomics';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 const { RangePicker: AntdRangePicker } = DatePicker;
 
@@ -66,32 +67,34 @@ export const RangePickerControl = ({
     };
 
     return (
-        <RangePickerWrapper>
-            <LabelField
-                label={label}
-                labelAxis={labelAxis}
-                required={required}
-                isColon={isColon}
-                labelDescription={labelDescription}
-                widthField={widthField}
-            >
-                <AntdRangePicker
-                    {...(antdProps as RangePickerProps)}
-                    value={[startDateValue, endDateValue]}
-                    onChange={handleChange}
-                    onBlur={() => {
-                        onStartDateBlur();
-                        onEndDateBlur();
-                    }}
-                    ref={node => {
-                        startRef(node);
-                        endRef(node);
-                    }}
-                />
-            </LabelField>
-            {(startInvalid || endInvalid) && (
-                <TextError>{startError?.message || endError?.message}</TextError>
-            )}
-        </RangePickerWrapper>
+        <ConfigProviderDesign>
+            <RangePickerWrapper>
+                <LabelField
+                    label={label}
+                    labelAxis={labelAxis}
+                    required={required}
+                    isColon={isColon}
+                    labelDescription={labelDescription}
+                    widthField={widthField}
+                >
+                    <AntdRangePicker
+                        {...(antdProps as RangePickerProps)}
+                        value={[startDateValue, endDateValue]}
+                        onChange={handleChange}
+                        onBlur={() => {
+                            onStartDateBlur();
+                            onEndDateBlur();
+                        }}
+                        ref={node => {
+                            startRef(node);
+                            endRef(node);
+                        }}
+                    />
+                </LabelField>
+                {(startInvalid || endInvalid) && (
+                    <TextError>{startError?.message || endError?.message}</TextError>
+                )}
+            </RangePickerWrapper>
+        </ConfigProviderDesign>
     );
 };

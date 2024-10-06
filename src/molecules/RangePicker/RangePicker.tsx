@@ -2,6 +2,7 @@ import { DatePicker } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { RangePickerWrapper } from './styles';
 import { RangePickerProps } from 'antd/es/date-picker';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 const { RangePicker: AntdRangePicker } = DatePicker;
 
@@ -19,17 +20,19 @@ export const RangePicker = ({
     ...antdProps
 }: IRangePickerProps) => {
     return (
-        <RangePickerWrapper>
-            <LabelField
-                label={label}
-                labelAxis={labelAxis}
-                required={required}
-                isColon={isColon}
-                labelDescription={labelDescription}
-                widthField={widthField}
-            >
-                <AntdRangePicker {...(antdProps as RangePickerProps)} />
-            </LabelField>
-        </RangePickerWrapper>
+        <ConfigProviderDesign>
+            <RangePickerWrapper>
+                <LabelField
+                    label={label}
+                    labelAxis={labelAxis}
+                    required={required}
+                    isColon={isColon}
+                    labelDescription={labelDescription}
+                    widthField={widthField}
+                >
+                    <AntdRangePicker {...(antdProps as RangePickerProps)} />
+                </LabelField>
+            </RangePickerWrapper>
+        </ConfigProviderDesign>
     );
 };

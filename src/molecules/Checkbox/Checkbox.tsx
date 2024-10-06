@@ -1,7 +1,7 @@
 import { CheckboxProps } from 'antd';
 import { ILabelField, LabelField } from '../LabelField';
 import { CheckboxStyle, CheckboxWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 export interface ICheckboxProps extends CheckboxProps, ILabelField {}
 

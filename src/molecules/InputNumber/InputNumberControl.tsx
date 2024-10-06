@@ -1,11 +1,11 @@
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
-import { TextError } from '@/atomics';
-import { IRegistryControlField } from '@/models';
 import { InputNumberProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { LabelField } from '../LabelField';
 import { IInputNumberProps } from './InputNumber';
 import { InputNumberStyled, InputWrapper } from './styles';
+import { IRegistryControlField } from '../../models';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
 
 export interface IInputNumberControlProps extends Omit<IInputNumberProps, 'name'>, IRegistryControlField {}
 

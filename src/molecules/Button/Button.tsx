@@ -1,7 +1,7 @@
 import { ButtonProps } from 'antd';
 import { PropsWithChildren } from 'react';
 import { ButtonStyles } from './styles';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 
 export interface IBaseButtonProps {
     isCapitalize?: boolean;

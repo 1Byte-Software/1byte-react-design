@@ -1,8 +1,8 @@
 import { Flex } from 'antd';
 import { PropsWithChildren } from 'react';
 import { Label, LabelDescription, LabelFieldWrapper } from './style';
-import { TAxis } from '@/models';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TAxis } from '../../models';
 
 export interface ILabelField {
     /** Only use when you want a space for the label and the label is empty. */

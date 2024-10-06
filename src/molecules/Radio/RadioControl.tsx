@@ -1,11 +1,11 @@
-import { TextError } from '@/atomics';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 import { Radio as AntdRadio, RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { LabelField } from '../LabelField';
 import { IRadioProps } from './Radio';
 import { RadioWrapper } from './styles';
-import { IRegistryControlField } from '@/models';
+import { IRegistryControlField } from '../../models';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
 
 export interface IRadioControlProps extends Omit<IRadioProps, 'name'>, IRegistryControlField {}
 

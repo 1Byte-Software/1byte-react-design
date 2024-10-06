@@ -1,11 +1,12 @@
-import { TextError } from '@/atomics';
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
 import { Select as AntdSelect, SelectProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import { IRegistryControlField } from '../../models';
 import { LabelField } from '../LabelField';
 import { ISelectProps } from './Select';
 import { SelectWrapper } from './styles';
-import { IRegistryControlField } from '@/models';
+
 
 export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IRegistryControlField {}
 

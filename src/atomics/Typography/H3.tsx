@@ -1,4 +1,4 @@
-import { ConfigProviderDesign } from '@/ConfigProviderDesign';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { H3Wrapper } from './styles';
 import { IBaseHProps } from './typography';
 
