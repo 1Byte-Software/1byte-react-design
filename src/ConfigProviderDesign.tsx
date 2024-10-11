@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
-import { config } from '.';
 import { PropsWithChildren } from 'react';
+import { config } from '.';
 
 export const ConfigProviderDesign = ({ children }: PropsWithChildren) => {
     return (

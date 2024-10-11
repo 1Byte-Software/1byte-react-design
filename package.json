@@ -1,11 +1,16 @@
 {
     "name": "1byte-react-design",
-    "version": "1.1.12",
+    "version": "1.1.16",
     "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
     "license": "MIT",
     "scripts": {
         "build": "webpack --config webpack.config.js"
     },
+    "files": [
+        "dist"
+    ],
     "dependencies": {
         "@emotion/react": "^11.13.3",
         "@emotion/styled": "^11.13.0",

@@ -1,8 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { Table as AntdTable, ConfigProvider, TableProps } from 'antd';
-import { TableWrapper } from './styles';
+import { Table as AntdTable, TableProps } from 'antd';
 import { AnyObject } from 'antd/es/_util/type';
-import { config } from '../..';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TableWrapper } from './styles';
 
 export type TTableProps<RecordType = AnyObject> = TableProps<RecordType> & {};
 

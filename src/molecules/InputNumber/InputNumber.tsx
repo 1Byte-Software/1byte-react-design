@@ -1,9 +1,8 @@
 import { InputNumberProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
-import { InputNumberStyled, InputWrapper } from './styles';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-
-export interface IInputNumberProps extends InputNumberProps, ILabelField {}
+import { LabelField } from '../LabelField';
+import { InputNumberStyled, InputWrapper } from './styles';
+import { IInputNumberProps } from './types';
 
 export const InputNumber = ({
     // ILabelField props

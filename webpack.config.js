@@ -13,7 +13,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
-        plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })]
+        plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
     },
     module: {
         rules: [

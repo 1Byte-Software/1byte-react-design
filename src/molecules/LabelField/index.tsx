@@ -61,7 +61,7 @@ export const LabelField = (props: ILabelField & PropsWithChildren) => {
                     </Flex>
                     <Flex
                         style={{
-                            width: widthField || '100%',
+                            width: widthField,
                         }}
                         vertical
                     >

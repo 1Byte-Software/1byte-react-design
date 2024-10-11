@@ -1,13 +1,11 @@
 import { InputNumberProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { LabelField } from '../LabelField';
-import { IInputNumberProps } from './InputNumber';
-import { InputNumberStyled, InputWrapper } from './styles';
-import { IRegistryControlField } from '../../models';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import { LabelField } from '../LabelField';
+import { InputNumberStyled, InputWrapper } from './styles';
+import { IInputNumberControlProps } from './types';
 
-export interface IInputNumberControlProps extends Omit<IInputNumberProps, 'name'>, IRegistryControlField {}
 
 export const InputNumberControl = ({
     name,
