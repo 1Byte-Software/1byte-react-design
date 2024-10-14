@@ -14,6 +14,7 @@ export interface IInputPasswordControlProps
 export const InputPasswordControl = ({
     name,
     control,
+    defaultValue,
 
     // ILabelField props
     required,
@@ -31,6 +32,7 @@ export const InputPasswordControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (

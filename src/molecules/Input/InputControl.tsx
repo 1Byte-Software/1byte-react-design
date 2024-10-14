@@ -12,6 +12,7 @@ export interface IInputControlProps extends Omit<IInputProps, 'name'>, IRegistry
 export const InputControl = ({
     name,
     control,
+    defaultValue,
 
     // ILabelField props
     required,
@@ -29,6 +30,7 @@ export const InputControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (

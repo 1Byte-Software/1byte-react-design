@@ -2,6 +2,19 @@
 # yarn lockfile v1
 
 
+"1byte-react-design@^0.9.10":
+  version "0.9.10"
+  resolved "https://registry.yarnpkg.com/1byte-react-design/-/1byte-react-design-0.9.10.tgz#ea44e4e48eeddcc4cf84569770083f8a343dc1a8"
+  integrity sha512-NZ/sp9N+phzEIwrhhlNHvVIiG6GzD96XHTPdcFTbz84ennpmurEQ7uBcDilCIgQl4TybsAzEnfdBSzyIDiUwcw==
+  dependencies:
+    "@emotion/react" "^11.13.3"
+    "@emotion/styled" "^11.13.0"
+    antd "^5.21.2"
+    dayjs "^1.11.13"
+    react "^18.3.1"
+    react-dom "^18.3.1"
+    react-hook-form "^7.53.0"
+
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.3.0.tgz"
@@ -2169,14 +2182,9 @@ csstype@^3.0.2, csstype@^3.1.3:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
-dayjs@^1.11.11:
+dayjs@^1.11.11, dayjs@^1.11.13:
   version "1.11.13"
   resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.13.tgz"
-  integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
-
-dayjs@^1.11.13:
-  version "1.11.13"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
   integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
 
 debug@2.6.9:

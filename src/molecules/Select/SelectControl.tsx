@@ -7,12 +7,12 @@ import { LabelField } from '../LabelField';
 import { ISelectProps } from './Select';
 import { SelectWrapper } from './styles';
 
-
 export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IRegistryControlField {}
 
 export const SelectControl = ({
     name,
     control,
+    defaultValue,
 
     // ILabelField props
     required,
@@ -30,6 +30,7 @@ export const SelectControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (

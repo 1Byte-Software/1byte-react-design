@@ -6,10 +6,10 @@ import { LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
 import { IInputNumberControlProps } from './types';
 
-
 export const InputNumberControl = ({
     name,
     control,
+    defaultValue,
 
     // ILabelField props
     required,
@@ -27,6 +27,7 @@ export const InputNumberControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (
