@@ -1,32 +1,18 @@
 import { InputProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
-import { InputStyled, InputWrapper } from './styles';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-
-export interface IInputPasswordProps extends InputProps, ILabelField {}
+import { LabelField } from '../LabelField';
+import { InputStyled, InputWrapper } from './styles';
+import { IInputPasswordProps } from './types';
 
 export const InputPassword = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputPasswordProps) => {
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <InputStyled {...(antdProps as InputProps)} />
                 </LabelField>
             </InputWrapper>

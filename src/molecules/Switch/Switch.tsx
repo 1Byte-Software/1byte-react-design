@@ -1,20 +1,11 @@
 import { Switch as AntdSwitch, SwitchProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
-import { SwitchWrapper } from './styles';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-
-export interface ISwitchProps extends SwitchProps, ILabelField {
-    responseType?: 'number' | 'boolean';
-}
+import { LabelField } from '../LabelField';
+import { SwitchWrapper } from './styles';
+import { ISwitchProps } from './types';
 
 export const Switch = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     responseType = 'boolean',
 
@@ -23,14 +14,7 @@ export const Switch = ({
     return (
         <ConfigProviderDesign>
             <SwitchWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <AntdSwitch {...(antdProps as SwitchProps)} />
                 </LabelField>
             </SwitchWrapper>

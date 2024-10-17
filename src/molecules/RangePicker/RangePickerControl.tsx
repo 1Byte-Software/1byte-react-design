@@ -1,30 +1,19 @@
 import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/es/date-picker';
 import { useController } from 'react-hook-form';
-import { LabelField } from '../LabelField';
-import { IRangePickerProps } from './RangePicker';
-import { RangePickerWrapper } from './styles';
-import { IRegistryRangePickerControlField } from '../../models';
 import { TextError } from '../../atomics';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
+import { RangePickerWrapper } from './styles';
+import { IRangePickerControlProps } from './types';
 
 const { RangePicker: AntdRangePicker } = DatePicker;
-
-export interface IRangePickerControlProps
-    extends Omit<IRangePickerProps, 'name'>,
-        IRegistryRangePickerControlField {}
 
 export const RangePickerControl = ({
     names,
     control,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IRangePickerControlProps) => {
@@ -69,14 +58,7 @@ export const RangePickerControl = ({
     return (
         <ConfigProviderDesign>
             <RangePickerWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <AntdRangePicker
                         {...(antdProps as RangePickerProps)}
                         value={[startDateValue, endDateValue]}

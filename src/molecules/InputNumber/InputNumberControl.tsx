@@ -11,13 +11,7 @@ export const InputNumberControl = ({
     control,
     defaultValue,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputNumberControlProps) => {
@@ -33,14 +27,7 @@ export const InputNumberControl = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <InputNumberStyled
                         {...(antdProps as InputNumberProps)}
                         value={value === undefined ? '' : value}

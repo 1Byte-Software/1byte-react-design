@@ -1,26 +1,17 @@
 import { InputProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { LabelField } from '../LabelField';
-import { IInputProps } from './Input';
-import { InputStyled, InputWrapper } from './styles';
-import { IRegistryControlField } from '../../models';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
-
-export interface IInputControlProps extends Omit<IInputProps, 'name'>, IRegistryControlField {}
+import { LabelField } from '../LabelField';
+import { InputStyled, InputWrapper } from './styles';
+import { IInputControlProps } from './types';
 
 export const InputControl = ({
     name,
     control,
     defaultValue,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputControlProps) => {
@@ -36,14 +27,7 @@ export const InputControl = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <InputStyled
                         {...(antdProps as InputProps)}
                         value={value === undefined ? '' : value}

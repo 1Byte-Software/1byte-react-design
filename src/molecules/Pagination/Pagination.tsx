@@ -1,8 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { Pagination as AntdPagination, PaginationProps } from 'antd';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { PaginationWrapper } from './styles';
-
-export interface IPaginationProps extends PaginationProps {}
+import { IPaginationProps } from './types';
 
 export const Pagination = ({ ...antdProps }: IPaginationProps) => {
     return (

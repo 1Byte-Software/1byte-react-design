@@ -1,32 +1,18 @@
 import { TextAreaProps } from 'antd/es/input';
-import { ILabelField, LabelField } from '../LabelField';
-import { TextareaStyled, TextareaWrapper } from './styles';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-
-export interface ITextareaProps extends TextAreaProps, ILabelField {}
+import { LabelField } from '../LabelField';
+import { TextareaStyled, TextareaWrapper } from './styles';
+import { ITextareaProps } from './types';
 
 export const TextArea = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ITextareaProps) => {
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...labelFieldProps}>
                     <TextareaStyled {...(antdProps as TextAreaProps)} />
                 </LabelField>
             </TextareaWrapper>

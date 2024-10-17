@@ -1,7 +1,5 @@
-import { PropsWithChildren } from 'react';
 import { TextErrorWrapper } from './styles';
-
-export interface ITextErrorProps extends PropsWithChildren {}
+import { ITextErrorProps } from './types';
 
 export const TextError = (props: ITextErrorProps) => {
     const { children } = props;

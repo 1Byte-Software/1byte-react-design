@@ -1,8 +1,6 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { IH4Props } from '../TextError/types';
 import { H4Wrapper } from './styles';
-import { IBaseHProps } from './typography';
-
-interface IH4Props extends IBaseHProps {}
 
 export const H4 = (props: IH4Props) => {
     const { children } = props;

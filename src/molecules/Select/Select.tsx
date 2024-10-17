@@ -1,32 +1,14 @@
-import { SelectProps, Select as SelectAntd } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
-import { SelectWrapper } from './styles';
+import { Select as SelectAntd, SelectProps } from 'antd';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
+import { SelectWrapper } from './styles';
+import { ISelectProps } from './types';
 
-export interface ISelectProps extends SelectProps, ILabelField {}
-
-export const Select = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
-
-    ...antdProps
-}: ISelectProps) => {
+export const Select = ({ label, ...antdProps }: ISelectProps) => {
     return (
         <ConfigProviderDesign>
             <SelectWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
+                <LabelField {...label}>
                     <SelectAntd {...(antdProps as SelectProps)} />
                 </LabelField>
             </SelectWrapper>

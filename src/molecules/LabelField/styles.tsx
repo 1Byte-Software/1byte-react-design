@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { config } from '../..';
+import { Flex } from 'antd';
 
-export const LabelFieldWrapper = styled.div``;
+export const LabelFieldWrapper = styled(Flex)``;
 
 export const Label = styled.label<{ isNotCapitalize?: boolean }>`
     color: ${config.designToken.colorText};
