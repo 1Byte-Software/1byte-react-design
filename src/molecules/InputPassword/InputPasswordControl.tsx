@@ -2,6 +2,7 @@ import { InputProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
 import { IInputPasswordControlProps } from './types';
@@ -27,7 +28,11 @@ export const InputPasswordControl = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <InputStyled
                         {...(antdProps as InputProps)}
                         value={value === undefined ? '' : value}
@@ -35,7 +40,7 @@ export const InputPasswordControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </InputWrapper>
         </ConfigProviderDesign>

@@ -1,6 +1,7 @@
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { CheckboxStyle, CheckboxWrapper } from './styles';
 import { ICheckboxControlProps } from './types';
@@ -24,9 +25,13 @@ export const CheckboxControl = ({
     return (
         <ConfigProviderDesign>
             <CheckboxWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <CheckboxStyle {...antdProps} checked={value} onChange={onChange} ref={ref} />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </CheckboxWrapper>
         </ConfigProviderDesign>

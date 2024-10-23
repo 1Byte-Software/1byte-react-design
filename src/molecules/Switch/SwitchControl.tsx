@@ -2,6 +2,7 @@ import { Switch as AntdSwitch, SwitchProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { SwitchWrapper } from './styles';
 import { ISwitchControlProps } from './types';
@@ -38,14 +39,18 @@ export const SwitchControl = ({
     return (
         <ConfigProviderDesign>
             <SwitchWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <AntdSwitch
                         {...(antdProps as SwitchProps)}
                         checked={value}
                         onChange={handleChange}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </SwitchWrapper>
         </ConfigProviderDesign>

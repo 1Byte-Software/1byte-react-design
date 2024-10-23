@@ -3,6 +3,7 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
 import { IInputNumberProps } from './types';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 
 export const InputNumber = ({
     label: labelFieldProps,
@@ -12,9 +13,13 @@ export const InputNumber = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <InputNumberStyled {...(antdProps as InputNumberProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </InputWrapper>
         </ConfigProviderDesign>
     );

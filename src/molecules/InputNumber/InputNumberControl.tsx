@@ -2,6 +2,7 @@ import { InputNumberProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
 import { IInputNumberControlProps } from './types';
@@ -27,7 +28,11 @@ export const InputNumberControl = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <InputNumberStyled
                         {...(antdProps as InputNumberProps)}
                         value={value === undefined ? '' : value}
@@ -35,7 +40,7 @@ export const InputNumberControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </InputWrapper>
         </ConfigProviderDesign>

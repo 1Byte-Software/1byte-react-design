@@ -2,6 +2,7 @@ import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/es/date-picker';
 import { useController } from 'react-hook-form';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { RangePickerWrapper } from './styles';
@@ -58,7 +59,11 @@ export const RangePickerControl = ({
     return (
         <ConfigProviderDesign>
             <RangePickerWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <AntdRangePicker
                         {...(antdProps as RangePickerProps)}
                         value={[startDateValue, endDateValue]}
@@ -72,7 +77,7 @@ export const RangePickerControl = ({
                             endRef(node);
                         }}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {(startInvalid || endInvalid) && (
                     <TextError>{startError?.message || endError?.message}</TextError>
                 )}

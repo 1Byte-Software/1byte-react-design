@@ -6,9 +6,9 @@ import { ILabelFieldProps } from './types';
 
 export const LabelField = (props: ILabelFieldProps & PropsWithChildren) => {
     const {
-        label,
-        labelAxis = 'vertical',
-        labelDescription,
+        text,
+        axis = 'vertical',
+        description,
         htmlFor,
         isColon = true,
         required,
@@ -16,28 +16,26 @@ export const LabelField = (props: ILabelFieldProps & PropsWithChildren) => {
         children,
     } = props;
 
-    if (!label && !labelDescription) return children;
-
     return (
         <ConfigProviderDesign>
             <LabelFieldWrapper
                 wrap={false}
                 gap={6}
-                vertical={labelAxis === 'vertical'}
+                vertical={axis === 'vertical'}
                 style={{
                     width: '100%',
                 }}
-                align={labelAxis === 'vertical' ? 'start' : 'center'}
-                justify={labelAxis === 'vertical' ? 'start' : 'space-between'}
+                align={axis === 'vertical' ? 'start' : 'center'}
+                justify={axis === 'vertical' ? 'start' : 'space-between'}
                 className="rd-label-field__wrapper"
             >
                 <Flex className={'rd-label-field__content'} vertical>
                     <Label htmlFor={htmlFor}>
-                        {label || '\u00A0'}
+                        {text || '\u00A0'}
                         {required && <sup>*</sup>}
-                        {label && isColon && ': '}
+                        {text && isColon && ': '}
                     </Label>
-                    <LabelDescription htmlFor={htmlFor}>{labelDescription}</LabelDescription>
+                    <LabelDescription htmlFor={htmlFor}>{description}</LabelDescription>
                 </Flex>
                 <Flex
                     className={'rd-label-field-control'}

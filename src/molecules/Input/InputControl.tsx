@@ -5,6 +5,8 @@ import { TextError } from '../../atomics';
 import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
 import { IInputControlProps } from './types';
+import React from 'react';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 
 export const InputControl = ({
     name,
@@ -27,7 +29,11 @@ export const InputControl = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <InputStyled
                         {...(antdProps as InputProps)}
                         value={value === undefined ? '' : value}
@@ -35,7 +41,7 @@ export const InputControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </InputWrapper>
         </ConfigProviderDesign>

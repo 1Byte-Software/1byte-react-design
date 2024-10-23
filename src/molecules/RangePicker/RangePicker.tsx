@@ -1,5 +1,6 @@
 import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/es/date-picker';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { RangePickerWrapper } from './styles';
@@ -15,9 +16,13 @@ export const RangePicker = ({
     return (
         <ConfigProviderDesign>
             <RangePickerWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <AntdRangePicker {...(antdProps as RangePickerProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </RangePickerWrapper>
         </ConfigProviderDesign>
     );

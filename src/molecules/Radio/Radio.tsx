@@ -1,4 +1,5 @@
 import { Radio as RadioAntd, RadioProps } from 'antd';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
@@ -12,9 +13,13 @@ export const Radio = ({
     return (
         <ConfigProviderDesign>
             <RadioWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <RadioAntd.Group {...(antdProps as RadioProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </RadioWrapper>
         </ConfigProviderDesign>
     );

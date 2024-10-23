@@ -2,19 +2,6 @@
 # yarn lockfile v1
 
 
-"1byte-react-design@^0.9.10":
-  version "0.9.10"
-  resolved "https://registry.yarnpkg.com/1byte-react-design/-/1byte-react-design-0.9.10.tgz#ea44e4e48eeddcc4cf84569770083f8a343dc1a8"
-  integrity sha512-NZ/sp9N+phzEIwrhhlNHvVIiG6GzD96XHTPdcFTbz84ennpmurEQ7uBcDilCIgQl4TybsAzEnfdBSzyIDiUwcw==
-  dependencies:
-    "@emotion/react" "^11.13.3"
-    "@emotion/styled" "^11.13.0"
-    antd "^5.21.2"
-    dayjs "^1.11.13"
-    react "^18.3.1"
-    react-dom "^18.3.1"
-    react-hook-form "^7.53.0"
-
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.3.0.tgz"

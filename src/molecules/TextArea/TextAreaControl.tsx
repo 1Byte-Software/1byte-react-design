@@ -2,6 +2,7 @@ import { TextAreaProps } from 'antd/es/input';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
 import { ITextareaControlProps } from './types';
@@ -25,7 +26,11 @@ export const TextareaControl = ({
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <TextareaStyled
                         {...(antdProps as TextAreaProps)}
                         value={value === undefined ? '' : value}
@@ -33,7 +38,7 @@ export const TextareaControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </TextareaWrapper>
         </ConfigProviderDesign>

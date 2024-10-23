@@ -1,4 +1,5 @@
 import { InputProps } from 'antd';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
@@ -12,9 +13,13 @@ export const InputPassword = ({
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <InputStyled {...(antdProps as InputProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </InputWrapper>
         </ConfigProviderDesign>
     );

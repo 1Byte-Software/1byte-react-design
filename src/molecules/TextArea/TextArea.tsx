@@ -1,4 +1,5 @@
 import { TextAreaProps } from 'antd/es/input';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
@@ -12,9 +13,13 @@ export const TextArea = ({
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <TextareaStyled {...(antdProps as TextAreaProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </TextareaWrapper>
         </ConfigProviderDesign>
     );

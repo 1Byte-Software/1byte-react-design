@@ -1,5 +1,2 @@
-import { IBaseHProps } from './typography';
-interface IH1Props extends IBaseHProps {
-}
+import { IH1Props } from '../TextError/types';
 export declare const H1: (props: IH1Props) => import("react/jsx-runtime").JSX.Element;
-export {};

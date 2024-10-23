@@ -2,6 +2,7 @@ import { Radio as AntdRadio, RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
 import { IRadioControlProps } from './types';
@@ -25,7 +26,11 @@ export const RadioControl = ({
     return (
         <ConfigProviderDesign>
             <RadioWrapper>
-                <LabelField {...labelFieldProps}>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
                     <AntdRadio.Group
                         {...(antdProps as RadioProps)}
                         value={value}
@@ -33,7 +38,7 @@ export const RadioControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </RadioWrapper>
         </ConfigProviderDesign>
