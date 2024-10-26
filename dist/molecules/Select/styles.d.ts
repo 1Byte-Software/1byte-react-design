@@ -3,4 +3,5 @@ export declare const SelectWrapper: import("@emotion/styled").StyledComponent<{
     as?: React.ElementType;
 } & {
     width?: string | number;
+    minWidth?: string | number;
 }, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {}>;

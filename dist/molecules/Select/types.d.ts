@@ -7,6 +7,10 @@ export interface ISelectProps extends SelectProps, ILabelFieldWrapperProps {
      */
     width?: string | number;
     /**
+     * Min width of the select component.
+     */
+    minWidth?: string | number;
+    /**
      * When loading is true, the value will be hidden, default is true.
      */
     isHideValueOnLoading?: boolean;

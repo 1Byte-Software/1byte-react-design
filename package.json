@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "build": "webpack --config webpack.config.js",
-        "test": "webpack --config webpack.config.js && yalc push"
+        "test": "webpack --config webpack.config.js && yalc publish --push --no-scripts"
     },
     "files": [
         "dist"

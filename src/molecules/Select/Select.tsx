@@ -10,6 +10,7 @@ export const Select = ({
 
     // Custom props
     width,
+    minWidth,
     isHideValueOnLoading = true,
 
     ...antdProps
@@ -24,7 +25,7 @@ export const Select = ({
 
     return (
         <ConfigProviderDesign>
-            <SelectWrapper className="rc-select__wrapper" width={width}>
+            <SelectWrapper className="rc-select__wrapper" width={width} minWidth={minWidth}>
                 <ConditionalWrapper
                     condition={Boolean(labelFieldProps)}
                     wrapper={LabelField}
