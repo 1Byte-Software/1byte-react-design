@@ -1,19 +1,25 @@
-import { ButtonProps } from 'antd';
-import { PropsWithChildren } from 'react';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ButtonStyles } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
+import { IButtonProps } from './types';
 
-export interface IBaseButtonProps {
-    isCapitalize?: boolean;
-    isFull?: boolean;
-}
+// const isColorButtonExtend = (color: colorButton): color is colorButtonExtend => {
+//     return ['second', 'tertiary', 'quaternary'].includes(color);
+// };
 
-export interface IButtonProps extends ButtonProps, PropsWithChildren {}
+export const Button = ({ width, ...antdProps }: IButtonProps) => {
+    // const { color } = antdProps;
 
-export const Button = ({ children, ...antdProps }: IButtonProps) => {
+    // if (isColorButtonExtend(color)) {
+    //     useExtendColor(color);
+    // }
+
+    // const components: ThemeConfig['components'] = {
+    //     Button: {},
+    // };
+
     return (
         <ConfigProviderDesign>
-            <ButtonStyles {...antdProps}>{children}</ButtonStyles>
+            <ButtonStyles width={width} {...antdProps} />
         </ConfigProviderDesign>
     );
 };

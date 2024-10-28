@@ -1,24 +1,16 @@
-import { Control, useController } from 'react-hook-form';
+import { useController } from 'react-hook-form';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
 import { CheckboxStyle, CheckboxWrapper } from './styles';
-import { ILabelField, LabelField } from '../LabelField';
-import { TextError } from '@/designs';
-import { ICheckboxProps } from './Checkbox';
-import { IControlField } from '@/models';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-interface ICheckboxControlProps extends Omit<ICheckboxProps, 'name'>, IControlField {}
+import { ICheckboxControlProps } from './types';
 
 export const CheckboxControl = ({
     name,
     control,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ICheckboxControlProps) => {
@@ -33,18 +25,13 @@ export const CheckboxControl = ({
     return (
         <ConfigProviderDesign>
             <CheckboxWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
-                    <CheckboxStyle {...antdProps} checked={value} onChange={onChange} ref={ref}>
-                        {label}
-                    </CheckboxStyle>
-                </LabelField>
+                    <CheckboxStyle {...antdProps} checked={value} onChange={onChange} ref={ref} />
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </CheckboxWrapper>
         </ConfigProviderDesign>

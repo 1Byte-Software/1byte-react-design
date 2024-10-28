@@ -1,34 +1,25 @@
 import { Radio as RadioAntd, RadioProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface IRadioProps extends Omit<RadioProps, 'name'>, ILabelField {}
+import { IRadioProps } from './types';
 
 export const Radio = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IRadioProps) => {
     return (
         <ConfigProviderDesign>
             <RadioWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <RadioAntd.Group {...(antdProps as RadioProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </RadioWrapper>
         </ConfigProviderDesign>
     );

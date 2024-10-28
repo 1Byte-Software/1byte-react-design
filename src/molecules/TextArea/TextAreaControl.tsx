@@ -1,24 +1,17 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
 import { TextAreaProps } from 'antd/es/input';
 import { useController } from 'react-hook-form';
-import { ITextareaProps } from './TextArea';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface ITextareaControlProps extends Omit<ITextareaProps, 'name'>, IControlField {}
+import { ITextareaControlProps } from './types';
 
 export const TextareaControl = ({
     name,
     control,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ITextareaControlProps) => {
@@ -33,13 +26,10 @@ export const TextareaControl = ({
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <TextareaStyled
                         {...(antdProps as TextAreaProps)}
@@ -48,7 +38,7 @@ export const TextareaControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </TextareaWrapper>
         </ConfigProviderDesign>

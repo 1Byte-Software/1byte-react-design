@@ -1,34 +1,25 @@
 import { TextAreaProps } from 'antd/es/input';
-import { ILabelField, LabelField } from '../LabelField';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface ITextareaProps extends TextAreaProps, ILabelField {}
+import { ITextareaProps } from './types';
 
 export const TextArea = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ITextareaProps) => {
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <TextareaStyled {...(antdProps as TextAreaProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </TextareaWrapper>
         </ConfigProviderDesign>
     );

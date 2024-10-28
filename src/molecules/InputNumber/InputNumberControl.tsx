@@ -1,25 +1,18 @@
-import { TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
 import { InputNumberProps } from 'antd';
 import { useController } from 'react-hook-form';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { IInputNumberProps } from './InputNumber';
 import { InputNumberStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface IInputNumberControlProps extends Omit<IInputNumberProps, 'name'>, IControlField {}
+import { IInputNumberControlProps } from './types';
 
 export const InputNumberControl = ({
     name,
     control,
+    defaultValue,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputNumberControlProps) => {
@@ -29,18 +22,16 @@ export const InputNumberControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <InputNumberStyled
                         {...(antdProps as InputNumberProps)}
@@ -49,7 +40,7 @@ export const InputNumberControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </InputWrapper>
         </ConfigProviderDesign>

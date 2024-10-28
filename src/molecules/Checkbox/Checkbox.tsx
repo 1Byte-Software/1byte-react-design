@@ -1,34 +1,24 @@
-import { CheckboxProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
 import { CheckboxStyle, CheckboxWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface ICheckboxProps extends CheckboxProps, ILabelField {}
+import { ICheckboxProps } from './types';
 
 export const Checkbox = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ICheckboxProps) => {
     return (
         <ConfigProviderDesign>
             <CheckboxWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
-                    <CheckboxStyle {...antdProps}>{label}</CheckboxStyle>
-                </LabelField>
+                    <CheckboxStyle {...antdProps} />
+                </ConditionalWrapper>
             </CheckboxWrapper>
         </ConfigProviderDesign>
     );

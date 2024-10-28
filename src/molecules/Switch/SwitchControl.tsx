@@ -1,26 +1,18 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
-import { SwitchProps, Switch as AntdSwitch } from 'antd';
+import { Switch as AntdSwitch, SwitchProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { ISwitchProps } from './Switch';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
 import { SwitchWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface ISwitchControlProps extends Omit<ISwitchProps, 'name'>, IControlField {}
+import { ISwitchControlProps } from './types';
 
 export const SwitchControl = ({
     name,
     control,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
-
     responseType = 'boolean',
+    label: labelFieldProps,
 
     ...antdProps
 }: ISwitchControlProps) => {
@@ -47,13 +39,10 @@ export const SwitchControl = ({
     return (
         <ConfigProviderDesign>
             <SwitchWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <AntdSwitch
                         {...(antdProps as SwitchProps)}
@@ -61,7 +50,7 @@ export const SwitchControl = ({
                         onChange={handleChange}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </SwitchWrapper>
         </ConfigProviderDesign>

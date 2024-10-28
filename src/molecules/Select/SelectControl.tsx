@@ -1,24 +1,18 @@
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
-import { SelectProps, Select as AntdSelect } from 'antd';
+import { Select as AntdSelect, SelectProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { ISelectProps } from './Select';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
 import { SelectWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IControlField {}
+import { ISelectControlProps } from './types';
 
 export const SelectControl = ({
     name,
     control,
+    defaultValue,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: ISelectControlProps) => {
@@ -28,18 +22,16 @@ export const SelectControl = ({
     } = useController({
         name,
         control,
+        defaultValue,
     });
 
     return (
         <ConfigProviderDesign>
             <SelectWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <AntdSelect
                         {...(antdProps as SelectProps)}
@@ -48,7 +40,7 @@ export const SelectControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </SelectWrapper>
         </ConfigProviderDesign>
