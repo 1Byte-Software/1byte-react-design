@@ -1,34 +1,25 @@
 import { InputProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface IInputPasswordProps extends InputProps, ILabelField {}
+import { IInputPasswordProps } from './types';
 
 export const InputPassword = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputPasswordProps) => {
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <InputStyled {...(antdProps as InputProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </InputWrapper>
         </ConfigProviderDesign>
     );

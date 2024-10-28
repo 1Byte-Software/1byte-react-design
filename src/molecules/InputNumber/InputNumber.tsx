@@ -1,34 +1,25 @@
 import { InputNumberProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface IInputNumberProps extends InputNumberProps, ILabelField {}
+import { IInputNumberProps } from './types';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 
 export const InputNumber = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputNumberProps) => {
     return (
         <ConfigProviderDesign>
             <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <InputNumberStyled {...(antdProps as InputNumberProps)} />
-                </LabelField>
+                </ConditionalWrapper>
             </InputWrapper>
         </ConfigProviderDesign>
     );

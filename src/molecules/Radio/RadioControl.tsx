@@ -1,24 +1,17 @@
-import { RadioProps, Radio as AntdRadio, CheckboxOptionType } from 'antd';
+import { Radio as AntdRadio, RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
-import { LabelField, TextError } from '@/designs';
-import { IControlField } from '@/models/interfaces/form';
-import { IRadioProps } from './Radio';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { TextError } from '../../atomics';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
-import { ConfigProviderDesign } from '@/ContextProvider';
-
-export interface IRadioControlProps extends Omit<IRadioProps, 'name'>, IControlField {}
+import { IRadioControlProps } from './types';
 
 export const RadioControl = ({
     name,
     control,
 
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IRadioControlProps) => {
@@ -33,13 +26,10 @@ export const RadioControl = ({
     return (
         <ConfigProviderDesign>
             <RadioWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
                 >
                     <AntdRadio.Group
                         {...(antdProps as RadioProps)}
@@ -48,7 +38,7 @@ export const RadioControl = ({
                         onBlur={onBlur}
                         ref={ref}
                     />
-                </LabelField>
+                </ConditionalWrapper>
                 {invalid && <TextError>{error?.message}</TextError>}
             </RadioWrapper>
         </ConfigProviderDesign>

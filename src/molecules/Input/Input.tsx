@@ -1,35 +1,24 @@
-import { ConfigProviderDesign } from '@/ContextProvider';
 import { InputProps } from 'antd';
-import { ILabelField, LabelField } from '../LabelField';
-import { InputStyled, InputWrapper } from './styles';
-
-export interface IInputProps extends InputProps, ILabelField {}
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
+import { InputStyled } from './styles';
+import { IInputProps } from './types';
 
 export const Input = ({
-    // ILabelField props
-    required,
-    label,
-    labelAxis = 'vertical',
-    isColon = true,
-    labelDescription,
-    widthField,
+    label: labelFieldProps,
 
     ...antdProps
 }: IInputProps) => {
     return (
         <ConfigProviderDesign>
-            <InputWrapper>
-                <LabelField
-                    label={label}
-                    labelAxis={labelAxis}
-                    required={required}
-                    isColon={isColon}
-                    labelDescription={labelDescription}
-                    widthField={widthField}
-                >
-                    <InputStyled {...(antdProps as InputProps)} />
-                </LabelField>
-            </InputWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <InputStyled {...(antdProps as InputProps)} />
+            </ConditionalWrapper>
         </ConfigProviderDesign>
     );
 };

@@ -1,35 +1,29 @@
-// import { DatePicker } from 'antd';
-// import { ILabelField, LabelField } from '../LabelField';
-// import { RangePickerWrapper } from './styles';
-// import { RangePickerProps } from 'antd/es/date-picker';
+import { DatePicker } from 'antd';
+import { RangePickerProps } from 'antd/es/date-picker';
+import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { LabelField } from '../LabelField';
+import { RangePickerWrapper } from './styles';
+import { IRangePickerProps } from './types';
 
-// const { RangePicker: AntdRangePicker } = DatePicker;
+const { RangePicker: AntdRangePicker } = DatePicker;
 
-// export interface IRangePickerProps extends RangePickerProps, ILabelField {}
+export const RangePicker = ({
+    label: labelFieldProps,
 
-// export const RangePicker = ({
-//     // ILabelField props
-//     required,
-//     label,
-//     labelAxis = 'vertical',
-//     isColon = true,
-//     labelDescription,
-//     widthField,
-
-//     ...antdProps
-// }: IRangePickerProps) => {
-//     return (
-//         <RangePickerWrapper>
-//             <LabelField
-//                 label={label}
-//                 labelAxis={labelAxis}
-//                 required={required}
-//                 isColon={isColon}
-//                 labelDescription={labelDescription}
-//                 widthField={widthField}
-//             >
-//                 <AntdRangePicker {...(antdProps as RangePickerProps)} />
-//             </LabelField>
-//         </RangePickerWrapper>
-//     );
-// };
+    ...antdProps
+}: IRangePickerProps) => {
+    return (
+        <ConfigProviderDesign>
+            <RangePickerWrapper>
+                <ConditionalWrapper
+                    condition={Boolean(labelFieldProps)}
+                    wrapper={LabelField}
+                    wrapperProps={labelFieldProps}
+                >
+                    <AntdRangePicker {...(antdProps as RangePickerProps)} />
+                </ConditionalWrapper>
+            </RangePickerWrapper>
+        </ConfigProviderDesign>
+    );
+};
