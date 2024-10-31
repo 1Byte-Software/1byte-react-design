@@ -20,6 +20,7 @@ export * from './Radio/index';
 export * from './RangePicker/index';
 export * from './Row/index';
 export * from './Select/index';
+export * from './Skeleton/index';
 export * from './Slider/index';
 export * from './Spin/index';
 export * from './Switch/index';
