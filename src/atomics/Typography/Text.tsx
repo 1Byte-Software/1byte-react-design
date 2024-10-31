@@ -1,12 +1,12 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { H3Wrapper } from './styles';
-import { IH3Props } from './types';
+import { TextWrapper } from './styles';
+import { ITextProps } from './types';
 
-export const H3 = (props: IH3Props) => {
+export const Text = (props: ITextProps) => {
     const { children } = props;
     return (
         <ConfigProviderDesign>
-            <H3Wrapper>{children}</H3Wrapper>
+            <TextWrapper>{children}</TextWrapper>
         </ConfigProviderDesign>
     );
 };

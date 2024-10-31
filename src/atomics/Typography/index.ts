@@ -6,3 +6,4 @@ export * from './H5';
 export * from './H6';
 export * from "./Title";
 export * from "./Description";
+export * from "./Text";
