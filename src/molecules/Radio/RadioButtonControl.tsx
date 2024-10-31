@@ -5,18 +5,17 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { RadioWrapper } from './styles';
-import { IRadioControlProps } from './types';
-import { RadioButtonControl } from './RadioButtonControl';
-import { RadioGroupControl } from './RadioGroupControl';
+import { IRadioButtonControlProps, IRadioControlProps } from './types';
+import { RadioButtonProps } from 'antd/es/radio/radioButton';
 
-export const RadioControl = ({
+export const RadioButtonControl = ({
     name,
     control,
 
     label: labelFieldProps,
 
     ...antdProps
-}: IRadioControlProps) => {
+}: IRadioButtonControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },
@@ -33,8 +32,8 @@ export const RadioControl = ({
                     wrapper={LabelField}
                     wrapperProps={labelFieldProps}
                 >
-                    <AntdRadio
-                        {...(antdProps as RadioProps)}
+                    <AntdRadio.Button
+                        {...(antdProps as RadioButtonProps)}
                         value={value}
                         onChange={onChange}
                         onBlur={onBlur}
@@ -46,6 +45,3 @@ export const RadioControl = ({
         </ConfigProviderDesign>
     );
 };
-
-RadioControl.Button = RadioButtonControl;
-RadioControl.Group = RadioGroupControl;
