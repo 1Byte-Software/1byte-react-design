@@ -1,5 +1,5 @@
 import { RadioGroupProps, RadioProps } from 'antd';
-import { IRegistryControlField } from '../../models';
+import { IRegistryControlField, TAxis } from '../../models';
 import { ILabelFieldWrapperProps } from '../LabelField/types';
 import { RadioButtonProps } from 'antd/es/radio/radioButton';
 
@@ -18,7 +18,13 @@ export interface IRadioButtonControlProps
 //#endregion RadioButton
 
 //#region RadioGroup
-export interface IRadioGroupProps extends RadioGroupProps, ILabelFieldWrapperProps {}
+export interface IRadioGroupProps extends RadioGroupProps, ILabelFieldWrapperProps {
+    /**
+     * @description The axis of the radio options.
+     * @default 'horizontal'
+     */
+    axis?: TAxis;
+}
 
 export interface IRadioGroupControlProps
     extends Omit<IRadioGroupProps, 'name'>,

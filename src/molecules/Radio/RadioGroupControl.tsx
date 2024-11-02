@@ -1,10 +1,10 @@
-import { Radio as AntdRadio, RadioProps } from 'antd';
+import { RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { RadioWrapper } from './styles';
+import { RadioGroupStyles } from './styles';
 import { IRadioGroupControlProps } from './types';
 
 export const RadioGroupControl = ({
@@ -12,6 +12,7 @@ export const RadioGroupControl = ({
     control,
 
     label: labelFieldProps,
+    axis = 'horizontal',
 
     ...antdProps
 }: IRadioGroupControlProps) => {
@@ -25,22 +26,20 @@ export const RadioGroupControl = ({
 
     return (
         <ConfigProviderDesign>
-            <RadioWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <AntdRadio.Group
-                        {...(antdProps as RadioProps)}
-                        value={value}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        ref={ref}
-                    />
-                </ConditionalWrapper>
-                {invalid && <TextError>{error?.message}</TextError>}
-            </RadioWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <RadioGroupStyles
+                    {...(antdProps as RadioProps)}
+                    value={value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    ref={ref}
+                />
+            </ConditionalWrapper>
+            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };

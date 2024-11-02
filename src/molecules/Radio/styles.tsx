@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
+import { Radio } from 'antd';
+import { TAxis } from '../../models';
+import { getAxisStyles } from '../../utils/styles';
 
-export const RadioWrapper = styled.div``;
+export const RadioStyles = styled(Radio)``;
 
-export const RadioGroupWrapper = styled.div``;
+export const RadioGroupStyles = styled(Radio.Group)<{ axis?: TAxis }>`
+    ${props => getAxisStyles(props.axis)}
+`;
 
-export const RadioButtonWrapper = styled.div``;
+export const RadioButtonStyles = styled(Radio.Button)``;

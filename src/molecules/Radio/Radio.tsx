@@ -1,11 +1,11 @@
-import { Radio as RadioAntd, RadioProps } from 'antd';
+import { RadioProps } from 'antd';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
-import { RadioWrapper } from './styles';
-import { IRadioProps } from './types';
 import { RadioButton } from './RadioButton';
 import { RadioGroup } from './RadioGroup';
+import { RadioStyles } from './styles';
+import { IRadioProps } from './types';
 
 export const Radio = ({
     label: labelFieldProps,
@@ -14,15 +14,13 @@ export const Radio = ({
 }: IRadioProps) => {
     return (
         <ConfigProviderDesign>
-            <RadioWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <RadioAntd {...(antdProps as RadioProps)} />
-                </ConditionalWrapper>
-            </RadioWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <RadioStyles {...(antdProps as RadioProps)} />
+            </ConditionalWrapper>
         </ConfigProviderDesign>
     );
 };
