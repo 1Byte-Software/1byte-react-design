@@ -15,6 +15,7 @@ export * from './Layout/index';
 // export * from './List/index';
 export * from './Menu/index';
 export * from './Modal/index';
+export * from './Pagination/index';
 export * from './Popover/index';
 export * from './Radio/index';
 export * from './RangePicker/index';
