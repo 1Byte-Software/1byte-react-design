@@ -1,15 +1,15 @@
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
-import { CheckboxGroup } from './CheckboxGroup';
-import { CheckboxStyles } from './styles';
-import { ICheckboxProps } from './types';
+import { CheckboxGroupStyles } from './styles';
+import { ICheckboxGroupProps } from './types';
 
-export const Checkbox = ({
+export const CheckboxGroup = ({
     label: labelFieldProps,
+    axis = 'horizontal',
 
     ...antdProps
-}: ICheckboxProps) => {
+}: ICheckboxGroupProps) => {
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper
@@ -17,10 +17,8 @@ export const Checkbox = ({
                 wrapper={LabelField}
                 wrapperProps={labelFieldProps}
             >
-                <CheckboxStyles {...antdProps} />
+                <CheckboxGroupStyles {...antdProps} axis={axis} />
             </ConditionalWrapper>
         </ConfigProviderDesign>
     );
 };
-
-Checkbox.Group = CheckboxGroup;

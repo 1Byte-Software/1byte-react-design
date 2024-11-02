@@ -1,20 +1,22 @@
+import { Checkbox as CheckboxAntd } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { CheckboxGroupControl } from './CheckboxGroupControl';
-import { CheckboxStyles } from './styles';
-import { ICheckboxControlProps } from './types';
+import { ICheckboxGroupControlProps } from './types';
+import { CheckboxGroupStyles } from './styles';
 
-export const CheckboxControl = ({
+export const CheckboxGroupControl = ({
     name,
     control,
 
     label: labelFieldProps,
 
+    axis = 'horizontal',
+
     ...antdProps
-}: ICheckboxControlProps) => {
+}: ICheckboxGroupControlProps) => {
     const {
         field: { value, onChange, ref },
         fieldState: { invalid, error },
@@ -30,11 +32,15 @@ export const CheckboxControl = ({
                 wrapper={LabelField}
                 wrapperProps={labelFieldProps}
             >
-                <CheckboxStyles {...antdProps} checked={value} onChange={onChange} ref={ref} />
+                <CheckboxGroupStyles
+                    axis={axis}
+                    {...antdProps}
+                    value={value}
+                    onChange={onChange}
+                    ref={ref}
+                />
             </ConditionalWrapper>
             {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
-
-CheckboxControl.Group = CheckboxGroupControl;
