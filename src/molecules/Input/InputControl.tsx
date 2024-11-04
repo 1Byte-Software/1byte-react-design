@@ -2,11 +2,10 @@ import { InputProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
-import { LabelField } from '../LabelField';
-import { InputStyled, InputWrapper } from './styles';
-import { IInputControlProps } from './types';
-import React from 'react';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { LabelField } from '../LabelField';
+import { InputStyled } from './styles';
+import { IInputControlProps } from './types';
 
 export const InputControl = ({
     name,
@@ -28,22 +27,20 @@ export const InputControl = ({
 
     return (
         <ConfigProviderDesign>
-            <InputWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <InputStyled
-                        {...(antdProps as InputProps)}
-                        value={value === undefined ? '' : value}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        ref={ref}
-                    />
-                </ConditionalWrapper>
-                {invalid && <TextError>{error?.message}</TextError>}
-            </InputWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <InputStyled
+                    {...(antdProps as InputProps)}
+                    value={value === undefined ? '' : value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    ref={ref}
+                />
+            </ConditionalWrapper>
+            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
