@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
-import { config } from '../..';
 import { css } from '@emotion/react';
+import { config } from '../..';
 
 const NotificationStyles = css`
     .rd-notification-notice-wrapper {

@@ -1,4 +1,5 @@
 import { ThemeConfig } from 'antd';
+import { MappingAlgorithm, OverrideToken } from 'antd/es/theme/interface';
 import { AliasToken } from 'antd/es/theme/internal';
 
 export interface ISecondaryColor {
@@ -42,9 +43,9 @@ export interface IQuaternaryColor {
 
 interface IAdditionalColor extends ISecondaryColor, ITertiaryColor, IQuaternaryColor {}
 
-// VardyDesign
 /**
- * @description SeedToken
+ * @description Custom Design Token.
+ * @overload AliasToken (antd)
  */
 export interface IRdAliasToken extends AliasToken, IAdditionalColor {
     /**
@@ -63,10 +64,29 @@ export interface IRdAliasToken extends AliasToken, IAdditionalColor {
     colorQuaternary: string;
 }
 
+/**
+ * @description ComponentsConfig in antd
+ */
+export type ComponentsConfig = {
+    [key in keyof OverrideToken]?: OverrideToken[key] & {
+        algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[];
+    };
+};
+
+export interface IRdComponentsConfig extends ComponentsConfig {
+    
+}
+
 export interface IRdThemeConfig extends ThemeConfig {
     /**
      * @desc Modify Design Token.
-     * @override Partial<AliasToken>
+     * @override Partial<AliasToken> (antd)
      */
     token?: Partial<IRdAliasToken>;
+
+    /**
+     * @desc Modify Component Token and Alias Token applied to components.
+     * @override ComponentsConfig (antd)
+     */
+    components?: IRdComponentsConfig;
 }
