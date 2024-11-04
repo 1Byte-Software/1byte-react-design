@@ -1,1 +1,3 @@
-export * from './App';
+export { default as App } from './App';
+export * from "./types";
+export * from "./theme";

@@ -1,8 +1,9 @@
-import { theme, ThemeConfig } from 'antd';
+import { theme } from 'antd';
+import { IRdThemeConfig, rdTheme } from './organisms';
 
 export interface IConfig {
-    designToken: NonNullable<ThemeConfig['token']>;
-    componentToken: ThemeConfig['components'];
+    designToken: NonNullable<IRdThemeConfig['token']>;
+    componentToken: IRdThemeConfig['components'];
 }
 
 export const config: IConfig = {

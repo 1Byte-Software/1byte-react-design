@@ -1,6 +1,6 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { IH5Props } from '../TextError/types';
 import { H5Wrapper } from './styles';
+import { IH5Props } from './types';
 
 export const H5 = (props: IH5Props) => {
     const { children } = props;

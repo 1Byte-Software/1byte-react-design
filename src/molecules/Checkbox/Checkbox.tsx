@@ -1,7 +1,8 @@
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
-import { CheckboxStyle, CheckboxWrapper } from './styles';
+import { CheckboxGroup } from './CheckboxGroup';
+import { CheckboxStyles } from './styles';
 import { ICheckboxProps } from './types';
 
 export const Checkbox = ({
@@ -11,15 +12,15 @@ export const Checkbox = ({
 }: ICheckboxProps) => {
     return (
         <ConfigProviderDesign>
-            <CheckboxWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <CheckboxStyle {...antdProps} />
-                </ConditionalWrapper>
-            </CheckboxWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <CheckboxStyles {...antdProps} />
+            </ConditionalWrapper>
         </ConfigProviderDesign>
     );
 };
+
+Checkbox.Group = CheckboxGroup;

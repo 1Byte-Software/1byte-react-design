@@ -1,19 +1,24 @@
 import { ButtonProps } from 'antd';
 
-// export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
+/**
+ * @description The color of the button extend.
+ */
+export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
 
-// export type colorButton = ButtonProps['color'] | colorButtonExtend;
-
-export interface IButtonProps extends ButtonProps {
+/**
+ * @description The props of the button.
+ * @override antd.ButtonProps
+ * @see ButtonProps
+ */
+export interface IButtonProps extends Omit<ButtonProps, 'color' | 'variant'> {
     /**
-     * The width of the button.
+     * @description The width of the button.
      */
     width?: string | number;
 
-    // /**
-    //  * The color of the button.
-    //  *
-    //  * @see ButtonProps#color
-    //  */
-    // color?: ButtonProps['color'] & colorButtonExtend;
+    /**
+     * @description The color of the button.
+     * @see ButtonProps#color
+     */
+    color?: ButtonProps['color'] | colorButtonExtend;
 }
