@@ -1,15 +1,16 @@
-// import { ThemeConfig } from 'antd';
-// import { config } from '../..';
-// import { colorButtonExtend } from './types';
+import { config, IRdComponentsConfig } from '../..';
+import { colorButtonExtend } from './types';
 
-// export const useExtendColor = (color: colorButtonExtend) => {
-//     const newComponentsButton: ThemeConfig['components'] = {
-//         Button: {},
-//     };
-//     switch (color) {
-//         case 'second':
-//             if (newComponentsButton.Button) {
-//                 newComponentsButton.Button.colorPrimary = config.designToken.colorFillSecondary;
-//             }
-//     }
-// };
+export const useExtendColor = (color: colorButtonExtend) => {
+    const newComponentsButton: IRdComponentsConfig['Button'] = {};
+
+    switch (color) {
+        case 'second':
+            if (newComponentsButton) {
+                newComponentsButton.colorPrimary = config.designToken.colorSecondary;
+                newComponentsButton.algorithm = true;
+            }
+    }
+
+    return newComponentsButton;
+};

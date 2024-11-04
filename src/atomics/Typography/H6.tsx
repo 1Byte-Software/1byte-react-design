@@ -1,6 +1,6 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { IH6Props } from '../TextError/types';
 import { H6Wrapper } from './styles';
+import { IH6Props } from './types';
 
 export const H6 = (props: IH6Props) => {
     const { children } = props;

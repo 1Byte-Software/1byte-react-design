@@ -1,10 +1,12 @@
-import { Radio as AntdRadio, RadioProps } from 'antd';
+import { RadioProps } from 'antd';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { RadioWrapper } from './styles';
+import { RadioButtonControl } from './RadioButtonControl';
+import { RadioGroupControl } from './RadioGroupControl';
+import { RadioStyles } from './styles';
 import { IRadioControlProps } from './types';
 
 export const RadioControl = ({
@@ -25,22 +27,23 @@ export const RadioControl = ({
 
     return (
         <ConfigProviderDesign>
-            <RadioWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <AntdRadio.Group
-                        {...(antdProps as RadioProps)}
-                        value={value}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        ref={ref}
-                    />
-                </ConditionalWrapper>
-                {invalid && <TextError>{error?.message}</TextError>}
-            </RadioWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <RadioStyles
+                    {...(antdProps as RadioProps)}
+                    value={value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    ref={ref}
+                />
+            </ConditionalWrapper>
+            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
+
+RadioControl.Button = RadioButtonControl;
+RadioControl.Group = RadioGroupControl;
