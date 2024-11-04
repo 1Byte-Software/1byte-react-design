@@ -16,6 +16,7 @@ export const Button = ({ width, color, ...antdProps }: IButtonProps) => {
         algorithm: true,
     };
 
+    //#region Handle extend color props
     if (color && isColorButtonExtend(color)) {
         // Get design token config for color.
         const designTokenConfig = useExtendColor(color);
@@ -29,6 +30,7 @@ export const Button = ({ width, color, ...antdProps }: IButtonProps) => {
         // Set color is primary if color include 'second', 'tertiary', 'quaternary' because these color is  color primary in component token.
         color = 'primary';
     }
+    //#endregion
 
     return (
         <ConfigProviderDesign
