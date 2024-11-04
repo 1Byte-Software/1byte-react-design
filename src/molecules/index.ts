@@ -8,6 +8,7 @@ export * from './Col/index';
 export * from './Divider/index';
 export * from './Drawer/index';
 export * from './Dropdown/index';
+export * from './FloatButton/index';
 export * from './Input/index';
 export * from './InputNumber/index';
 export * from './InputPassword/index';
