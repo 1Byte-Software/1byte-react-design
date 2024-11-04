@@ -1,5 +1,6 @@
 export * from './Avatar/index';
 export * from './Blur/index';
+export * from './Breadcrumb/index';
 export * from './Button/index';
 export * from './Card/index';
 export * from './Checkbox/index';
