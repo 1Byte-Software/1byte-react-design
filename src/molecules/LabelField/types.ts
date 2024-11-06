@@ -1,19 +1,36 @@
 import { TAxis } from '../../models';
 
 export interface ILabelFieldProps {
-    /** Text label. */
+    /**
+     * @description Text label to be displayed.
+     */
     text?: string;
-    /** Label axis used to determine whether the label is displayed vertically or horizontally. */
+    /**
+     * @description Label axis used to determine whether the label is displayed vertically or horizontally.
+     * @default 'vertical'
+     */
     axis?: TAxis;
-    /** Description for the label. */
+    /**
+     * @description Description for the label.
+     */
     description?: string;
-    /** Indicates if a colon should be appended to the label. */
+    /**
+     * @description Indicates if a colon should be appended to the label.
+     * @default false
+     */
     isColon?: boolean;
-    /** Indicates if the field is required. */
+    /**
+     * @description Indicates if the field is required.
+     * @default false
+     */
     required?: boolean;
-    /** Specifies the width of the field. */
+    /**
+     * @description Specifies the width of the field.
+     */
     widthControl?: string | number;
-    /** Specifies the id of the element the label is bound to. */
+    /**
+     * @description Specifies the id of the element the label is bound to.
+     */
     htmlFor?: string;
 }
 
