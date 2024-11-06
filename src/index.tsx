@@ -1,9 +1,11 @@
 import { theme } from 'antd';
-import { IRdThemeConfig, rdTheme } from './organisms';
+import { IRdNotificationConfig, IRdThemeConfig } from './organisms';
 
 export interface IConfig {
     designToken: NonNullable<IRdThemeConfig['token']>;
     componentToken: IRdThemeConfig['components'];
+
+    notification?: IRdNotificationConfig;
 }
 
 export const config: IConfig = {
