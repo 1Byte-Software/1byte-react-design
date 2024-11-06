@@ -10,7 +10,7 @@ export const LabelField = (props: ILabelFieldProps & PropsWithChildren) => {
         axis = 'vertical',
         description,
         htmlFor,
-        isColon = true,
+        isColon = false,
         required,
         widthControl,
         children,

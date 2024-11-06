@@ -39,8 +39,8 @@ export const InputControl = ({
                     onBlur={onBlur}
                     ref={ref}
                 />
+                {invalid && <TextError>{error?.message}</TextError>}
             </ConditionalWrapper>
-            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
