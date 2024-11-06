@@ -1,4 +1,5 @@
 import { ThemeConfig } from 'antd';
+import { ArgsProps } from 'antd/es/notification';
 import { MappingAlgorithm, OverrideToken } from 'antd/es/theme/interface';
 import { AliasToken } from 'antd/es/theme/internal';
 
@@ -73,9 +74,7 @@ export type ComponentsConfig = {
     };
 };
 
-export interface IRdComponentsConfig extends ComponentsConfig {
-    
-}
+export interface IRdComponentsConfig extends ComponentsConfig {}
 
 export interface IRdThemeConfig extends ThemeConfig {
     /**
@@ -89,4 +88,31 @@ export interface IRdThemeConfig extends ThemeConfig {
      * @override ComponentsConfig (antd)
      */
     components?: IRdComponentsConfig;
+}
+
+export interface IRdNotificationConfig {
+    /**
+     * @desc success notification config.
+     */
+    success?: Partial<ArgsProps>;
+
+    /**
+     * @desc error notification config.
+     */
+    error?: Partial<ArgsProps>;
+
+    /**
+     * @desc warning notification config.
+     */
+    warning?: Partial<ArgsProps>;
+
+    /**
+     * @desc info notification config.
+     */
+    info?: Partial<ArgsProps>;
+
+    /**
+     * @desc open notification config.
+     */
+    open?: Partial<ArgsProps>;
 }
