@@ -22,7 +22,6 @@ export const H6Wrapper = styled.h6`
 export const TitleWrapper = styled.span`
     font-size: ${config.designToken.fontSizeLG}px;
     font-weight: ${config.designToken.fontWeightStrong};
-    text-transform: capitalize;
 `;
 export const TextWrapper = styled.span`
     font-size: ${config.designToken.fontSize};
