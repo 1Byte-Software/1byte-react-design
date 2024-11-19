@@ -2,7 +2,7 @@
 // import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 // import { Item } from './Item';
 // import { ListStyles } from './styles';
-// import { IListProps } from './types';
+// import { RdListProps } from './types';
 
 // export const List = ({ ...antdProps }: any) => {
 //     return (

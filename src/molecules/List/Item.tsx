@@ -1,9 +1,9 @@
 // import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 // import { Meta } from './Meta';
 // import { ItemStyles } from './styles';
-// import { IListItemProps, IListProps } from './types';
+// import { RdListItemProps, RdListProps } from './types';
 
-// export const Item = ({ ...antdProps }: IListItemProps) => {
+// export const Item = ({ ...antdProps }: RdListItemProps) => {
 //     return (
 //         <ConfigProviderDesign>
 //             <ItemStyles {...antdProps} />

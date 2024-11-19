@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { PopoverStyles } from './styles';
-import { IPopoverProps } from './types';
+import { RdPopoverProps } from './types';
 
-export const Popover = ({ ...antdProps }: IPopoverProps) => {
+export const Popover = ({ ...antdProps }: RdPopoverProps) => {
     return (
         <ConfigProviderDesign>
             <PopoverStyles {...antdProps} />

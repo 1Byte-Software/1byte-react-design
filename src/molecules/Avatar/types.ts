@@ -1,3 +1,5 @@
 import { AvatarProps } from 'antd';
 
-export interface IAvatarProps extends AvatarProps {}
+type AvatarPropsExtend = {};
+
+export type RdAvatarProps = AvatarProps & AvatarPropsExtend;

@@ -1,12 +1,12 @@
 import { SwitchProps } from 'antd';
-import { IRegistryControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-export interface ISwitchProps extends SwitchProps, ILabelFieldWrapperProps {
+export interface RdSwitchProps extends SwitchProps, RdLabelFieldWrapperProps {
     /**
      * The value type you want to get from the switch. Default is 'boolean'.
      */
     responseType?: 'number' | 'boolean';
 }
 
-export interface ISwitchControlProps extends Omit<ISwitchProps, 'name'>, IRegistryControlField {}
+export interface RdSwitchControlProps extends Omit<RdSwitchProps, 'name'>, RdRegistryControlField {}

@@ -4,9 +4,9 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { Sider } from './Sider';
 import { LayoutStyles } from './styles';
-import { ILayoutProps } from './types';
+import { RdLayoutProps } from './types';
 
-export const Layout = ({ ...antdProps }: ILayoutProps) => {
+export const Layout = ({ ...antdProps }: RdLayoutProps) => {
     return (
         <ConfigProviderDesign>
             <LayoutStyles className='rd-layout' {...antdProps} />

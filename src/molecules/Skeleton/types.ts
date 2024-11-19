@@ -1,5 +1,5 @@
 import { SkeletonProps } from 'antd';
 
-export interface ISkeletonProps extends SkeletonProps {
+export interface RdSkeletonProps extends SkeletonProps {
     
 }

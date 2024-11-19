@@ -1,24 +1,24 @@
 import { RadioGroupProps, RadioProps } from 'antd';
-import { IRegistryControlField, TAxis } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField, TAxis } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 import { RadioButtonProps } from 'antd/es/radio/radioButton';
 
 //#region Radio
-export interface IRadioProps extends RadioProps, ILabelFieldWrapperProps {}
+export interface RdRadioProps extends RadioProps, RdLabelFieldWrapperProps {}
 
-export interface IRadioControlProps extends Omit<IRadioProps, 'name'>, IRegistryControlField {}
+export interface RdRadioControlProps extends Omit<RdRadioProps, 'name'>, RdRegistryControlField {}
 //#endregion Radio
 
 //#region RadioButton
-export interface IRadioButtonProps extends RadioButtonProps, ILabelFieldWrapperProps {}
+export interface RdRadioButtonProps extends RadioButtonProps, RdLabelFieldWrapperProps {}
 
-export interface IRadioButtonControlProps
-    extends Omit<IRadioButtonProps, 'name'>,
-        IRegistryControlField {}
+export interface RdRadioButtonControlProps
+    extends Omit<RdRadioButtonProps, 'name'>,
+        RdRegistryControlField {}
 //#endregion RadioButton
 
 //#region RadioGroup
-export interface IRadioGroupProps extends RadioGroupProps, ILabelFieldWrapperProps {
+export interface RdRadioGroupProps extends RadioGroupProps, RdLabelFieldWrapperProps {
     /**
      * @description The axis of the radio options.
      * @default 'horizontal'
@@ -26,7 +26,7 @@ export interface IRadioGroupProps extends RadioGroupProps, ILabelFieldWrapperPro
     axis?: TAxis;
 }
 
-export interface IRadioGroupControlProps
-    extends Omit<IRadioGroupProps, 'name'>,
-        IRegistryControlField {}
+export interface RdRadioGroupControlProps
+    extends Omit<RdRadioGroupProps, 'name'>,
+        RdRegistryControlField {}
 //#endregion RadioGroup

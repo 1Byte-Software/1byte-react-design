@@ -1,16 +1,16 @@
 import { config, IRdComponentsConfig } from '../..';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ButtonStyles } from './styles';
-import { colorButtonExtend, IButtonProps } from './types';
+import { colorButtonExtend, RdButtonProps } from './types';
 import { useExtendColor } from './useExtendColor';
 
 const isColorButtonExtend = (
-    color: NonNullable<IButtonProps['color']>
+    color: NonNullable<RdButtonProps['color']>
 ): color is colorButtonExtend => {
     return ['second', 'tertiary', 'quaternary'].includes(color);
 };
 
-export const Button = ({ width, color, ...antdProps }: IButtonProps) => {
+export const Button = ({ width, color, to, ...antdProps }: RdButtonProps) => {
     let newButtonDesignToken: IRdComponentsConfig['Button'] = {
         ...config.componentToken?.Button,
         algorithm: true,

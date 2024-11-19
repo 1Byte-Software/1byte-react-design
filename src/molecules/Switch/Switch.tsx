@@ -3,7 +3,7 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { SwitchWrapper } from './styles';
-import { ISwitchProps } from './types';
+import { RdSwitchProps } from './types';
 
 export const Switch = ({
     label: labelFieldProps,
@@ -11,7 +11,7 @@ export const Switch = ({
     responseType = 'boolean',
 
     ...antdProps
-}: ISwitchProps) => {
+}: RdSwitchProps) => {
     return (
         <ConfigProviderDesign>
             <SwitchWrapper>

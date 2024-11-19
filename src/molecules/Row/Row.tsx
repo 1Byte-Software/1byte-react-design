@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { RowStyles } from './styles';
-import { IRowProps } from './types';
+import { RdRowProps } from './types';
 
-export const Row = ({ ...antdProps }: IRowProps) => {
+export const Row = ({ ...antdProps }: RdRowProps) => {
     return (
         <ConfigProviderDesign>
             <RowStyles {...antdProps} />

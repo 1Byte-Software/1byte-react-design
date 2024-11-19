@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { DropdownStyles } from './styles';
-import { IDropdownProps } from './types';
+import { RdDropdownProps } from './types';
 
-export const Dropdown = ({ ...antdProps }: IDropdownProps) => {
+export const Dropdown = ({ ...antdProps }: RdDropdownProps) => {
     return (
         <ConfigProviderDesign>
             <DropdownStyles {...antdProps} />

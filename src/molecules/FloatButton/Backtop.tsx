@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { BackTopStyles } from './styles';
-import { IBackTopProps } from './types';
+import { RdBackTopProps } from './types';
 
-export const BackTop = ({ ...antdProps }: IBackTopProps) => {
+export const BackTop = ({ ...antdProps }: RdBackTopProps) => {
     return (
         <ConfigProviderDesign>
             <BackTopStyles {...antdProps} />

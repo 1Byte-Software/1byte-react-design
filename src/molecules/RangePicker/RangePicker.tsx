@@ -4,7 +4,7 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { RangePickerWrapper } from './styles';
-import { IRangePickerProps } from './types';
+import { RdRangePickerProps } from './types';
 
 const { RangePicker: AntdRangePicker } = DatePicker;
 
@@ -12,7 +12,7 @@ export const RangePicker = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IRangePickerProps) => {
+}: RdRangePickerProps) => {
     return (
         <ConfigProviderDesign>
             <RangePickerWrapper>

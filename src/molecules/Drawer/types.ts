@@ -1,3 +1,3 @@
 import { DrawerProps } from 'antd';
 
-export interface IDrawerProps extends DrawerProps {}
+export interface RdDrawerProps extends DrawerProps {}

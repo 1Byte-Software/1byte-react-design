@@ -1,10 +1,10 @@
 import { InputProps } from 'antd';
-import { IRegistryControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-export interface IInputPasswordProps extends InputProps, ILabelFieldWrapperProps {
+export interface RdInputPasswordProps extends InputProps, RdLabelFieldWrapperProps {
 }
 
-export interface IInputPasswordControlProps
-    extends Omit<IInputPasswordProps, 'name'>,
-        IRegistryControlField {}
+export interface RdInputPasswordControlProps
+    extends Omit<RdInputPasswordProps, 'name'>,
+        RdRegistryControlField {}

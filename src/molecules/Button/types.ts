@@ -10,7 +10,7 @@ export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
  * @override antd.ButtonProps
  * @see ButtonProps
  */
-export interface IButtonProps extends Omit<ButtonProps, 'color' | 'variant'> {
+export interface RdButtonProps extends Omit<ButtonProps, 'color'> {
     /**
      * @description The width of the button.
      */
@@ -21,4 +21,10 @@ export interface IButtonProps extends Omit<ButtonProps, 'color' | 'variant'> {
      * @see ButtonProps#color
      */
     color?: ButtonProps['color'] | colorButtonExtend;
+
+    /**
+     * @description Link in react-router-dom.
+     * @see Link
+     */
+    to?: string;
 }

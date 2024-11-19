@@ -1,3 +1,5 @@
 import { CardProps } from 'antd';
 
-export interface ICardProps extends CardProps {}
+type RdCardPropsExtend = {};
+
+export type RdCardProps = CardProps & RdCardPropsExtend;

@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { DividerStyles } from './styles';
-import { IDividerProps } from './types';
+import { RdDividerProps } from './types';
 
-export const Divider = ({ ...antdProps }: IDividerProps) => {
+export const Divider = ({ ...antdProps }: RdDividerProps) => {
     return (
         <ConfigProviderDesign>
             <DividerStyles {...antdProps} />
