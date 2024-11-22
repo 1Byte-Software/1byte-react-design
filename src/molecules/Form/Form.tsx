@@ -1,5 +1,6 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { FormItem } from './FormItem';
+import { FormItemControl } from './FormItemControl';
 import { FormStyles } from './styles';
 import { RdFormProps } from './types';
 
@@ -12,3 +13,4 @@ export const Form = ({ ...antdProps }: RdFormProps) => {
 };
 
 Form.Item = FormItem;
+Form.ItemControl = FormItemControl;
