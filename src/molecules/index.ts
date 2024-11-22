@@ -26,6 +26,7 @@ export * from './Row/index';
 export * from './Select/index';
 export * from './Skeleton/index';
 export * from './Slider/index';
+export * from './Space';
 export * from './Spin/index';
 export * from './Switch/index';
 export * from './TextArea/index';
