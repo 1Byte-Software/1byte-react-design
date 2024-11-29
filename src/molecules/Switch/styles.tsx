@@ -1,3 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import { Switch } from 'antd';
 
-export const SwitchWrapper = styled.div``;
+export const SwitchStyled = styled(Switch)``;
