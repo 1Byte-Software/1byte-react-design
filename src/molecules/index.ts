@@ -5,6 +5,7 @@ export * from './Button/index';
 export * from './Card/index';
 export * from './Checkbox/index';
 export * from './Col/index';
+export * from './Collapse';
 export * from './Divider/index';
 export * from './Drawer/index';
 export * from './Dropdown/index';
