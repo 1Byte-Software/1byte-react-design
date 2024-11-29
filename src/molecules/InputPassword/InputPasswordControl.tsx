@@ -5,7 +5,7 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
-import { IInputPasswordControlProps } from './types';
+import { RdInputPasswordControlProps } from './types';
 
 export const InputPasswordControl = ({
     name,
@@ -15,7 +15,7 @@ export const InputPasswordControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IInputPasswordControlProps) => {
+}: RdInputPasswordControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },

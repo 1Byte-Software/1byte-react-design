@@ -1,3 +1,5 @@
-import { TooltipProps } from 'antd';
+import { Tooltip, TooltipProps } from 'antd';
 
-export type ITooltipProps = {} & TooltipProps;
+type TooltipPropsExtend = {};
+
+export type RdTooltipProps = TooltipProps & TooltipPropsExtend;

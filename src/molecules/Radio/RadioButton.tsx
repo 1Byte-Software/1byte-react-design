@@ -3,13 +3,13 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { RadioButtonStyles } from './styles';
-import { IRadioButtonProps } from './types';
+import { RdRadioButtonProps } from './types';
 
 export const RadioButton = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IRadioButtonProps) => {
+}: RdRadioButtonProps) => {
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper

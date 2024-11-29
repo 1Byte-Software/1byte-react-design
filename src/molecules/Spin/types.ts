@@ -1,5 +1,5 @@
 import { SpinProps } from 'antd';
 
-export interface ISpinProps extends SpinProps {
+export interface RdSpinProps extends SpinProps {
     
 }

@@ -1,4 +1,4 @@
 import { LayoutProps, SiderProps } from 'antd';
 
-export interface ILayoutProps extends LayoutProps {}
-export interface ISiderProps extends SiderProps {}
+export interface RdLayoutProps extends LayoutProps {}
+export interface RdSiderProps extends SiderProps {}

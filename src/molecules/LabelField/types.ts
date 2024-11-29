@@ -1,6 +1,6 @@
 import { TAxis } from '../../models';
 
-export interface ILabelFieldProps {
+export interface RdLabelFieldProps {
     /**
      * @description Text label to be displayed.
      */
@@ -34,7 +34,7 @@ export interface ILabelFieldProps {
     htmlFor?: string;
 }
 
-export interface ILabelFieldWrapperProps {
+export interface RdLabelFieldWrapperProps {
     /** The properties for the label field. If set to false, the label will not be rendered. */
-    label?: ILabelFieldProps | false;
+    label?: RdLabelFieldProps | false;
 }

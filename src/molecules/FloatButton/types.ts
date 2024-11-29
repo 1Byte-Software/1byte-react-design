@@ -1,5 +1,9 @@
-import { BackTopProps, FloatButtonProps } from 'antd';
+import { BackTopProps, FloatButtonGroupProps, FloatButtonProps } from 'antd';
 
-export interface IFloatButtonProps extends FloatButtonProps {}
+export interface RdFloatButtonProps extends FloatButtonProps {}
 
-export interface IBackTopProps extends BackTopProps, Omit<FloatButtonProps, 'onClick' | 'target'> {}
+export interface RdBackTopProps
+    extends BackTopProps,
+        Omit<FloatButtonProps, 'onClick' | 'target'> {}
+
+export interface RdFloatButtonGroupProps extends FloatButtonGroupProps {}

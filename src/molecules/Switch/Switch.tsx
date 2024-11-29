@@ -1,28 +1,12 @@
-import { Switch as AntdSwitch, SwitchProps } from 'antd';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
+import { SwitchProps } from 'antd';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
-import { SwitchWrapper } from './styles';
-import { ISwitchProps } from './types';
+import { RdSwitchProps } from './types';
+import { SwitchStyled } from './styles';
 
-export const Switch = ({
-    label: labelFieldProps,
-
-    responseType = 'boolean',
-
-    ...antdProps
-}: ISwitchProps) => {
+export const Switch = ({ ...antdProps }: RdSwitchProps) => {
     return (
         <ConfigProviderDesign>
-            <SwitchWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <AntdSwitch {...(antdProps as SwitchProps)} />
-                </ConditionalWrapper>
-            </SwitchWrapper>
+            <SwitchStyled {...(antdProps as SwitchProps)} />
         </ConfigProviderDesign>
     );
 };

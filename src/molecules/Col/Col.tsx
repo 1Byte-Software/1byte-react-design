@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ColStyles } from './styles';
-import { IColProps } from './types';
+import { RdColProps } from './types';
 
-export const Col = ({ ...antdProps }: IColProps) => {
+export const Col = ({ ...antdProps }: RdColProps) => {
     return (
         <ConfigProviderDesign>
             <ColStyles {...antdProps} />

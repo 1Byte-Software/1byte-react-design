@@ -5,7 +5,7 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { SwitchWrapper } from './styles';
-import { ISwitchControlProps } from './types';
+import { RdSwitchControlProps } from './types';
 
 export const SwitchControl = ({
     name,
@@ -15,7 +15,7 @@ export const SwitchControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ISwitchControlProps) => {
+}: RdSwitchControlProps) => {
     const {
         field: { value, onChange, ref },
         fieldState: { invalid, error },

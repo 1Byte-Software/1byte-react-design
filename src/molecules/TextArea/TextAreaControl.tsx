@@ -5,7 +5,7 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ITextareaControlProps } from './types';
+import { RdTextareaControlProps } from './types';
 
 export const TextareaControl = ({
     name,
@@ -14,7 +14,7 @@ export const TextareaControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ITextareaControlProps) => {
+}: RdTextareaControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },
@@ -22,6 +22,13 @@ export const TextareaControl = ({
         name,
         control,
     });
+
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        onChange(event.target.value);
+
+        // Trigger the onChange event from antdProps
+        antdProps.onChange?.(event);
+    };
 
     return (
         <ConfigProviderDesign>
@@ -34,7 +41,7 @@ export const TextareaControl = ({
                     <TextareaStyled
                         {...(antdProps as TextAreaProps)}
                         value={value === undefined ? '' : value}
-                        onChange={onChange}
+                        onChange={handleChange}
                         onBlur={onBlur}
                         ref={ref}
                     />

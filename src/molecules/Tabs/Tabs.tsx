@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TabsStyles } from './styles';
-import { ITabsProps } from './types';
+import { RdTabsProps } from './types';
 
-export const Tabs = ({ ...antdProps }: ITabsProps) => {
+export const Tabs = ({ ...antdProps }: RdTabsProps) => {
     return (
         <ConfigProviderDesign>
             <TabsStyles {...antdProps} />

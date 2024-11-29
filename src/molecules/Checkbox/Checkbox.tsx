@@ -3,13 +3,13 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { CheckboxGroup } from './CheckboxGroup';
 import { CheckboxStyles } from './styles';
-import { ICheckboxProps } from './types';
+import { RdCheckboxProps } from './types';
 
 export const Checkbox = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ICheckboxProps) => {
+}: RdCheckboxProps) => {
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper

@@ -1,9 +1,9 @@
 import { RangePickerProps } from 'antd/es/date-picker';
 import { IRegistryRangePickerControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-export interface IRangePickerProps extends RangePickerProps, ILabelFieldWrapperProps {}
+export interface RdRangePickerProps extends RangePickerProps, RdLabelFieldWrapperProps {}
 
-export interface IRangePickerControlProps
-    extends Omit<IRangePickerProps, 'name'>,
+export interface RdRangePickerControlProps
+    extends Omit<RdRangePickerProps, 'name'>,
         IRegistryRangePickerControlField {}

@@ -5,7 +5,7 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { CheckboxGroupControl } from './CheckboxGroupControl';
 import { CheckboxStyles } from './styles';
-import { ICheckboxControlProps } from './types';
+import { RdCheckboxControlProps } from './types';
 
 export const CheckboxControl = ({
     name,
@@ -14,7 +14,7 @@ export const CheckboxControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ICheckboxControlProps) => {
+}: RdCheckboxControlProps) => {
     const {
         field: { value, onChange, ref },
         fieldState: { invalid, error },

@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ContentStyles } from './styles';
-import { ILayoutProps } from './types';
+import { RdLayoutProps } from './types';
 
-export const Content = ({ ...antdProps }: ILayoutProps) => {
+export const Content = ({ ...antdProps }: RdLayoutProps) => {
     return (
         <ConfigProviderDesign>
             <ContentStyles className='rd-content' {...antdProps} />

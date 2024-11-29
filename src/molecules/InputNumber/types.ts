@@ -1,9 +1,9 @@
 import { InputNumberProps } from 'antd';
-import { IRegistryControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-export interface IInputNumberProps extends InputNumberProps, ILabelFieldWrapperProps {}
+export interface RdInputNumberProps extends InputNumberProps, RdLabelFieldWrapperProps {}
 
-export interface IInputNumberControlProps
-    extends Omit<IInputNumberProps, 'name'>,
-        IRegistryControlField {}
+export interface RdInputNumberControlProps
+    extends Omit<RdInputNumberProps, 'name'>,
+        RdRegistryControlField {}

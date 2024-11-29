@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ModalStyles } from './styles';
-import { IModalProps } from './types';
+import { RdModalProps } from './types';
 
-export const Modal = ({ ...antdProps }: IModalProps) => {
+export const Modal = ({ ...antdProps }: RdModalProps) => {
     return (
         <ConfigProviderDesign>
             <ModalStyles {...antdProps} />

@@ -5,7 +5,7 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { RadioButtonStyles } from './styles';
-import { IRadioButtonControlProps } from './types';
+import { RdRadioButtonControlProps } from './types';
 
 export const RadioButtonControl = ({
     name,
@@ -14,7 +14,7 @@ export const RadioButtonControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IRadioButtonControlProps) => {
+}: RdRadioButtonControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },

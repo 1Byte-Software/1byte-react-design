@@ -5,7 +5,9 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { SelectWrapper } from './styles';
-import { ISelectControlProps } from './types';
+import { RdSelectControlProps } from './types';
+import { RefAttributes } from 'react';
+import { Select } from './Select';
 
 export const SelectControl = ({
     name,
@@ -15,7 +17,7 @@ export const SelectControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ISelectControlProps) => {
+}: RdSelectControlProps & RefAttributes<RdSelectControlProps>) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },
@@ -33,7 +35,7 @@ export const SelectControl = ({
                     wrapper={LabelField}
                     wrapperProps={labelFieldProps}
                 >
-                    <AntdSelect
+                    <Select
                         {...(antdProps as SelectProps)}
                         value={value === undefined ? '' : value}
                         onChange={onChange}

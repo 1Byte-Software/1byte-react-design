@@ -3,8 +3,8 @@
 
 // type ListProps = typeof List;
 
-// export interface IListProps extends ListProps {}
+// export interface RdListProps extends ListProps {}
 
-// export interface IListItemProps extends ListItemTypeProps {}
+// export interface RdListItemProps extends ListItemTypeProps {}
 
-// export interface IListItemMetaProps extends ListItemMetaProps {}
+// export interface RdListItemMetaProps extends ListItemMetaProps {}

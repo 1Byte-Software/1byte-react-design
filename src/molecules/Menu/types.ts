@@ -1,5 +1,5 @@
 import { MenuProps } from 'antd';
 
-export interface IMenuProps extends MenuProps {
+export interface RdMenuProps extends MenuProps {
     
 }

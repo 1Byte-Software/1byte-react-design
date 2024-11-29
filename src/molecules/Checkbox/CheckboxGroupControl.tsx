@@ -4,7 +4,7 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { ICheckboxGroupControlProps } from './types';
+import { RdCheckboxGroupControlProps } from './types';
 import { CheckboxGroupStyles } from './styles';
 
 export const CheckboxGroupControl = ({
@@ -16,7 +16,7 @@ export const CheckboxGroupControl = ({
     axis = 'horizontal',
 
     ...antdProps
-}: ICheckboxGroupControlProps) => {
+}: RdCheckboxGroupControlProps) => {
     const {
         field: { value, onChange, ref },
         fieldState: { invalid, error },

@@ -1,28 +1,23 @@
 import { CheckboxProps } from 'antd';
 import { CheckboxGroupProps } from 'antd/es/checkbox';
-import { IRegistryControlField, TAxis } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField, TAxis } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-interface ICheckboxBaseProps {}
+type RdCheckboxBaseProps = {};
 
-export interface ICheckboxProps
-    extends CheckboxProps,
-        ICheckboxBaseProps,
-        ILabelFieldWrapperProps {}
-export interface ICheckboxControlProps
-    extends Omit<ICheckboxProps, 'name'>,
-        IRegistryControlField {}
+export type RdCheckboxProps = CheckboxProps & RdCheckboxBaseProps & RdLabelFieldWrapperProps & {};
 
-export interface ICheckboxGroupProps
-    extends CheckboxGroupProps,
-        ICheckboxBaseProps,
-        ILabelFieldWrapperProps {
-    /**
-     * @description The axis of options in CheckboxGroup.
-     * @default 'horizontal'
-     */
-    axis?: TAxis;
-}
-export interface ICheckboxGroupControlProps
-    extends Omit<ICheckboxGroupProps, 'name'>,
-        IRegistryControlField {}
+export type RdCheckboxControlProps = Omit<RdCheckboxProps, 'name'> & RdRegistryControlField & {};
+
+export type RdCheckboxGroupProps = CheckboxGroupProps &
+    RdCheckboxBaseProps &
+    RdLabelFieldWrapperProps & {
+        /**
+         * @description The axis of options in CheckboxGroup.
+         * @default 'horizontal'
+         */
+        axis?: TAxis;
+    };
+export interface RdCheckboxGroupControlProps
+    extends Omit<RdCheckboxGroupProps, 'name'>,
+        RdRegistryControlField {}

@@ -3,13 +3,13 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { InputStyled, InputWrapper } from './styles';
-import { IInputPasswordProps } from './types';
+import { RdInputPasswordProps } from './types';
 
 export const InputPassword = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IInputPasswordProps) => {
+}: RdInputPasswordProps) => {
     return (
         <ConfigProviderDesign>
             <InputWrapper>
