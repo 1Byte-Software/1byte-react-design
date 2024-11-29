@@ -9,7 +9,7 @@ export const Tooltip = React.forwardRef<TooltipRef, RdTooltipProps>(
         return (
             <ConfigProviderDesign>
                 <TooltipStyles {...antdProps} ref={ref}>
-                    <React.Fragment>{children}</React.Fragment>
+                    {children}
                 </TooltipStyles>
             </ConfigProviderDesign>
         );
