@@ -3,13 +3,14 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { SelectWrapper } from './styles';
-import { ISelectProps, variantSelectExtend } from './types';
+import { RdSelectProps, variantSelectExtend } from './types';
 import useExtendVariant from './useExtendVariant';
 import { IRdComponentsConfig } from '../../organisms';
 import { config } from '../..';
+import { RefAttributes } from 'react';
 
 const isVariantSelectExtend = (
-    variant: NonNullable<ISelectProps['variant']>
+    variant: NonNullable<RdSelectProps['variant']>
 ): variant is variantSelectExtend => {
     return ['outlined-transparent'].includes(variant);
 };
@@ -22,9 +23,10 @@ export const Select = ({
     minWidth,
     isHideValueOnLoading = true,
     variant,
+    ref,
 
     ...antdProps
-}: ISelectProps) => {
+}: RdSelectProps & RefAttributes<RdSelectProps>) => {
     let newSelectDesignToken: IRdComponentsConfig['Select'] = {
         ...config.componentToken?.Select,
         algorithm: true,

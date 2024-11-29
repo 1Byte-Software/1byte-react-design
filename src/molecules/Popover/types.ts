@@ -1,3 +1,3 @@
 import { PopoverProps } from 'antd';
 
-export interface IPopoverProps extends PopoverProps {}
+export interface RdPopoverProps extends PopoverProps {}

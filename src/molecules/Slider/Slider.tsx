@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { SliderStyles } from './styles';
-import { SliderProps } from './types';
+import { RdSliderProps } from './types';
 
-export const Slider = ({ ...antdProps }: SliderProps) => {
+export const Slider = ({ ...antdProps }: RdSliderProps) => {
     return (
         <ConfigProviderDesign>
             <SliderStyles {...antdProps} />

@@ -1,13 +1,13 @@
 import { SelectProps } from 'antd';
-import { IRegistryControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
 /**
  * @description The variant of the select extend.
  */
 export type variantSelectExtend = 'outlined-transparent';
 
-export interface ISelectProps extends Omit<SelectProps, 'variant'>, ILabelFieldWrapperProps {
+type RdSelectPropsExtend = {
     /**
      * Width of the select component.
      */
@@ -29,6 +29,10 @@ export interface ISelectProps extends Omit<SelectProps, 'variant'>, ILabelFieldW
      * @see SelectProps#variant
      */
     variant?: SelectProps['variant'] | variantSelectExtend;
-}
+};
 
-export interface ISelectControlProps extends Omit<ISelectProps, 'name'>, IRegistryControlField {}
+export type RdSelectProps = Omit<SelectProps, 'variant'> &
+    RdSelectPropsExtend &
+    RdLabelFieldWrapperProps;
+
+export type RdSelectControlProps = RdSelectProps & RdRegistryControlField;

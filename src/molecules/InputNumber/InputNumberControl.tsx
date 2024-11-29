@@ -5,7 +5,7 @@ import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { InputNumberStyled, InputWrapper } from './styles';
-import { IInputNumberControlProps } from './types';
+import { RdInputNumberControlProps } from './types';
 
 export const InputNumberControl = ({
     name,
@@ -15,7 +15,7 @@ export const InputNumberControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IInputNumberControlProps) => {
+}: RdInputNumberControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },

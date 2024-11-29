@@ -1,8 +1,8 @@
 import React from 'react';
 import { LabelField } from '.';
-import { ILabelFieldProps } from './types';
+import { RdLabelFieldProps } from './types';
 
-const LabelFieldWrapper = (labelFieldProps: ILabelFieldProps | false) => {
+const LabelFieldWrapper = (labelFieldProps: RdLabelFieldProps | false) => {
     return labelFieldProps ? LabelField : React.Fragment;
 };
 

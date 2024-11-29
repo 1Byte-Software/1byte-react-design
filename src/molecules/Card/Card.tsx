@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { CardStyles } from './styles';
-import { ICardProps } from './types';
+import { RdCardProps } from './types';
 
-export const Card = ({ ...antdProps }: ICardProps) => {
+export const Card = ({ ...antdProps }: RdCardProps) => {
     return (
         <ConfigProviderDesign>
             <CardStyles {...antdProps} />

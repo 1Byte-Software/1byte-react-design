@@ -7,7 +7,7 @@ import { LabelField } from '../LabelField';
 import { RadioButtonControl } from './RadioButtonControl';
 import { RadioGroupControl } from './RadioGroupControl';
 import { RadioStyles } from './styles';
-import { IRadioControlProps } from './types';
+import { RdRadioControlProps } from './types';
 
 export const RadioControl = ({
     name,
@@ -16,7 +16,7 @@ export const RadioControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IRadioControlProps) => {
+}: RdRadioControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },

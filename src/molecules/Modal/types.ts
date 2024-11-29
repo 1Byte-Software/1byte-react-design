@@ -1,5 +1,5 @@
 import { ModalProps } from 'antd';
 
-export interface IModalProps extends ModalProps {
+export interface RdModalProps extends ModalProps {
     
 }

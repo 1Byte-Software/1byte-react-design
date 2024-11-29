@@ -1,8 +1,8 @@
 import { TextAreaProps } from 'antd/es/input';
-import { IRegistryControlField } from '../../models';
-import { ILabelFieldWrapperProps } from '../LabelField/types';
+import { RdRegistryControlField } from '../../models';
+import { RdLabelFieldWrapperProps } from '../LabelField/types';
 
-export interface ITextareaProps extends TextAreaProps, ILabelFieldWrapperProps {}
-export interface ITextareaControlProps
-    extends Omit<ITextareaProps, 'name'>,
-        IRegistryControlField {}
+export interface RdTextareaProps extends TextAreaProps, RdLabelFieldWrapperProps {}
+export interface RdTextareaControlProps
+    extends Omit<RdTextareaProps, 'name'>,
+        RdRegistryControlField {}

@@ -5,13 +5,13 @@ import { LabelField } from '../LabelField';
 import { RadioButton } from './RadioButton';
 import { RadioGroup } from './RadioGroup';
 import { RadioStyles } from './styles';
-import { IRadioProps } from './types';
+import { RdRadioProps } from './types';
 
 export const Radio = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IRadioProps) => {
+}: RdRadioProps) => {
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper

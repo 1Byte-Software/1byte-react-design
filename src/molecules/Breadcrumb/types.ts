@@ -1,5 +1,5 @@
 import { BreadcrumbProps } from 'antd';
 
-export interface IBreadcrumbProps extends BreadcrumbProps {
-    
-}
+type RdBreadcrumbPropsExtend = {};
+
+export type RdBreadcrumbProps = BreadcrumbProps & RdBreadcrumbPropsExtend;

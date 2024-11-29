@@ -3,13 +3,13 @@ import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
 import { TextareaStyled, TextareaWrapper } from './styles';
-import { ITextareaProps } from './types';
+import { RdTextareaProps } from './types';
 
 export const TextArea = ({
     label: labelFieldProps,
 
     ...antdProps
-}: ITextareaProps) => {
+}: RdTextareaProps) => {
     return (
         <ConfigProviderDesign>
             <TextareaWrapper>

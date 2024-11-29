@@ -1,11 +1,12 @@
 import { InputProps } from 'antd';
+import { useEffect } from 'react';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
 import { InputStyled } from './styles';
-import { IInputControlProps } from './types';
+import { RdInputControlProps } from './types';
 
 export const InputControl = ({
     name,
@@ -15,7 +16,7 @@ export const InputControl = ({
     label: labelFieldProps,
 
     ...antdProps
-}: IInputControlProps) => {
+}: RdInputControlProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },

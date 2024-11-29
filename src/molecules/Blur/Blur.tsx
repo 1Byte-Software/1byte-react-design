@@ -1,15 +1,8 @@
-import { HTMLAttributes } from 'react';
-import { BlurBody, BlurHeader, BlurTitle, BlurWrapper } from './styles';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { BlurBody, BlurHeader, BlurTitle, BlurWrapper } from './styles';
+import { RdBlurProps } from './types';
 
-interface IBlurProps extends HTMLAttributes<HTMLDivElement> {
-    isBlur?: boolean;
-    isFull?: boolean;
-    title?: string;
-    isLoading?: boolean;
-}
-
-export const Blur = (props: IBlurProps) => {
+export const Blur = (props: RdBlurProps) => {
     const { title, isBlur, isLoading, children, ...htmlProps } = props;
 
     if (!isBlur) return children;

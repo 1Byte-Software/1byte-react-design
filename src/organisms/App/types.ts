@@ -1,6 +1,7 @@
+import { OverrideTokenMap } from '@ant-design/cssinjs-utils';
 import { ThemeConfig } from 'antd';
 import { ArgsProps } from 'antd/es/notification';
-import { MappingAlgorithm, OverrideToken } from 'antd/es/theme/interface';
+import { ComponentTokenMap, MappingAlgorithm } from 'antd/es/theme/interface';
 import { AliasToken } from 'antd/es/theme/internal';
 
 export interface ISecondaryColor {
@@ -64,6 +65,11 @@ export interface IRdAliasToken extends AliasToken, IAdditionalColor {
      */
     colorQuaternary: string;
 }
+
+/**
+ * @description Custom OverrideToken for RdAliasToken
+ */
+export type OverrideToken = OverrideTokenMap<ComponentTokenMap, IRdAliasToken>;
 
 /**
  * @description ComponentsConfig in antd
