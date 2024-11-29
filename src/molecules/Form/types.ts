@@ -11,6 +11,16 @@ type FormItemExtensionProps = {
      * Error message to display
      */
     errorMessage?: string;
+
+    /**
+     * @description Extra description for label
+     */
+    description?: string;
+
+    /**
+     * @description Option to fit Space width to its parent width, default is false
+     */
+    block?: boolean;
 };
 
 /**
@@ -36,7 +46,10 @@ export type RdFormItemProps = FormItemPropsAntd & FormItemExtensionProps;
 export type RdFormItemControlProps<
     TFieldValues extends FieldValues = FieldValues,
     TContext = any
-> = FormItemProps<TFieldValues>;
+> = FormItemProps<TFieldValues> &
+    Omit<FormItemExtensionProps, 'errorMessage'> & {
+        shouldUnregister?: boolean;
+    };
 //#endregion
 
 type AntdFormItemProps = React.ComponentProps<typeof Form.Item>;
@@ -44,6 +57,7 @@ type AntdFormItemProps = React.ComponentProps<typeof Form.Item>;
 export type FormItemProps<TFieldValues extends FieldValues = FieldValues, TContext = any> = {
     children: React.ReactNode;
     control: Control<TFieldValues, TContext>;
+    shouldUnregister?: boolean;
     name: FieldPath<TFieldValues>;
     disabled?: boolean;
     overrideFieldOnChange?: (...values: any[]) => void;
