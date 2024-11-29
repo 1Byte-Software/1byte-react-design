@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextWrapper } from './styles';
-import { ITextProps } from './types';
+import { RdTextProps } from './types';
 
-export const Text = (props: ITextProps) => {
+export const Text = (props: RdTextProps) => {
     const { children } = props;
     return (
         <ConfigProviderDesign>
