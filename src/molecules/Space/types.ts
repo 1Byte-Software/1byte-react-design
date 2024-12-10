@@ -1,4 +1,10 @@
 import { SpaceProps } from 'antd';
+import { ComponentToken } from 'antd/es/space/style';
+
+/**
+ * @description Override SpaceComponentToken of antd.
+ */
+export type SpaceComponentToken = ComponentToken & {};
 
 export type RdSpaceProps = SpaceProps & {
     /**

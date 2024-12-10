@@ -1,4 +1,10 @@
 import { BackTopProps, FloatButtonGroupProps, FloatButtonProps } from 'antd';
+import { ComponentToken } from 'antd/es/float-button/style';
+
+/**
+ * @description Override FloatButtonComponentToken of antd.
+ */
+export type FloatButtonComponentToken = ComponentToken & {};
 
 export interface RdFloatButtonProps extends FloatButtonProps {}
 

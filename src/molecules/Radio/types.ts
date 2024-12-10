@@ -1,7 +1,16 @@
-import { RadioGroupProps, RadioProps } from 'antd';
+import { GetProps, Radio } from 'antd';
+import { ComponentToken } from 'antd/es/radio/style';
 import { RdRegistryControlField, TAxis } from '../../models';
 import { RdLabelFieldWrapperProps } from '../LabelField/types';
-import { RadioButtonProps } from 'antd/es/radio/radioButton';
+
+type RadioProps = GetProps<typeof Radio>;
+type RadioGroupProps = GetProps<typeof Radio.Group>;
+type RadioButtonProps = GetProps<typeof Radio.Button>;
+
+/**
+ * @description Override RadioComponentToken of antd.
+ */
+export type RadioComponentToken = ComponentToken & {};
 
 //#region Radio
 export interface RdRadioProps extends RadioProps, RdLabelFieldWrapperProps {}

@@ -1,5 +1,9 @@
 import { CollapseProps } from 'antd';
+import { ComponentToken } from 'antd/es/collapse/style';
 
-export interface RdCollapseProps extends CollapseProps {
-    
-}
+/**
+ * @description Override CollapseComponentToken of antd.
+ */
+export type CollapseComponentToken = ComponentToken & {};
+
+export interface RdCollapseProps extends CollapseProps {}

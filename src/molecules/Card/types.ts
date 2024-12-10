@@ -1,4 +1,13 @@
 import { CardProps } from 'antd';
+import { ComponentToken } from 'antd/es/card/style';
+
+/**
+ * @description Override CardComponentToken of antd.
+ */
+export type CardComponentToken = ComponentToken & {
+    customPadding?: string;
+    compactHeaderHeight?: string;
+};
 
 type RdCardPropsExtend = {
     /**

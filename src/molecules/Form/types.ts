@@ -1,6 +1,13 @@
-import { Form } from 'antd';
 import type { GetProps } from 'antd';
+import { Form } from 'antd';
+import { ComponentToken } from 'antd/es/form/style';
 import { Control, FieldPath, FieldValues } from 'react-hook-form';
+
+/**
+ * @description Override FormComponentToken of antd.
+ */
+export type FormComponentToken = ComponentToken & {};
+
 //#region  Custom props
 
 /**

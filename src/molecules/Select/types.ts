@@ -1,6 +1,13 @@
 import { SelectProps } from 'antd';
 import { RdRegistryControlField } from '../../models';
 import { RdLabelFieldWrapperProps } from '../LabelField/types';
+import { BaseSelectRef } from 'rc-select/lib/BaseSelect';
+import { ComponentToken } from 'antd/es/select/style';
+
+/**
+ * @description Override SelectComponentToken of antd.
+ */
+export type SelectComponentToken = ComponentToken & {};
 
 /**
  * @description The variant of the select extend.
@@ -36,3 +43,5 @@ export type RdSelectProps = Omit<SelectProps, 'variant'> &
     RdLabelFieldWrapperProps;
 
 export type RdSelectControlProps = RdSelectProps & RdRegistryControlField;
+
+export type RdSelectRef = BaseSelectRef;

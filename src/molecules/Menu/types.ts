@@ -1,5 +1,9 @@
 import { MenuProps } from 'antd';
+import { ComponentToken } from 'antd/es/menu/style';
 
-export interface RdMenuProps extends MenuProps {
-    
-}
+/**
+ * @description Override MenuComponentToken of antd.
+ */
+export type MenuComponentToken = ComponentToken & {};
+
+export interface RdMenuProps extends MenuProps {}

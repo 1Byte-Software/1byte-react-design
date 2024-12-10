@@ -1,4 +1,12 @@
-import { ButtonProps } from 'antd';
+import { Button, GetProps } from 'antd';
+import { ComponentToken } from 'antd/es/button/style';
+
+type ButtonProps = GetProps<typeof Button>;
+
+/**
+ * @description Override ButtonComponentToken of antd.
+ */
+export type ButtonComponentToken = ComponentToken & {};
 
 /**
  * @description The color of the button extend.
@@ -27,4 +35,9 @@ export interface RdButtonProps extends Omit<ButtonProps, 'color'> {
      * @see Link
      */
     to?: string;
+
+    /**
+     * @description Align button.
+     */
+    align?: 'left' | 'center' | 'right';
 }

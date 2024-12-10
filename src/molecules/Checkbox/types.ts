@@ -1,7 +1,15 @@
-import { CheckboxProps } from 'antd';
-import { CheckboxGroupProps } from 'antd/es/checkbox';
+import { Checkbox, GetProps } from 'antd';
 import { RdRegistryControlField, TAxis } from '../../models';
 import { RdLabelFieldWrapperProps } from '../LabelField/types';
+import { ComponentToken } from 'antd/es/checkbox/style';
+
+type CheckboxProps = GetProps<typeof Checkbox>;
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
+
+/**
+ * @description Override CheckboxComponentToken of antd.
+ */
+export type CheckboxComponentToken = ComponentToken & {};
 
 type RdCheckboxBaseProps = {};
 

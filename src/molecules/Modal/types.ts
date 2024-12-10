@@ -1,5 +1,9 @@
 import { ModalProps } from 'antd';
+import { ComponentToken } from 'antd/es/modal/style';
 
-export interface RdModalProps extends ModalProps {
-    
-}
+/**
+ * @description Override ModalComponentToken of antd.
+ */
+export type ModalComponentToken = ComponentToken & {};
+
+export interface RdModalProps extends ModalProps {}
