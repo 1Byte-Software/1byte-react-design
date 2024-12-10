@@ -1,16 +1,14 @@
-// import { ListProps } from 'antd';
-// import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-// import { Item } from './Item';
-// import { ListStyles } from './styles';
-// import { RdListProps } from './types';
+import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { ListItem } from './ListItem';
+import { ListStyles } from './styles';
+import { ListCompoundedComponent, RdListProps } from './types';
 
-// export const List = ({ ...antdProps }: any) => {
-//     return (
-//         <ConfigProviderDesign>
-//             <ListStyles {...antdProps} />
-//         </ConfigProviderDesign>
-//     );
-// };
+export const List: ListCompoundedComponent = ({ ...antdProps }: RdListProps) => {
+    return (
+        <ConfigProviderDesign>
+            <ListStyles {...antdProps} />
+        </ConfigProviderDesign>
+    );
+};
 
-
-// List.Item = Item;
+List.Item = ListItem;
