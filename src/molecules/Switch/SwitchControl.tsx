@@ -4,8 +4,8 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { SwitchWrapper } from './styles';
 import { RdSwitchControlProps } from './types';
+import { SwitchStyled } from './styles';
 
 export const SwitchControl = ({
     name,
@@ -38,21 +38,19 @@ export const SwitchControl = ({
 
     return (
         <ConfigProviderDesign>
-            <SwitchWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <AntdSwitch
-                        {...(antdProps as SwitchProps)}
-                        checked={value}
-                        onChange={handleChange}
-                        ref={ref}
-                    />
-                </ConditionalWrapper>
-                {invalid && <TextError>{error?.message}</TextError>}
-            </SwitchWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <SwitchStyled
+                    {...(antdProps as SwitchProps)}
+                    checked={value}
+                    onChange={handleChange}
+                    ref={ref}
+                />
+            </ConditionalWrapper>
+            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
