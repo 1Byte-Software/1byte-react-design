@@ -1,14 +1,18 @@
 import { InputProps } from 'antd';
-import { useEffect } from 'react';
 import { useController } from 'react-hook-form';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
+import { InputPasswordControl } from './InputPasswordControl';
+import { InputTextareaControl } from './InputTextAreaControl';
 import { InputStyled } from './styles';
-import { RdInputControlProps } from './types';
+import {
+    InputControlCompoundedComponent,
+    RdInputControlProps
+} from './types';
 
-export const InputControl = ({
+export const InputControlInternal = ({
     name,
     control,
     defaultValue,
@@ -45,3 +49,8 @@ export const InputControl = ({
         </ConfigProviderDesign>
     );
 };
+
+export const InputControl = InputControlInternal as InputControlCompoundedComponent;
+
+InputControl.Password = InputPasswordControl;
+InputControl.TextArea = InputTextareaControl;

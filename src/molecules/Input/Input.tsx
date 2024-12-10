@@ -1,15 +1,20 @@
 import { InputProps } from 'antd';
+import { forwardRef } from 'react';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { LabelField } from '../LabelField';
+import { InputPassword } from './InputPassword';
+import { InputTextArea } from './InputTextArea';
 import { InputStyled } from './styles';
-import { RdInputProps } from './types';
+import { InputCompoundedComponent, RdInputProps } from './types';
 
-export const Input = ({
-    label: labelFieldProps,
+export const InputInternal = forwardRef((props: RdInputProps, ref: RdInputProps['ref']) => {
+    const {
+        label: labelFieldProps,
 
-    ...antdProps
-}: RdInputProps) => {
+        ...antdProps
+    } = props;
+
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper
@@ -17,8 +22,13 @@ export const Input = ({
                 wrapper={LabelField}
                 wrapperProps={labelFieldProps}
             >
-                <InputStyled {...(antdProps as InputProps)} />
+                <InputStyled ref={ref} {...(antdProps as InputProps)} />
             </ConditionalWrapper>
         </ConfigProviderDesign>
     );
-};
+});
+
+export const Input = InputInternal as InputCompoundedComponent;
+
+Input.Password = InputPassword;
+Input.TextArea = InputTextArea;

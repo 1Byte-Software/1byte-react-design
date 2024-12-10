@@ -4,10 +4,10 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { TextError } from '../../atomics';
 import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { LabelField } from '../LabelField';
-import { TextareaStyled, TextareaWrapper } from './styles';
+import { TextareaStyled } from './styles';
 import { RdTextareaControlProps } from './types';
 
-export const TextareaControl = ({
+export const InputTextareaControl = ({
     name,
     control,
 
@@ -32,22 +32,20 @@ export const TextareaControl = ({
 
     return (
         <ConfigProviderDesign>
-            <TextareaWrapper>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <TextareaStyled
-                        {...(antdProps as TextAreaProps)}
-                        value={value === undefined ? '' : value}
-                        onChange={handleChange}
-                        onBlur={onBlur}
-                        ref={ref}
-                    />
-                </ConditionalWrapper>
-                {invalid && <TextError>{error?.message}</TextError>}
-            </TextareaWrapper>
+            <ConditionalWrapper
+                condition={Boolean(labelFieldProps)}
+                wrapper={LabelField}
+                wrapperProps={labelFieldProps}
+            >
+                <TextareaStyled
+                    {...(antdProps as TextAreaProps)}
+                    value={value === undefined ? '' : value}
+                    onChange={handleChange}
+                    onBlur={onBlur}
+                    ref={ref}
+                />
+            </ConditionalWrapper>
+            {invalid && <TextError>{error?.message}</TextError>}
         </ConfigProviderDesign>
     );
 };
