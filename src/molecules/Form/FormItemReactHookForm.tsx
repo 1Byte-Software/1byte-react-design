@@ -1,7 +1,8 @@
-import { FieldValues, useController } from 'react-hook-form';
-import { FormItemProps } from './types';
 import { Form as AntdForm } from 'antd';
 import { Children, cloneElement, isValidElement, useEffect } from 'react';
+import { FieldValues, useController } from 'react-hook-form';
+import { FormItemStyles } from './styles';
+import { FormItemProps } from './types';
 
 export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldValues>({
     children,
@@ -22,9 +23,8 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
     }, [field.value, form, name]);
 
     return (
-        <AntdForm.Item
+        <FormItemStyles
             {...props}
-            //@ts-expect-error Ant Design form item name type safe is not necessary here
             name={name}
             initialValue={field.value}
             validateStatus={fieldState.invalid ? 'error' : undefined}
@@ -39,8 +39,9 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
                         //@ts-expect-error onChange type safe is not necessary here
                         onChange: (...params) => {
                             child.props.onChange && child.props.onChange(...params);
+
                             overrideFieldOnChange
-                                ? overrideFieldOnChange(...params)
+                                ? overrideFieldOnChange(...params, field)
                                 : field.onChange(...params);
                         },
                         //@ts-expect-error onBlur type safe is not necessary here
@@ -53,6 +54,6 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
                         }),
                     })
             )}
-        </AntdForm.Item>
+        </FormItemStyles>
     );
 };
