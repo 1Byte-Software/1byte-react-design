@@ -5,11 +5,13 @@ import { CheckboxGroup } from './CheckboxGroup';
 import { CheckboxStyles } from './styles';
 import { RdCheckboxProps } from './types';
 
-export const Checkbox = ({
-    label: labelFieldProps,
+export const Checkbox = (props: RdCheckboxProps) => {
+    const {
+        label: labelFieldProps,
 
-    ...antdProps
-}: RdCheckboxProps) => {
+        ...antdProps
+    } = props;
+
     return (
         <ConfigProviderDesign>
             <ConditionalWrapper
