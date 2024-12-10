@@ -16,8 +16,6 @@ export const LabelField = (props: RdLabelFieldProps & PropsWithChildren) => {
         children,
     } = props;
 
-    console.log('Rerender labelField');
-
     return (
         <ConfigProviderDesign>
             <LabelFieldWrapper
