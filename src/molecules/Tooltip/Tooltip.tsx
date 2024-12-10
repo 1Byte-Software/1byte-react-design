@@ -8,7 +8,7 @@ export const Tooltip = React.forwardRef<TooltipRef, RdTooltipProps>(
     ({ children, ...antdProps }, ref) => {
         return (
             <ConfigProviderDesign>
-                <TooltipStyles {...antdProps} ref={ref}>
+                <TooltipStyles ref={ref} {...antdProps}>
                     {children}
                 </TooltipStyles>
             </ConfigProviderDesign>
