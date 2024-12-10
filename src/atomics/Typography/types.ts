@@ -1,48 +1,26 @@
-import { PropsWithChildren, ReactElement, ReactHTMLElement } from 'react';
-
-export interface IBaseHProps extends PropsWithChildren {}
+import { Typography, GetProps } from 'antd';
+import { ComponentToken } from 'antd/es/typography/style';
 
 /**
- * @description H1 component props
+ * @description Override TypographyComponentToken of antd.
  */
-export interface IH1Props extends IBaseHProps {}
+export type TypographyComponentToken = ComponentToken & {};
 
-export interface IH2Props extends IBaseHProps {}
-export interface IH3Props extends IBaseHProps {}
-export interface IH4Props extends IBaseHProps {}
-export interface IH5Props extends IBaseHProps {}
-export interface IH6Props extends IBaseHProps {}
-export interface ITitleProps extends IBaseHProps {}
+type TypographyLinkProps = GetProps<typeof Typography.Link>;
+type TypographyTextProps = GetProps<typeof Typography.Text>;
+type TypographyTitleProps = GetProps<typeof Typography.Title>;
+type TypographyParagraphProps = GetProps<typeof Typography.Paragraph>;
 
-export type RdTextProps = IBaseHProps & {
-    /**
-     * Font weight for the text.
-     * Can be a number (100-900) or a string representing font weight name.
-     * Examples: "thin", "light", "bold", etc.
-     */
-    weight?:
-        | 100
-        | 200
-        | 300
-        | 400
-        | 500
-        | 600
-        | 700
-        | 800
-        | 900
-        | 'thin'
-        | 'extra-light'
-        | 'ultra-light'
-        | 'light'
-        | 'normal'
-        | 'regular'
-        | 'medium'
-        | 'semi-bold'
-        | 'demi-bold'
-        | 'bold'
-        | 'extra-bold'
-        | 'ultra-bold'
-        | 'black'
-        | 'heavy';
-};
-export interface IDescriptionProps extends IBaseHProps {}
+export interface RdTypographyLinkProps extends TypographyLinkProps {}
+export interface RdTypographyTextProps extends Omit<TypographyTextProps, 'onChange'> {
+    onChange?: (value: string) => void;
+}
+export interface RdTypographyTitleProps extends TypographyTitleProps {}
+export interface RdTypographyParagraphProps extends TypographyParagraphProps {}
+
+export interface TypographyCompoundedComponent {
+    Link: RdTypographyLinkProps;
+    Text: RdTypographyTextProps;
+    Title: RdTypographyTitleProps;
+    Paragraph: RdTypographyParagraphProps;
+}
