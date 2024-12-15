@@ -1,15 +1,16 @@
-import { CardProps } from 'antd';
-import { ComponentToken } from 'antd/es/card/style';
+import { Card, GetProps } from 'antd';
+import { ComponentToken as CardComponentTokenAntd } from 'antd/es/card/style';
 
-/**
- * @description Override CardComponentToken of antd.
- */
-export type CardComponentToken = ComponentToken & {
-    customPadding?: string;
-    compactHeaderHeight?: string;
-};
+//#region Define props
+type CardProps = GetProps<typeof Card>;
+//#endregion
 
-type RdCardPropsExtend = {
+//#region Custom component token
+type CardComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type CardPropsExtend = {
     /**
      * @description
      * Defines the visual style of the entire card component.
@@ -21,5 +22,10 @@ type RdCardPropsExtend = {
      */
     variant?: 'default' | 'compact';
 };
+//#endregion
 
-export type RdCardProps = CardProps & RdCardPropsExtend;
+//#region export type
+export type RdCardProps = CardProps & CardPropsExtend;
+
+export type RdCardComponentToken = CardComponentTokenAntd & CardComponentTokenExtend;
+//#endregion
