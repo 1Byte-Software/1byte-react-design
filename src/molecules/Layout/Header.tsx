@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { HeaderStyles, LayoutStyles } from './styles';
-import { RdLayoutProps } from './types';
+import { HeaderStyles } from './styles';
+import { RdHeaderProps } from './types';
 
-export const Header = ({ ...antdProps }: RdLayoutProps) => {
+export const Header = ({ ...antdProps }: RdHeaderProps) => {
     return (
         <ConfigProviderDesign>
             <HeaderStyles className='rd-header' {...antdProps} />
