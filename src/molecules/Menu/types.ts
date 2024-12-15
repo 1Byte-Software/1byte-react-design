@@ -1,9 +1,19 @@
-import { MenuProps } from 'antd';
-import { ComponentToken } from 'antd/es/menu/style';
+import { Menu, GetProps } from 'antd';
+import { ComponentToken as MenuComponentTokenAntd } from 'antd/es/menu/style';
 
-/**
- * @description Override MenuComponentToken of antd.
- */
-export type MenuComponentToken = ComponentToken & {};
+//#region Define props
+type MenuProps = GetProps<typeof Menu>;
+//#endregion
 
-export interface RdMenuProps extends MenuProps {}
+//#region Custom component token
+type MenuComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type MenuPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdMenuProps = MenuProps & MenuPropsExtend;
+export type RdMenuComponentToken = MenuComponentTokenAntd & MenuComponentTokenExtend;
+//#endregion
