@@ -1,26 +1,35 @@
 import { Typography, GetProps } from 'antd';
-import { ComponentToken } from 'antd/es/typography/style';
+import { ComponentToken as TypographyComponentTokenAntd } from 'antd/es/typography/style';
 
-/**
- * @description Override TypographyComponentToken of antd.
- */
-export type TypographyComponentToken = ComponentToken & {};
-
+//#region Define props
+type TypographyProps = GetProps<typeof Typography>;
 type TypographyLinkProps = GetProps<typeof Typography.Link>;
+type TypographyParagraphProps = GetProps<typeof Typography.Paragraph>;
 type TypographyTextProps = GetProps<typeof Typography.Text>;
 type TypographyTitleProps = GetProps<typeof Typography.Title>;
-type TypographyParagraphProps = GetProps<typeof Typography.Paragraph>;
+//#endregion
 
-export interface RdTypographyLinkProps extends TypographyLinkProps {}
-export interface RdTypographyTextProps extends Omit<TypographyTextProps, 'onChange'> {
+//#region Custom component token
+type TypographyComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type TypographyPropsExtend = {};
+type TypographyLinkPropsExtend = {};
+type TypographyParagraphPropsExtend = {};
+type TypographyTextPropsExtend = {
     onChange?: (value: string) => void;
-}
-export interface RdTypographyTitleProps extends TypographyTitleProps {}
-export interface RdTypographyParagraphProps extends TypographyParagraphProps {}
+};
+type TypographyTitlePropsExtend = {};
+//#endregion
 
-export interface TypographyCompoundedComponent {
-    Link: RdTypographyLinkProps;
-    Text: RdTypographyTextProps;
-    Title: RdTypographyTitleProps;
-    Paragraph: RdTypographyParagraphProps;
-}
+//#region export type
+export type RdTypographyProps = TypographyProps & TypographyPropsExtend;
+export type RdTypographyLinkProps = TypographyLinkProps & TypographyLinkPropsExtend;
+export type RdTypographyParagraphProps = TypographyParagraphProps & TypographyParagraphPropsExtend;
+export type RdTypographyTextProps = TypographyTextProps & TypographyTextPropsExtend;
+export type RdTypographyTitleProps = TypographyTitleProps & TypographyTitlePropsExtend;
+
+export type RdTypographyComponentToken = TypographyComponentTokenAntd &
+    TypographyComponentTokenExtend;
+//#endregion
