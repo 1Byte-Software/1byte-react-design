@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Select } from 'antd';
 
-export const SelectWrapper = styled.div<{ width?: string | number; minWidth?: string | number }>`
+export const SelectStyled = styled(Select)<{ width?: string | number; minWidth?: string | number }>`
     ${props => {
         return (
             props.width &&
