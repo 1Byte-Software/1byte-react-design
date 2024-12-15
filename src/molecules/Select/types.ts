@@ -1,20 +1,22 @@
-import { SelectProps } from 'antd';
-import { RdRegistryControlField } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
-import { BaseSelectRef } from 'rc-select/lib/BaseSelect';
-import { ComponentToken } from 'antd/es/select/style';
+import { Select, GetProps } from 'antd';
+import { ComponentToken as SelectComponentTokenAntd } from 'antd/es/select/style';
 
-/**
- * @description Override SelectComponentToken of antd.
- */
-export type SelectComponentToken = ComponentToken & {};
+//#region Define props
+type SelectProps = GetProps<typeof Select>;
+//#endregion
+
+//#region Custom component token
+type SelectComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
 
 /**
  * @description The variant of the select extend.
  */
 export type variantSelectExtend = 'outlined-transparent';
 
-type RdSelectPropsExtend = {
+type SelectPropsExtend = {
     /**
      * Width of the select component.
      */
@@ -37,11 +39,10 @@ type RdSelectPropsExtend = {
      */
     variant?: SelectProps['variant'] | variantSelectExtend;
 };
+//#endregion
 
-export type RdSelectProps = Omit<SelectProps, 'variant'> &
-    RdSelectPropsExtend &
-    RdLabelFieldWrapperProps;
+//#region export type
+export type RdSelectProps = Omit<SelectProps, 'variant'> & SelectPropsExtend;
 
-export type RdSelectControlProps = RdSelectProps & RdRegistryControlField;
-
-export type RdSelectRef = BaseSelectRef;
+export type RdSelectComponentToken = SelectComponentTokenAntd & SelectComponentTokenExtend;
+//#endregion
