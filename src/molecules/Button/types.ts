@@ -1,24 +1,21 @@
 import { Button, GetProps } from 'antd';
-import { ComponentToken } from 'antd/es/button/style';
+import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
 
+//#region Define props
 type ButtonProps = GetProps<typeof Button>;
+//#endregion
 
-/**
- * @description Override ButtonComponentToken of antd.
- */
-export type ButtonComponentToken = ComponentToken & {};
+//#region Custom component token
+type ButtonComponentTokenExtend = {};
+//#endregion
 
 /**
  * @description The color of the button extend.
  */
 export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
 
-/**
- * @description The props of the button.
- * @override antd.ButtonProps
- * @see ButtonProps
- */
-export interface RdButtonProps extends Omit<ButtonProps, 'color'> {
+//#region Custom props
+type ButtonPropsExtend = {
     /**
      * @description The width of the button.
      */
@@ -40,4 +37,11 @@ export interface RdButtonProps extends Omit<ButtonProps, 'color'> {
      * @description Align button.
      */
     align?: 'left' | 'center' | 'right';
-}
+};
+//#endregion
+
+//#region export type
+export type RdButtonProps = Omit<ButtonProps, 'color'> & ButtonPropsExtend;
+
+export type RdButtonComponentToken = ButtonComponentTokenAntd & ButtonComponentTokenExtend;
+//#endregion
