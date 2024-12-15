@@ -1,9 +1,19 @@
-import { PopoverProps } from 'antd';
-import { ComponentToken } from 'antd/es/popover/style';
+import { Popover, GetProps } from 'antd';
+import { ComponentToken as PopoverComponentTokenAntd } from 'antd/es/popover/style';
 
-/**
- * @description Override PopoverComponentToken of antd.
- */
-export type PopoverComponentToken = ComponentToken & {};
+//#region Define props
+type PopoverProps = GetProps<typeof Popover>;
+//#endregion
 
-export interface RdPopoverProps extends PopoverProps {}
+//#region Custom component token
+type PopoverComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type PopoverPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdPopoverProps = PopoverProps & PopoverPropsExtend;
+export type RdPopoverComponentToken = PopoverComponentTokenAntd & PopoverComponentTokenExtend;
+//#endregion
