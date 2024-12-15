@@ -1,11 +1,19 @@
-import { BreadcrumbProps } from 'antd';
-import { ComponentToken } from 'antd/es/breadcrumb/style';
+import { Breadcrumb, GetProps } from 'antd';
+import { ComponentToken as BreadcrumbComponentTokenAntd } from 'antd/es/breadcrumb/style';
 
-/**
- * @description Override BreadcrumbComponentToken of antd.
- */
-export type BreadcrumbComponentToken = ComponentToken & {};
+//#region Define props
+type BreadcrumbProps = GetProps<typeof Breadcrumb>;
+//#endregion
 
-type RdBreadcrumbPropsExtend = {};
+//#region Custom component token
+type BreadcrumbComponentTokenExtend = {};
+//#endregion
 
-export type RdBreadcrumbProps = BreadcrumbProps & RdBreadcrumbPropsExtend;
+//#region Custom props
+type BreadcrumbPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdBreadcrumbProps = BreadcrumbProps & BreadcrumbPropsExtend;
+export type RdBreadcrumbComponentToken = BreadcrumbComponentTokenAntd & BreadcrumbComponentTokenExtend;
+//#endregion
