@@ -14,3 +14,4 @@ export const SpaceStyles = styled(Space, {
         return block && 'width: 100%';
     }};
 `;
+export const CompactStyles = styled(Space.Compact)``;
