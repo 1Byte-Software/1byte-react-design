@@ -1,11 +1,19 @@
-import { AvatarProps } from 'antd';
-import { ComponentToken } from 'antd/es/avatar/style';
+import { Avatar, GetProps } from 'antd';
+import { ComponentToken as AvatarComponentTokenAntd } from 'antd/es/avatar/style';
 
-/**
- * @description Override AvatarComponentToken of antd.
- */
-export type AvatarComponentToken = ComponentToken & {};
+//#region Define props
+type AvatarProps = GetProps<typeof Avatar>;
+//#endregion
 
+//#region Custom component token
+type AvatarComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
 type AvatarPropsExtend = {};
+//#endregion
 
+//#region export type
 export type RdAvatarProps = AvatarProps & AvatarPropsExtend;
+export type RdAvatarComponentToken = AvatarComponentTokenAntd & AvatarComponentTokenExtend;
+//#endregion
