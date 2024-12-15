@@ -1,5 +1,5 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { Button } from './Button';
+import { DropdownButton } from './DropdownButton';
 import { DropdownStyles } from './styles';
 import { RdDropdownProps } from './types';
 
@@ -11,4 +11,4 @@ export const Dropdown = ({ ...antdProps }: RdDropdownProps) => {
     );
 };
 
-Dropdown.Button = Button;
+Dropdown.Button = DropdownButton;
