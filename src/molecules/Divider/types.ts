@@ -1,9 +1,19 @@
-import { DividerProps } from 'antd';
-import { ComponentToken } from 'antd/es/divider/style';
+import { Divider, GetProps } from 'antd';
+import { ComponentToken as DividerComponentTokenAntd } from 'antd/es/divider/style';
 
-/**
- * @description Override DividerComponentToken of antd.
- */
-export type DividerComponentToken = ComponentToken & {};
+//#region Define props
+type DividerProps = GetProps<typeof Divider>;
+//#endregion
 
-export interface RdDividerProps extends DividerProps {}
+//#region Custom component token
+type DividerComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type DividerPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdDividerProps = DividerProps & DividerPropsExtend;
+export type RdDividerComponentToken = DividerComponentTokenAntd & DividerComponentTokenExtend;
+//#endregion
