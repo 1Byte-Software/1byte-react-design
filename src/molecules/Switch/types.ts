@@ -1,20 +1,24 @@
-import { GetProps, Switch } from 'antd';
-import { RdRegistryControlField } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
-import { ComponentToken } from 'antd/es/switch/style';
+import { Switch, GetProps } from 'antd';
+import { ComponentToken as SwitchComponentTokenAntd } from 'antd/es/switch/style';
 
-/**
- * @description Override SwitchComponentToken of antd.
- */
-export type SwitchComponentToken = ComponentToken & {};
-
+//#region Define props
 type SwitchProps = GetProps<typeof Switch>;
+//#endregion
 
-export interface RdSwitchProps extends SwitchProps, RdLabelFieldWrapperProps {
+//#region Custom component token
+type SwitchComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type SwitchPropsExtend = {
     /**
      * The value type you want to get from the switch. Default is 'boolean'.
      */
     responseType?: 'number' | 'boolean';
-}
+};
+//#endregion
 
-export interface RdSwitchControlProps extends Omit<RdSwitchProps, 'name'>, RdRegistryControlField {}
+//#region export type
+export type RdSwitchProps = SwitchProps & SwitchPropsExtend;
+export type RdSwitchComponentToken = SwitchComponentTokenAntd & SwitchComponentTokenExtend;
+//#endregion
