@@ -1,9 +1,20 @@
-import { PaginationProps } from 'antd';
-import { ComponentToken } from 'antd/es/pagination/style';
+import { Pagination, GetProps } from 'antd';
+import { ComponentToken as PaginationComponentTokenAntd } from 'antd/es/pagination/style';
 
-/**
- * @description Override PaginationComponentToken of antd.
- */
-export type PaginationComponentToken = ComponentToken & {};
+//#region Define props
+type PaginationProps = GetProps<typeof Pagination>;
+//#endregion
 
-export interface RdPaginationProps extends PaginationProps {}
+//#region Custom component token
+type PaginationComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type PaginationPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdPaginationProps = PaginationProps & PaginationPropsExtend;
+export type RdPaginationComponentToken = PaginationComponentTokenAntd &
+    PaginationComponentTokenExtend;
+//#endregion
