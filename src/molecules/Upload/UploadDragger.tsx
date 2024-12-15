@@ -9,7 +9,7 @@ export const UploadDragger = forwardRef(
 
         return (
             <ConfigProviderDesign>
-                <UploadDraggerStyled ref={ref} {...(antdProps as RdUploadDraggerProps)} />
+                <UploadDraggerStyled ref={ref} {...antdProps} />
             </ConfigProviderDesign>
         );
     }
