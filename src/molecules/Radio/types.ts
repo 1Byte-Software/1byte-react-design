@@ -1,41 +1,26 @@
-import { GetProps, Radio } from 'antd';
-import { ComponentToken } from 'antd/es/radio/style';
-import { RdRegistryControlField, TAxis } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
+import { Radio, GetProps } from 'antd';
+import { ComponentToken as RadioComponentTokenAntd } from 'antd/es/radio/style';
 
+//#region Define props
 type RadioProps = GetProps<typeof Radio>;
-type RadioGroupProps = GetProps<typeof Radio.Group>;
 type RadioButtonProps = GetProps<typeof Radio.Button>;
+type RadioGroupProps = GetProps<typeof Radio.Group>;
+//#endregion
 
-/**
- * @description Override RadioComponentToken of antd.
- */
-export type RadioComponentToken = ComponentToken & {};
+//#region Custom component token
+type RadioComponentTokenExtend = {};
+//#endregion
 
-//#region Radio
-export interface RdRadioProps extends RadioProps, RdLabelFieldWrapperProps {}
+//#region Custom props
+type RadioPropsExtend = {};
+type RadioButtonPropsExtend = {};
+type RadioGroupPropsExtend = {};
+//#endregion
 
-export interface RdRadioControlProps extends Omit<RdRadioProps, 'name'>, RdRegistryControlField {}
-//#endregion Radio
+//#region export type
+export type RdRadioProps = RadioProps & RadioPropsExtend;
+export type RdRadioButtonProps = RadioButtonProps & RadioButtonPropsExtend;
+export type RdRadioGroupProps = RadioGroupProps & RadioGroupPropsExtend;
 
-//#region RadioButton
-export interface RdRadioButtonProps extends RadioButtonProps, RdLabelFieldWrapperProps {}
-
-export interface RdRadioButtonControlProps
-    extends Omit<RdRadioButtonProps, 'name'>,
-        RdRegistryControlField {}
-//#endregion RadioButton
-
-//#region RadioGroup
-export interface RdRadioGroupProps extends RadioGroupProps, RdLabelFieldWrapperProps {
-    /**
-     * @description The axis of the radio options.
-     * @default 'horizontal'
-     */
-    axis?: TAxis;
-}
-
-export interface RdRadioGroupControlProps
-    extends Omit<RdRadioGroupProps, 'name'>,
-        RdRegistryControlField {}
-//#endregion RadioGroup
+export type RdRadioComponentToken = RadioComponentTokenAntd & RadioComponentTokenExtend;
+//#endregion
