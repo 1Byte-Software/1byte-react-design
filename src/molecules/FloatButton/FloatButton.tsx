@@ -1,5 +1,5 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { BackTop } from './Backtop';
+import { BackTop } from './BackTop';
 import { FloatButtonGroup } from './FloatButtonGroup';
 import { FloatButtonStyles } from './styles';
 import { RdFloatButtonProps } from './types';
