@@ -67,5 +67,6 @@ export type FormItemProps<TFieldValues extends FieldValues = FieldValues, TConte
     shouldUnregister?: boolean;
     name: FieldPath<TFieldValues>;
     disabled?: boolean;
+    defaultValue?: any;
     overrideFieldOnChange?: (...values: any[]) => void;
 } & Omit<AntdFormItemProps, 'name' | 'rules' | 'validateStatus'>;

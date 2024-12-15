@@ -12,10 +12,17 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
     help,
     valuePropName,
     shouldUnregister,
+    defaultValue,
     overrideFieldOnChange,
     ...props
 }: FormItemProps<TFieldValues>) => {
-    const { field, fieldState } = useController({ name, control, disabled, shouldUnregister });
+    const { field, fieldState } = useController({
+        name,
+        control,
+        disabled,
+        shouldUnregister,
+        defaultValue,
+    });
     const form = AntdForm.useFormInstance();
 
     useEffect(() => {
