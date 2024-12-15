@@ -1,31 +1,23 @@
 import { Checkbox, GetProps } from 'antd';
-import { RdRegistryControlField, TAxis } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
 import { ComponentToken } from 'antd/es/checkbox/style';
 
+//#region Define props
 type CheckboxProps = GetProps<typeof Checkbox>;
 type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
+//#endregion
 
-/**
- * @description Override CheckboxComponentToken of antd.
- */
-export type CheckboxComponentToken = ComponentToken & {};
+//#region Custom component token
+type CheckboxComponentTokenExtend = {};
+type CheckboxGroupComponentTokenExtend = {};
+//#endregion
 
-type RdCheckboxBaseProps = {};
+//#region Custom props
+type CheckboxPropsExtend = {};
+//#endregion
 
-export type RdCheckboxProps = CheckboxProps & RdCheckboxBaseProps & RdLabelFieldWrapperProps & {};
+//#region export type
+export type RdCheckboxProps = CheckboxProps & CheckboxPropsExtend;
+export type RdCheckboxGroupProps = CheckboxGroupProps & CheckboxGroupComponentTokenExtend;
 
-export type RdCheckboxControlProps = Omit<RdCheckboxProps, 'name'> & RdRegistryControlField & {};
-
-export type RdCheckboxGroupProps = CheckboxGroupProps &
-    RdCheckboxBaseProps &
-    RdLabelFieldWrapperProps & {
-        /**
-         * @description The axis of options in CheckboxGroup.
-         * @default 'horizontal'
-         */
-        axis?: TAxis;
-    };
-export interface RdCheckboxGroupControlProps
-    extends Omit<RdCheckboxGroupProps, 'name'>,
-        RdRegistryControlField {}
+export type CheckboxComponentToken = ComponentToken & CheckboxComponentTokenExtend;
+//#endregion
