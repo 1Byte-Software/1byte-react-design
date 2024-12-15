@@ -1,11 +1,19 @@
-import { SkeletonProps } from 'antd';
-import { ComponentToken } from 'antd/es/skeleton/style';
+import { Skeleton, GetProps } from 'antd';
+import { ComponentToken as SkeletonComponentTokenAntd } from 'antd/es/skeleton/style';
 
-/**
- * @description Override SkeletonComponentToken of antd.
- */
-export type SkeletonComponentToken = ComponentToken & {};
+//#region Define props
+type SkeletonProps = GetProps<typeof Skeleton>;
+//#endregion
 
-export interface RdSkeletonProps extends SkeletonProps {
-    
-}
+//#region Custom component token
+type SkeletonComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type SkeletonPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdSkeletonProps = SkeletonProps & SkeletonPropsExtend;
+export type RdSkeletonComponentToken = SkeletonComponentTokenAntd & SkeletonComponentTokenExtend;
+//#endregion

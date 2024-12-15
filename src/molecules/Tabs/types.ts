@@ -1,9 +1,19 @@
-import { TabsProps } from 'antd';
-import { ComponentToken } from 'antd/es/tabs/style';
+import { Tabs, GetProps } from 'antd';
+import { ComponentToken as TabsComponentTokenAntd } from 'antd/es/tabs/style';
 
-/**
- * @description Override TabsComponentToken of antd.
- */
-export type TabsComponentToken = ComponentToken & {};
+//#region Define props
+type TabsProps = GetProps<typeof Tabs>;
+//#endregion
 
-export interface RdTabsProps extends TabsProps {}
+//#region Custom component token
+type TabsComponentTokenExtend = {};
+//#endregion
+
+//#region Custom props
+type TabsPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdTabsProps = TabsProps & TabsPropsExtend;
+export type RdTabsComponentToken = TabsComponentTokenAntd & TabsComponentTokenExtend;
+//#endregion

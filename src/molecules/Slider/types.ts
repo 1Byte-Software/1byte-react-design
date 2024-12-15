@@ -1,13 +1,19 @@
-import { SliderSingleProps } from 'antd';
-import { SliderRangeProps } from 'antd/es/slider';
-import { ComponentToken } from 'antd/es/slider/style';
+import { Slider, GetProps } from 'antd';
+import { ComponentToken as SliderComponentTokenAntd } from 'antd/es/slider/style';
 
-/**
- * @description Override SliderComponentToken of antd.
- */
-export type SliderComponentToken = ComponentToken & {};
+//#region Define props
+type SliderProps = GetProps<typeof Slider>;
+//#endregion
 
-export interface ISliderSingleProps extends SliderSingleProps {}
-export interface ISliderRangeProps extends SliderRangeProps {}
+//#region Custom component token
+type SliderComponentTokenExtend = {};
+//#endregion
 
-export type RdSliderProps = ISliderSingleProps | ISliderRangeProps;
+//#region Custom props
+type SliderPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdSliderProps = SliderProps & SliderPropsExtend;
+export type RdSliderComponentToken = SliderComponentTokenAntd & SliderComponentTokenExtend;
+//#endregion
