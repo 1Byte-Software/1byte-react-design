@@ -1,34 +1,28 @@
 import { InputProps } from 'antd';
 import { forwardRef } from 'react';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
-import { InputPassword } from './InputPassword';
-import { InputTextArea } from './InputTextArea';
+import { InputGroup } from './InputGroup';
+import { OTP } from './OTP';
+import { Password } from './Password';
+import { Search } from './Search';
+import { TextArea } from './TextArea';
 import { InputStyled } from './styles';
-import { InputCompoundedComponent, RdInputProps } from './types';
+import { RdInputCompoundedComponent, RdInputProps } from './types';
 
 export const InputInternal = forwardRef((props: RdInputProps, ref: RdInputProps['ref']) => {
-    const {
-        label: labelFieldProps,
-
-        ...antdProps
-    } = props;
+    const { ...antdProps } = props;
 
     return (
         <ConfigProviderDesign>
-            <ConditionalWrapper
-                condition={Boolean(labelFieldProps)}
-                wrapper={LabelField}
-                wrapperProps={labelFieldProps}
-            >
-                <InputStyled ref={ref} {...(antdProps as InputProps)} />
-            </ConditionalWrapper>
+            <InputStyled ref={ref} {...(antdProps as InputProps)} />
         </ConfigProviderDesign>
     );
 });
 
-export const Input = InputInternal as InputCompoundedComponent;
+export const Input = InputInternal as RdInputCompoundedComponent;
 
-Input.Password = InputPassword;
-Input.TextArea = InputTextArea;
+Input.Password = Password;
+Input.TextArea = TextArea;
+Input.Search = Search;
+Input.Group = InputGroup;
+Input.OTP = OTP;

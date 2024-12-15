@@ -5,4 +5,10 @@ export const InputStyled = styled(Input)``;
 
 export const InputPasswordStyled = styled(Input.Password)``;
 
-export const TextareaStyled = styled(Input.TextArea)``;
+export const TextAreaStyled = styled(Input.TextArea)``;
+
+export const InputSearchStyled = styled(Input.Search)``;
+
+export const InputGroupStyled = styled(Input.Group)``;
+
+export const OTPStyled = styled(Input.OTP)``;
