@@ -1,17 +1,21 @@
-import { GetProps, InputNumber } from 'antd';
-import { RdRegistryControlField } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
-import { ComponentToken } from 'antd/es/input-number/style';
+import { InputNumber, GetProps } from 'antd';
+import { ComponentToken as InputNumberComponentTokenAntd } from 'antd/es/input-number/style';
 
-/**
- * @description Override InputNumberComponentToken of antd.
- */
-export type InputNumberComponentToken = ComponentToken & {};
-
+//#region Define props
 type InputNumberProps = GetProps<typeof InputNumber>;
+//#endregion
 
-export interface RdInputNumberProps extends InputNumberProps, RdLabelFieldWrapperProps {}
+//#region Custom component token
+type InputNumberComponentTokenExtend = {};
+//#endregion
 
-export interface RdInputNumberControlProps
-    extends Omit<RdInputNumberProps, 'name'>,
-        RdRegistryControlField {}
+//#region Custom props
+type InputNumberPropsExtend = {};
+//#endregion
+
+//#region export type
+export type RdInputNumberProps = InputNumberProps & InputNumberPropsExtend;
+
+export type RdInputNumberComponentToken = InputNumberComponentTokenAntd &
+    InputNumberComponentTokenExtend;
+//#endregion
