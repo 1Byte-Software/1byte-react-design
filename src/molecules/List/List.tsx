@@ -1,9 +1,9 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ListItem } from './ListItem';
 import { ListStyles } from './styles';
-import { ListCompoundedComponent, RdListProps } from './types';
+import { RdListProps } from './types';
 
-export const List: ListCompoundedComponent = ({ ...antdProps }: RdListProps) => {
+export const List = ({ ...antdProps }: RdListProps) => {
     return (
         <ConfigProviderDesign>
             <ListStyles {...antdProps} />

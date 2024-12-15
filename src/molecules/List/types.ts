@@ -1,26 +1,26 @@
-import { GetProps, List } from 'antd';
-import { ComponentToken } from 'antd/es/list/style';
-import { ListItemMeta } from './ListItemMeta';
+import { List, GetProps } from 'antd';
+import { ComponentToken as ListComponentTokenAntd } from 'antd/es/list/style';
 
+//#region Define props
 type ListProps = GetProps<typeof List>;
 type ListItemProps = GetProps<typeof List.Item>;
 type ListItemMetaProps = GetProps<typeof List.Item.Meta>;
+//#endregion
 
-/**
- * @description Override ListComponentToken of antd.
- */
-export type ListComponentToken = ComponentToken & {};
+//#region Custom component token
+type ListComponentTokenExtend = {};
+//#endregion
 
-export interface RdListProps extends ListProps {}
+//#region Custom props
+type ListPropsExtend = {};
+type ListItemPropsExtend = {};
+type ListItemMetaPropsExtend = {};
+//#endregion
 
-export interface RdListItemProps extends ListItemProps {}
+//#region export type
+export type RdListProps = ListProps & ListPropsExtend;
+export type RdListItemProps = ListItemProps & ListItemPropsExtend;
+export type RdListItemMetaProps = ListItemMetaProps & ListItemMetaPropsExtend;
 
-export interface RdListItemMetaProps extends ListItemMetaProps {}
-
-export type ListItemCompoundedComponent = React.FC<RdListItemProps> & {
-    Meta: typeof ListItemMeta;
-};
-
-export type ListCompoundedComponent = React.FC<RdListProps> & {
-    Item: ListItemCompoundedComponent;
-};
+export type RdListComponentToken = ListComponentTokenAntd & ListComponentTokenExtend;
+//#endregion
