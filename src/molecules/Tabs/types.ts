@@ -1,19 +1,19 @@
 import { Tabs, GetProps } from 'antd';
 import { ComponentToken as TabsComponentTokenAntd } from 'antd/es/tabs/style';
 
-//#region Define props
+//#region Define Ant Design types
 type TabsProps = GetProps<typeof Tabs>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type TabsComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type TabsPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdTabsProps = TabsProps & TabsPropsExtend;
 export type RdTabsComponentToken = TabsComponentTokenAntd & TabsComponentTokenExtend;
 //#endregion

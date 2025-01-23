@@ -1,47 +1,43 @@
 import { Button, GetProps } from 'antd';
 import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
+import { ButtonInternal } from './Button';
+import { ButtonGroupInternal } from './ButtonGroup';
 
-//#region Define props
+//#region Define Ant Design types
 type ButtonProps = GetProps<typeof Button>;
+type ButtonGroupProps = GetProps<typeof Button.Group>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type ButtonComponentTokenExtend = {};
 //#endregion
 
 /**
  * @description The color of the button extend.
  */
-export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
+export type ColorButtonExtendProp = 'second' | 'tertiary' | 'quaternary';
 
-//#region Custom props
+export type AlignButtonProp = 'left' | 'center' | 'right';
+
+//#region Define extended types
 type ButtonPropsExtend = {
-    /**
-     * @description The width of the button.
-     */
-    width?: string | number;
-
     /**
      * @description The color of the button.
      * @see ButtonProps#color
      */
-    color?: ButtonProps['color'] | colorButtonExtend;
-
-    /**
-     * @description Link in react-router-dom.
-     * @see Link
-     */
-    to?: string;
-
-    /**
-     * @description Align button.
-     */
-    align?: 'left' | 'center' | 'right';
+    color?: ButtonProps['color'] | ColorButtonExtendProp;
 };
+
+type ButtonGroupPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdButtonProps = Omit<ButtonProps, 'color'> & ButtonPropsExtend;
+export type RdButtonGroupProps = ButtonGroupProps & ButtonGroupPropsExtend;
 
 export type RdButtonComponentToken = ButtonComponentTokenAntd & ButtonComponentTokenExtend;
 //#endregion
+
+export type RdButtonCompoundedComponent = typeof ButtonInternal & {
+    Group: typeof ButtonGroupInternal;
+};

@@ -1,4 +1,4 @@
-import { RdComponentsConfig } from '../../organisms';
+import { RdComponentsConfig } from '../../utils/types';
 import { variantSelectExtend } from './types';
 
 const useExtendVariant = (variant: variantSelectExtend) => {

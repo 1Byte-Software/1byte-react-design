@@ -1,11 +1,12 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { CollapseStyles } from './styles';
-import { RdCollapseProps } from './types';
+import { RdCollapseCompoundedComponent, RdCollapseInternalComponent } from './types';
+import { CollapsePanel } from './CollapsePanel';
 
-export const Collapse = ({ ...antdProps }: RdCollapseProps) => {
-    return (
-        <ConfigProviderDesign>
-            <CollapseStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const CollapseInternal: RdCollapseInternalComponent = forwardRef((props, ref) => {
+    return <CollapseStyles ref={ref} {...props} />;
+});
+
+export const Collapse = CollapseInternal as RdCollapseCompoundedComponent;
+
+Collapse.Panel = CollapsePanel;

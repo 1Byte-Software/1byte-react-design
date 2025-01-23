@@ -1,11 +1,9 @@
 import { theme } from 'antd';
-import { IRdNotificationConfig, IRdThemeConfig } from './organisms';
+import { IRdThemeConfig } from './utils/types';
 
 export interface IConfig {
     designToken: NonNullable<IRdThemeConfig['token']>;
     componentToken: IRdThemeConfig['components'];
-
-    notification?: IRdNotificationConfig;
 }
 
 export const config: IConfig = {
@@ -16,3 +14,4 @@ export const config: IConfig = {
 export * from './atomics';
 export * from './molecules';
 export * from './organisms';
+export * from './utils';

@@ -1,20 +1,38 @@
 import { Collapse, GetProps } from 'antd';
 import { ComponentToken as CollapseComponentTokenAntd } from 'antd/es/collapse/style';
+import { CollapsePanel } from './CollapsePanel';
 
-//#region Define props
-type CollapseProps = GetProps<typeof Collapse>;
+//#region Define Ant Design types
+type CollapsePropsAntd = GetProps<typeof Collapse>;
+type CollapsePanelPropsAntd = GetProps<typeof Collapse.Panel>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type CollapseComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type CollapsePropsExtend = {};
+type CollapsePanelPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdCollapseProps = CollapseProps & CollapsePropsExtend;
+//#region Export types
+export type RdCollapseProps = CollapsePropsAntd & CollapsePropsExtend;
+export type RdCollapsePanelProps = CollapsePanelPropsAntd & CollapsePanelPropsExtend;
 
 export type RdCollapseComponentToken = CollapseComponentTokenAntd & CollapseComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdCollapseInternalComponent = React.ForwardRefExoticComponent<
+    RdCollapseProps & React.RefAttributes<HTMLDivElement>
+>;
+
+export type RdCollapsePanelComponent = React.ForwardRefExoticComponent<
+    RdCollapsePanelProps & React.RefAttributes<HTMLDivElement>
+>;
+
+export type RdCollapseCompoundedComponent = typeof Collapse & {
+    Panel: typeof CollapsePanel;
+};
 //#endregion

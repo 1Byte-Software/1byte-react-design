@@ -1,21 +1,21 @@
 import { DatePicker, GetProps } from 'antd';
 import { ComponentToken as DatePickerComponentTokenAntd } from 'antd/es/date-picker/style';
 
-//#region Define props
-type DatePickerProps = GetProps<typeof DatePicker>;
-type WeekPickerProps = GetProps<typeof DatePicker.WeekPicker>;
-type MonthPickerProps = GetProps<typeof DatePicker.MonthPicker>;
-type YearPickerProps = GetProps<typeof DatePicker.YearPicker>;
-type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
-type TimePickerProps = GetProps<typeof DatePicker.TimePicker>;
-type QuarterPickerProps = GetProps<typeof DatePicker.QuarterPicker>;
+//#region Define Ant Design types
+type DatePickerPropsAntd = GetProps<typeof DatePicker>;
+type WeekPickerPropsAntd = GetProps<typeof DatePicker.WeekPicker>;
+type MonthPickerPropsAntd = GetProps<typeof DatePicker.MonthPicker>;
+type YearPickerPropsAntd = GetProps<typeof DatePicker.YearPicker>;
+type RangePickerPropsAntd = GetProps<typeof DatePicker.RangePicker>;
+type TimePickerPropsAntd = GetProps<typeof DatePicker.TimePicker>;
+type QuarterPickerPropsAntd = GetProps<typeof DatePicker.QuarterPicker>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type DatePickerComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type DatePickerPropsExtend = {};
 type WeekPickerPropsExtend = {};
 type MonthPickerPropsExtend = {};
@@ -25,14 +25,14 @@ type TimePickerPropsExtend = {};
 type QuarterPickerPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdDatePickerProps = DatePickerProps & DatePickerPropsExtend;
-export type RdWeekPickerProps = WeekPickerProps & WeekPickerPropsExtend;
-export type RdMonthPickerProps = MonthPickerProps & MonthPickerPropsExtend;
-export type RdYearPickerProps = YearPickerProps & YearPickerPropsExtend;
-export type RdRangePickerProps = RangePickerProps & RangePickerPropsExtend;
-export type RdTimePickerProps = TimePickerProps & TimePickerPropsExtend;
-export type RdQuarterPickerProps = QuarterPickerProps & QuarterPickerPropsExtend;
+//#region Export types
+export type RdDatePickerProps = DatePickerPropsAntd & DatePickerPropsExtend;
+export type RdWeekPickerProps = WeekPickerPropsAntd & WeekPickerPropsExtend;
+export type RdMonthPickerProps = MonthPickerPropsAntd & MonthPickerPropsExtend;
+export type RdYearPickerProps = YearPickerPropsAntd & YearPickerPropsExtend;
+export type RdRangePickerProps = RangePickerPropsAntd & RangePickerPropsExtend;
+export type RdTimePickerProps = TimePickerPropsAntd & TimePickerPropsExtend;
+export type RdQuarterPickerProps = QuarterPickerPropsAntd & QuarterPickerPropsExtend;
 
 export type RdDatePickerComponentToken = DatePickerComponentTokenAntd &
     DatePickerComponentTokenExtend;

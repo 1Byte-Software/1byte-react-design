@@ -1,19 +1,19 @@
 import { Drawer, GetProps } from 'antd';
 import { ComponentToken as DrawerComponentTokenAntd } from 'antd/es/drawer/style';
 
-//#region Define props
-type DrawerProps = GetProps<typeof Drawer>;
+//#region Define Ant Design types
+type DrawerPropsAntd = GetProps<typeof Drawer>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type DrawerComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type DrawerPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdDrawerProps = DrawerProps & DrawerPropsExtend;
+//#region Export types
+export type RdDrawerProps = DrawerPropsAntd & DrawerPropsExtend;
 export type RdDrawerComponentToken = DrawerComponentTokenAntd & DrawerComponentTokenExtend;
 //#endregion

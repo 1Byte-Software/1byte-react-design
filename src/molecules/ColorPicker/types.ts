@@ -1,21 +1,25 @@
 import { ColorPicker, GetProps } from 'antd';
 import { ComponentToken as ColorPickerComponentTokenAntd } from 'antd/es/color-picker/style';
 
-//#region Define props
-type ColorPickerProps = GetProps<typeof ColorPicker>;
+//#region Define Ant Design types
+type ColorPickerPropsAntd = GetProps<typeof ColorPicker>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type ColorPickerComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type ColorPickerPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdColorPickerProps = ColorPickerProps & ColorPickerPropsExtend;
+//#region Export types
+export type RdColorPickerProps = ColorPickerPropsAntd & ColorPickerPropsExtend;
 
 export type RdColorPickerComponentToken = ColorPickerComponentTokenAntd &
     ColorPickerComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+
 //#endregion

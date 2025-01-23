@@ -1,6 +1,6 @@
-import { config, IConfig } from '..';
+import { config } from '..';
 import { RdComponentTokenMap } from '../molecules/types';
-import { ComponentsConfig, IRdAliasToken, RdComponentsConfig } from '../organisms';
+import { IRdAliasToken, RdComponentsConfig } from './types';
 
 /**
  * Get the token value for a given component and alias name.

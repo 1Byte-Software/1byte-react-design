@@ -1,23 +1,23 @@
 import { List, GetProps } from 'antd';
 import { ComponentToken as ListComponentTokenAntd } from 'antd/es/list/style';
 
-//#region Define props
+//#region Define Ant Design types
 type ListProps = GetProps<typeof List>;
 type ListItemProps = GetProps<typeof List.Item>;
 type ListItemMetaProps = GetProps<typeof List.Item.Meta>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type ListComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type ListPropsExtend = {};
 type ListItemPropsExtend = {};
 type ListItemMetaPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdListProps = ListProps & ListPropsExtend;
 export type RdListItemProps = ListItemProps & ListItemPropsExtend;
 export type RdListItemMetaProps = ListItemMetaProps & ListItemMetaPropsExtend;

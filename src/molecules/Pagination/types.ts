@@ -1,19 +1,19 @@
 import { Pagination, GetProps } from 'antd';
 import { ComponentToken as PaginationComponentTokenAntd } from 'antd/es/pagination/style';
 
-//#region Define props
+//#region Define Ant Design types
 type PaginationProps = GetProps<typeof Pagination>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type PaginationComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type PaginationPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdPaginationProps = PaginationProps & PaginationPropsExtend;
 export type RdPaginationComponentToken = PaginationComponentTokenAntd &
     PaginationComponentTokenExtend;

@@ -1,16 +1,8 @@
-import { forwardRef } from 'react';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { CheckboxGroupStyles } from './styles';
+import { Checkbox as CheckboxAntd } from 'antd';
 import { RdCheckboxGroupProps } from './types';
 
-export const CheckboxGroup = forwardRef(
-    (props: RdCheckboxGroupProps, ref: RdCheckboxGroupProps['ref']) => {
-        const { ...antdProps } = props;
+export const CheckboxGroup = <T,>(props: RdCheckboxGroupProps<T>) => {
+    const { ref, ...antdProps } = props;
 
-        return (
-            <ConfigProviderDesign>
-                <CheckboxGroupStyles ref={ref} {...antdProps} />
-            </ConfigProviderDesign>
-        );
-    }
-);
+    return <CheckboxAntd.Group<T> ref={ref} {...antdProps} />;
+};

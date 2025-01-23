@@ -1,23 +1,23 @@
 import { Radio, GetProps } from 'antd';
 import { ComponentToken as RadioComponentTokenAntd } from 'antd/es/radio/style';
 
-//#region Define props
+//#region Define Ant Design types
 type RadioProps = GetProps<typeof Radio>;
 type RadioButtonProps = GetProps<typeof Radio.Button>;
 type RadioGroupProps = GetProps<typeof Radio.Group>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type RadioComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type RadioPropsExtend = {};
 type RadioButtonPropsExtend = {};
 type RadioGroupPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdRadioProps = RadioProps & RadioPropsExtend;
 export type RdRadioButtonProps = RadioButtonProps & RadioButtonPropsExtend;
 export type RdRadioGroupProps = RadioGroupProps & RadioGroupPropsExtend;

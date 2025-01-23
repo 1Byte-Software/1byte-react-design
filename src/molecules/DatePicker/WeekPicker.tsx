@@ -2,10 +2,10 @@ import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { WeekPickerStyles } from './styles';
 import { RdWeekPickerProps } from './types';
 
-export const WeekPicker = ({ ...antdProps }: RdWeekPickerProps) => {
+export const WeekPicker = (props: RdWeekPickerProps) => {
     return (
         <ConfigProviderDesign>
-            <WeekPickerStyles {...antdProps} />
+            <WeekPickerStyles {...props} />
         </ConfigProviderDesign>
     );
 };

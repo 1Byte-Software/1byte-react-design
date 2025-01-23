@@ -1,23 +1,38 @@
-import { Checkbox, GetProps } from 'antd';
+import { Checkbox, CheckboxRef, GetProps } from 'antd';
 import { ComponentToken } from 'antd/es/checkbox/style';
+import { CheckboxInternal } from './Checkbox';
+import { CheckboxGroup } from './CheckboxGroup';
 
-//#region Define props
-type CheckboxProps = GetProps<typeof Checkbox>;
-type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
+//#region Define Ant Design types
+type CheckboxPropsAntd = GetProps<typeof Checkbox>;
+type CheckboxGroupPropsAntd<T> = GetProps<typeof Checkbox.Group<T>>;
+type CheckboxRefAntd = CheckboxRef;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type CheckboxComponentTokenExtend = {};
-type CheckboxGroupComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
-type CheckboxPropsExtend = {};
+//#region Define extended types
+export type CheckboxPropsExtend = {};
+export type CheckboxGroupPropsExtend = {};
+export type RdCheckboxRefExtend = {};
 //#endregion
 
-//#region export type
-export type RdCheckboxProps = CheckboxProps & CheckboxPropsExtend;
-export type RdCheckboxGroupProps = CheckboxGroupProps & CheckboxGroupComponentTokenExtend;
+//#region Export types
+export type RdCheckboxProps = CheckboxPropsAntd & CheckboxPropsExtend;
+export type RdCheckboxGroupProps<T> = CheckboxGroupPropsAntd<T> & CheckboxGroupPropsExtend;
+export type RdCheckboxRef = CheckboxRefAntd & RdCheckboxRefExtend;
 
 export type CheckboxComponentToken = ComponentToken & CheckboxComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdCheckboxInternalComponent = React.ForwardRefExoticComponent<
+    RdCheckboxProps & React.RefAttributes<RdCheckboxRef>
+>;
+
+export type RdCheckboxCompoundedComponent = typeof CheckboxInternal & {
+    Group: typeof CheckboxGroup;
+};
 //#endregion

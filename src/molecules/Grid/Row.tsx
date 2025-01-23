@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { RowStyles } from './styles';
-import { RdRowProps } from './types';
+import { RdRowComponent } from './types';
 
-export const Row = ({ ...antdProps }: RdRowProps) => {
-    return (
-        <ConfigProviderDesign>
-            <RowStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const Row: RdRowComponent = forwardRef((props, ref) => {
+    return <RowStyles ref={ref} {...props} />;
+});

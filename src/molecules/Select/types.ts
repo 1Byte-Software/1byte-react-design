@@ -1,15 +1,19 @@
 import { Select, GetProps } from 'antd';
+import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
 import { ComponentToken as SelectComponentTokenAntd } from 'antd/es/select/style';
 
-//#region Define props
-type SelectProps = GetProps<typeof Select>;
+//#region Define Ant Design types
+type SelectProps<
+    ValueType = any,
+    OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType
+> = GetProps<typeof Select<ValueType, OptionType>>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type SelectComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 
 /**
  * @description The variant of the select extend.
@@ -41,8 +45,11 @@ type SelectPropsExtend = {
 };
 //#endregion
 
-//#region export type
-export type RdSelectProps = Omit<SelectProps, 'variant'> & SelectPropsExtend;
+//#region Export types
+export type RdSelectProps<
+    ValueType = any,
+    OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType
+> = Omit<SelectProps<ValueType, OptionType>, 'variant'> & SelectPropsExtend;
 
 export type RdSelectComponentToken = SelectComponentTokenAntd & SelectComponentTokenExtend;
 //#endregion

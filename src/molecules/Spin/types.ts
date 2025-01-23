@@ -1,19 +1,19 @@
 import { Spin, GetProps } from 'antd';
 import { ComponentToken as SpinComponentTokenAntd } from 'antd/es/spin/style';
 
-//#region Define props
+//#region Define Ant Design types
 type SpinProps = GetProps<typeof Spin>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type SpinComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type SpinPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdSpinProps = SpinProps & SpinPropsExtend;
 export type RdSpinComponentToken = SpinComponentTokenAntd & SpinComponentTokenExtend;
 //#endregion

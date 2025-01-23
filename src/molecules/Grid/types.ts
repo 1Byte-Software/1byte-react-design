@@ -1,23 +1,30 @@
 import { Col, GetProps, Row } from 'antd';
 import { ComponentToken as GridComponentTokenAntd } from 'antd/es/grid/style';
 
-//#region Define props
-type ColProps = GetProps<typeof Col>;
-type RowProps = GetProps<typeof Row>;
+//#region Define Ant Design types
+type ColPropsAntd = GetProps<typeof Col>;
+type RowPropsAntd = GetProps<typeof Row>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type GridComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type ColPropsExtend = {};
 type RowPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdColProps = ColProps & ColPropsExtend;
-export type RdRowProps = RowProps & RowPropsExtend;
+//#region Export types
+export type RdColProps = ColPropsAntd & ColPropsExtend;
+export type RdRowProps = RowPropsAntd & RowPropsExtend;
 
 export type RdGridComponentToken = GridComponentTokenAntd & GridComponentTokenExtend;
+
+export type RdColComponent = React.ForwardRefExoticComponent<
+    RdColProps & React.RefAttributes<HTMLDivElement>
+>;
+export type RdRowComponent = React.ForwardRefExoticComponent<
+    RdRowProps & React.RefAttributes<HTMLDivElement>
+>;
 //#endregion

@@ -85,3 +85,5 @@ export const rdTheme = {
         return result;
     },
 };
+
+export const rdTheme2 = theme;

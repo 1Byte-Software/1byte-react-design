@@ -1,30 +1,45 @@
-import { FloatButton, GetProps } from 'antd';
-import { ComponentToken as FloatButtonComponentTokenAntd } from 'antd/es/float-button/style';
+import { FloatButton, FloatButtonRef, GetProps } from 'antd';
 import { ComponentToken as BackTopComponentTokenAntd } from 'antd/es/back-top/style';
+import { ComponentToken as FloatButtonComponentTokenAntd } from 'antd/es/float-button/style';
+import { FloatButtonInternal } from './FloatButton';
+import { FloatButtonGroup } from './FloatButtonGroup';
+import { BackTop } from './BackTop';
 
-//#region Define props
-type FloatButtonProps = GetProps<typeof FloatButton>;
-type BackTopProps = GetProps<typeof FloatButton.BackTop>;
-type FloatButtonGroupProps = GetProps<typeof FloatButton.Group>;
+//#region Define Ant Design types
+type FloatButtonPropsAntd = GetProps<typeof FloatButton>;
+type BackTopPropsAntd = GetProps<typeof FloatButton.BackTop>;
+type FloatButtonGroupPropsAntd = GetProps<typeof FloatButton.Group>;
+
+type FloatButtonRefAntd = FloatButtonRef;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type FloatButtonComponentTokenExtend = {};
 type BackTopComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type FloatButtonPropsExtend = {};
 type FloatButtonGroupPropsExtend = {};
 type BackTopPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdFloatButtonProps = FloatButtonProps & FloatButtonPropsExtend;
-export type RdFloatButtonGroupProps = FloatButtonGroupProps & FloatButtonGroupPropsExtend;
-export type RdBackTopProps = BackTopProps & BackTopPropsExtend;
+//#region Export types
+export type RdFloatButtonProps = FloatButtonPropsAntd & FloatButtonPropsExtend;
+export type RdFloatButtonGroupProps = FloatButtonGroupPropsAntd & FloatButtonGroupPropsExtend;
+export type RdBackTopProps = BackTopPropsAntd & BackTopPropsExtend;
 
 export type RdFloatButtonComponentToken = FloatButtonComponentTokenAntd &
     FloatButtonComponentTokenExtend;
 export type RdBackTopComponentToken = BackTopComponentTokenAntd & BackTopComponentTokenExtend;
+
+//#region Define component types
+export type RdBackTopComponent = React.ForwardRefExoticComponent<
+    RdBackTopProps & React.RefAttributes<FloatButtonRefAntd>
+>;
+
+export type RdFloatButtonCompoundedComponent = typeof FloatButtonInternal & {
+    Group: typeof FloatButtonGroup;
+    BackTop: typeof BackTop;
+};
 //#endregion

@@ -7,7 +7,7 @@ import { OTP } from './OTP';
 import { Password } from './Password';
 import { TextArea } from './TextArea';
 
-//#region Define props
+//#region Define Ant Design types
 type InputProps = GetProps<typeof Input>;
 type SearchProps = GetProps<typeof Input.Search>;
 type InputGroupProps = GetProps<typeof Input.Group>;
@@ -16,11 +16,11 @@ type PasswordProps = GetProps<typeof Input.Password>;
 type TextAreaProps = GetProps<typeof Input.TextArea>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type InputComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type InputPropsExtend = {};
 type SearchPropsExtend = {};
 type InputGroupPropsExtend = {};
@@ -29,7 +29,7 @@ type PasswordPropsExtend = {};
 type TextAreaPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdInputProps = InputProps & InputPropsExtend;
 export type RdSearchProps = SearchProps & SearchPropsExtend;
 export type RdInputGroupProps = InputGroupProps & InputGroupPropsExtend;

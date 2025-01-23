@@ -1,19 +1,19 @@
 import { Popover, GetProps } from 'antd';
 import { ComponentToken as PopoverComponentTokenAntd } from 'antd/es/popover/style';
 
-//#region Define props
+//#region Define Ant Design types
 type PopoverProps = GetProps<typeof Popover>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type PopoverComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type PopoverPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdPopoverProps = PopoverProps & PopoverPropsExtend;
 export type RdPopoverComponentToken = PopoverComponentTokenAntd & PopoverComponentTokenExtend;
 //#endregion

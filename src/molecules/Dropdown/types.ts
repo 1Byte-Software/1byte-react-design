@@ -1,23 +1,23 @@
 import { Dropdown, GetProps } from 'antd';
 import { ComponentToken as DropdownComponentTokenAntd } from 'antd/es/dropdown/style';
 
-//#region Define props
-type DropdownProps = GetProps<typeof Dropdown>;
-type DropdownButtonProps = GetProps<typeof Dropdown.Button>;
+//#region Define Ant Design types
+type DropdownPropsAntd = GetProps<typeof Dropdown>;
+type DropdownButtonPropsAntd = GetProps<typeof Dropdown.Button>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type DropdownComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type DropdownPropsExtend = {};
 type DropdownButtonPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdDropdownProps = DropdownProps & DropdownPropsExtend;
-export type RdDropdownButtonProps = DropdownButtonProps & DropdownButtonPropsExtend;
+//#region Export types
+export type RdDropdownProps = DropdownPropsAntd & DropdownPropsExtend;
+export type RdDropdownButtonProps = DropdownButtonPropsAntd & DropdownButtonPropsExtend;
 
 export type RdDropdownComponentToken = DropdownComponentTokenAntd & DropdownComponentTokenExtend;
 //#endregion

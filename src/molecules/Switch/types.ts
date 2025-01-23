@@ -1,15 +1,15 @@
 import { Switch, GetProps } from 'antd';
 import { ComponentToken as SwitchComponentTokenAntd } from 'antd/es/switch/style';
 
-//#region Define props
+//#region Define Ant Design types
 type SwitchProps = GetProps<typeof Switch>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type SwitchComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type SwitchPropsExtend = {
     /**
      * The value type you want to get from the switch. Default is 'boolean'.
@@ -18,7 +18,7 @@ type SwitchPropsExtend = {
 };
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdSwitchProps = SwitchProps & SwitchPropsExtend;
 export type RdSwitchComponentToken = SwitchComponentTokenAntd & SwitchComponentTokenExtend;
 //#endregion

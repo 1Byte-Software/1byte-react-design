@@ -1,19 +1,19 @@
 import { Flex, GetProps } from 'antd';
 import { ComponentToken as FlexComponentTokenAntd } from 'antd/es/flex/style';
 
-//#region Define props
+//#region Define Ant Design types
 type FlexProps = GetProps<typeof Flex>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type FlexComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type FlexPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdFlexProps = FlexProps & FlexPropsExtend;
 
 export type RdFlexComponentToken = FlexComponentTokenAntd & FlexComponentTokenExtend;

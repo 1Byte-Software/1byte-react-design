@@ -1,19 +1,19 @@
 import { Menu, GetProps } from 'antd';
 import { ComponentToken as MenuComponentTokenAntd } from 'antd/es/menu/style';
 
-//#region Define props
+//#region Define Ant Design types
 type MenuProps = GetProps<typeof Menu>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type MenuComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type MenuPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdMenuProps = MenuProps & MenuPropsExtend;
 export type RdMenuComponentToken = MenuComponentTokenAntd & MenuComponentTokenExtend;
 //#endregion

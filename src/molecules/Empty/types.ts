@@ -1,19 +1,20 @@
 import { Empty, GetProps } from 'antd';
 import { ComponentToken as EmptyComponentTokenAntd } from 'antd/es/empty/style';
 
-//#region Define props
-type EmptyProps = GetProps<typeof Empty>;
+//#region Define Ant Design types
+type EmptyPropsAntd = GetProps<typeof Empty>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type EmptyComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type EmptyPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdEmptyProps = EmptyProps & EmptyPropsExtend;
+//#region Export types
+export type RdEmptyProps = EmptyPropsAntd & EmptyPropsExtend;
+
 export type RdEmptyComponentToken = EmptyComponentTokenAntd & EmptyComponentTokenExtend;
 //#endregion

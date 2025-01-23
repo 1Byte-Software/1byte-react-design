@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { config } from '../..';
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { RdComponentsConfig } from '../../organisms';
+import { RdComponentsConfig } from '../../utils/types';
 import { SelectStyled } from './styles';
 import { RdSelectProps, variantSelectExtend } from './types';
 import useExtendVariant from './useExtendVariant';

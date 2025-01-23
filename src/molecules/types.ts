@@ -1,4 +1,5 @@
 import { RdFlexComponentToken, RdTypographyComponentToken } from '../atomics';
+import { RdAppComponentToken } from '../organisms';
 import { RdAffixComponentToken } from './Affix';
 import { RdAnchorComponentToken } from './Anchor';
 import { RdAvatarComponentToken } from './Avatar';
@@ -22,7 +23,9 @@ import { RdInputNumberComponentToken } from './InputNumber';
 import { RdLayoutComponentToken } from './Layout';
 import { RdListComponentToken } from './List';
 import { RdMenuComponentToken } from './Menu';
+import { RdMessageComponentToken } from './Message';
 import { RdModalComponentToken } from './Modal';
+import { RdNotificationComponentToken } from './Notification';
 import { RdPaginationComponentToken } from './Pagination';
 import { RdPopoverComponentToken } from './Popover';
 import { RdRadioComponentToken } from './Radio';
@@ -69,7 +72,7 @@ export interface RdComponentTokenMap {
     Layout?: RdLayoutComponentToken;
     List?: RdListComponentToken;
     // Mentions?: MentionsComponentToken;
-    // Notification?: NotificationComponentToken;
+    Notification?: RdNotificationComponentToken;
     Pagination?: RdPaginationComponentToken;
     Popover?: RdPopoverComponentToken;
     // Popconfirm?: PopconfirmComponentToken;
@@ -95,7 +98,7 @@ export interface RdComponentTokenMap {
     // Steps?: StepsComponentToken;
     Menu?: RdMenuComponentToken;
     Modal?: RdModalComponentToken;
-    // Message?: MessageComponentToken;
+    Message?: RdMessageComponentToken;
     Upload?: RdUploadComponentToken;
     Tooltip?: RdTooltipComponentToken;
     Table?: RdTableComponentToken;
@@ -103,7 +106,7 @@ export interface RdComponentTokenMap {
     // Progress?: ProgressComponentToken;
     // Tour?: TourComponentToken;
     // QRCode?: QRCodeComponentToken;
-    // App?: AppComponentToken;
+    App?: RdAppComponentToken;
     /** @private Internal TS definition. Do not use. */
     // Wave?: WaveToken;
 }

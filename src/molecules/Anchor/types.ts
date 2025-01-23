@@ -1,19 +1,19 @@
 import { Anchor, GetProps } from 'antd';
 import { ComponentToken as AnchorComponentTokenAntd } from 'antd/es/anchor/style';
 
-//#region Define props
+//#region Define Ant Design types
 type AnchorProps = GetProps<typeof Anchor>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type AnchorComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type AnchorPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdAnchorProps = AnchorProps & AnchorPropsExtend;
 
 export type RdAnchorComponentToken = AnchorComponentTokenAntd & AnchorComponentTokenExtend;

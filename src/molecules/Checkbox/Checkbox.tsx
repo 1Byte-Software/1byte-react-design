@@ -1,16 +1,13 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { CheckboxGroup } from './CheckboxGroup';
 import { CheckboxStyles } from './styles';
-import { RdCheckboxProps } from './types';
+import { RdCheckboxCompoundedComponent, RdCheckboxInternalComponent } from './types';
 
-export const Checkbox = (props: RdCheckboxProps) => {
+export const CheckboxInternal: RdCheckboxInternalComponent = forwardRef((props, ref) => {
     const { ...antdProps } = props;
 
-    return (
-        <ConfigProviderDesign>
-            <CheckboxStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+    return <CheckboxStyles ref={ref} {...antdProps} />;
+});
 
+export const Checkbox = CheckboxInternal as RdCheckboxCompoundedComponent;
 Checkbox.Group = CheckboxGroup;

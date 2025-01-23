@@ -1,16 +1,16 @@
 import { Space, GetProps } from 'antd';
 import { ComponentToken as SpaceComponentTokenAntd } from 'antd/es/space/style';
 
-//#region Define props
+//#region Define Ant Design types
 type SpaceProps = GetProps<typeof Space>;
 type CompactProps = GetProps<typeof Space.Compact>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type SpaceComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type SpacePropsExtend = {
     /**
      * @description Option to fit Space width to its parent width, default is false
@@ -21,7 +21,7 @@ type SpacePropsExtend = {
 type CompactPropsExtend = {};
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdSpaceProps = SpaceProps & SpacePropsExtend;
 export type RdCompactProps = CompactProps & CompactPropsExtend;
 

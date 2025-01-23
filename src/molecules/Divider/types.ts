@@ -1,19 +1,19 @@
 import { Divider, GetProps } from 'antd';
 import { ComponentToken as DividerComponentTokenAntd } from 'antd/es/divider/style';
 
-//#region Define props
-type DividerProps = GetProps<typeof Divider>;
+//#region Define Ant Design types
+type DividerPropsAntd = GetProps<typeof Divider>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type DividerComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type DividerPropsExtend = {};
 //#endregion
 
-//#region export type
-export type RdDividerProps = DividerProps & DividerPropsExtend;
+//#region Export types
+export type RdDividerProps = DividerPropsAntd & DividerPropsExtend;
 export type RdDividerComponentToken = DividerComponentTokenAntd & DividerComponentTokenExtend;
 //#endregion

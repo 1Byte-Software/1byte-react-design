@@ -1,15 +1,15 @@
 import { Card, GetProps } from 'antd';
 import { ComponentToken as CardComponentTokenAntd } from 'antd/es/card/style';
 
-//#region Define props
+//#region Define Ant Design types
 type CardProps = GetProps<typeof Card>;
 //#endregion
 
-//#region Custom component token
+//#region Define extended component tokens
 type CardComponentTokenExtend = {};
 //#endregion
 
-//#region Custom props
+//#region Define extended types
 type CardPropsExtend = {
     /**
      * @description
@@ -24,7 +24,7 @@ type CardPropsExtend = {
 };
 //#endregion
 
-//#region export type
+//#region Export types
 export type RdCardProps = CardProps & CardPropsExtend;
 
 export type RdCardComponentToken = CardComponentTokenAntd & CardComponentTokenExtend;
