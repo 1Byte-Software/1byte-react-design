@@ -18,3 +18,8 @@ export type RdPaginationProps = PaginationProps & PaginationPropsExtend;
 export type RdPaginationComponentToken = PaginationComponentTokenAntd &
     PaginationComponentTokenExtend;
 //#endregion
+
+//#region Define component types
+export type RdPaginationComponent = React.FC<PaginationProps>;
+
+//#endregion

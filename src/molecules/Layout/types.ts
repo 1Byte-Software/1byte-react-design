@@ -1,4 +1,4 @@
-import { Layout, GetProps } from 'antd';
+import { GetProps, Layout } from 'antd';
 import { ComponentToken as LayoutComponentTokenAntd } from 'antd/es/layout/style';
 
 //#region Define Ant Design types
@@ -29,4 +29,30 @@ export type RdHeaderProps = HeaderProps & HeaderPropsExtend;
 export type RdSiderProps = SiderProps & SiderPropsExtend;
 
 export type RdLayoutComponentToken = LayoutComponentTokenAntd & LayoutComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdLayoutComponent = React.ForwardRefExoticComponent<
+    RdLayoutProps & React.RefAttributes<HTMLElement>
+>;
+
+export type RdLayoutHeaderComponent = React.ForwardRefExoticComponent<
+    RdHeaderProps & React.RefAttributes<HTMLElement>
+>;
+export type RdLayoutFooterComponent = React.ForwardRefExoticComponent<
+    RdFooterProps & React.RefAttributes<HTMLElement>
+>;
+export type RdLayoutContentComponent = React.ForwardRefExoticComponent<
+    RdContentProps & React.RefAttributes<HTMLElement>
+>;
+export type RdLayoutSiderComponent = React.ForwardRefExoticComponent<
+    RdSiderProps & React.RefAttributes<HTMLDivElement>
+>;
+
+export type RdLayoutCompoundedComponent = RdLayoutComponent & {
+    Header: RdLayoutComponent;
+    Footer: RdLayoutFooterComponent;
+    Content: RdLayoutContentComponent;
+    Sider: RdLayoutSiderComponent;
+};
 //#endregion

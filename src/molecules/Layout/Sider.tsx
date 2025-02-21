@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { SiderStyles } from './styles';
-import { RdSiderProps } from './types';
+import { RdLayoutSiderComponent } from './types';
 
-export const Sider = ({ ...antdProps }: RdSiderProps) => {
-    return (
-        <ConfigProviderDesign>
-            <SiderStyles className="rd-sider" {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const LayoutSider: RdLayoutSiderComponent = forwardRef((props, ref) => {
+    return <SiderStyles ref={ref} {...props} />;
+});

@@ -3,13 +3,15 @@ import { QuarterPicker } from './QuarterPicker';
 import { RangePicker } from './RangePicker';
 import { DatePickerStyles } from './styles';
 import { TimePicker } from './TimePicker';
-import { RdDatePickerProps } from './types';
+import { RdDatePickerComponent, RdDatePickerCompoundedComponent } from './types';
 import { WeekPicker } from './WeekPicker';
 import { YearPicker } from './YearPicker';
 
-export const DatePicker = ({ ...props }: RdDatePickerProps) => {
+export const DatePickerInternal: RdDatePickerComponent = props => {
     return <DatePickerStyles {...props} />;
 };
+
+export const DatePicker = DatePickerInternal as RdDatePickerCompoundedComponent;
 
 DatePicker.WeekPicker = WeekPicker;
 DatePicker.MonthPicker = MonthPicker;

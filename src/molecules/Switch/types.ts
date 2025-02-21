@@ -1,8 +1,8 @@
-import { Switch, GetProps } from 'antd';
+import { GetProps, Switch } from 'antd';
 import { ComponentToken as SwitchComponentTokenAntd } from 'antd/es/switch/style';
 
 //#region Define Ant Design types
-type SwitchProps = GetProps<typeof Switch>;
+type SwitchPropsAntd = GetProps<typeof Switch>;
 //#endregion
 
 //#region Define extended component tokens
@@ -19,6 +19,14 @@ type SwitchPropsExtend = {
 //#endregion
 
 //#region Export types
-export type RdSwitchProps = SwitchProps & SwitchPropsExtend;
+export type RdSwitchProps = SwitchPropsAntd & SwitchPropsExtend;
 export type RdSwitchComponentToken = SwitchComponentTokenAntd & SwitchComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdSwitchComponent = React.ForwardRefExoticComponent<
+    RdSwitchProps & React.RefAttributes<HTMLButtonElement>
+>;
+
+export type RdSwitchCompoundedComponent = RdSwitchComponent & {};
 //#endregion

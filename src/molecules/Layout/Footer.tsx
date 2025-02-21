@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { FooterStyles } from './styles';
-import { RdFooterProps } from './types';
+import { RdLayoutFooterComponent } from './types';
 
-export const Footer = ({ ...antdProps }: RdFooterProps) => {
-    return (
-        <ConfigProviderDesign>
-            <FooterStyles className='rd-footer' {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const LayoutFooter: RdLayoutFooterComponent = forwardRef((props, ref) => {
+    return <FooterStyles ref={ref} {...props} />;
+});

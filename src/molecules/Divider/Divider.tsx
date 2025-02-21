@@ -1,6 +1,6 @@
 import { DividerStyles } from './styles';
-import { RdDividerProps } from './types';
+import { RdDividerComponent } from './types';
 
-export const Divider = (props: RdDividerProps) => {
+export const Divider: RdDividerComponent = props => {
     return <DividerStyles {...props} />;
 };

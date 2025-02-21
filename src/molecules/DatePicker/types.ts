@@ -37,3 +37,22 @@ export type RdQuarterPickerProps = QuarterPickerPropsAntd & QuarterPickerPropsEx
 export type RdDatePickerComponentToken = DatePickerComponentTokenAntd &
     DatePickerComponentTokenExtend;
 //#endregion
+
+//#region Define component types
+export type RdDatePickerComponent = React.FC<RdDatePickerProps>;
+export type RdWeekPickerComponent = React.FC<RdWeekPickerProps>;
+export type RdMonthPickerComponent = React.FC<RdMonthPickerProps>;
+export type RdYearPickerComponent = React.FC<RdYearPickerProps>;
+export type RdRangePickerComponent = React.FC<RdRangePickerProps>;
+export type RdTimePickerComponent = React.FC<RdTimePickerProps>;
+export type RdQuarterPickerComponent = React.FC<RdQuarterPickerProps>;
+
+export type RdDatePickerCompoundedComponent = RdDatePickerComponent & {
+    WeekPicker: RdWeekPickerComponent;
+    MonthPicker: RdMonthPickerComponent;
+    YearPicker: RdYearPickerComponent;
+    RangePicker: RdRangePickerComponent;
+    TimePicker: RdTimePickerComponent;
+    QuarterPicker: RdQuarterPickerComponent;
+};
+//#endregion

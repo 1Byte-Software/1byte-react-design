@@ -6,6 +6,7 @@ import { CheckboxGroup } from './CheckboxGroup';
 //#region Define Ant Design types
 type CheckboxPropsAntd = GetProps<typeof Checkbox>;
 type CheckboxGroupPropsAntd<T> = GetProps<typeof Checkbox.Group<T>>;
+
 type CheckboxRefAntd = CheckboxRef;
 //#endregion
 
@@ -28,9 +29,11 @@ export type CheckboxComponentToken = ComponentToken & CheckboxComponentTokenExte
 //#endregion
 
 //#region Define component types
-export type RdCheckboxInternalComponent = React.ForwardRefExoticComponent<
+export type RdInternalCheckboxComponent = React.ForwardRefExoticComponent<
     RdCheckboxProps & React.RefAttributes<RdCheckboxRef>
 >;
+
+export type RdCheckboxGroupComponent<T> = React.FC<RdCheckboxGroupProps<T>>;
 
 export type RdCheckboxCompoundedComponent = typeof CheckboxInternal & {
     Group: typeof CheckboxGroup;

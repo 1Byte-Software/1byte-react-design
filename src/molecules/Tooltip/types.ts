@@ -2,7 +2,7 @@ import { Tooltip, GetProps } from 'antd';
 import { ComponentToken as TooltipComponentTokenAntd } from 'antd/es/tooltip/style';
 
 //#region Define Ant Design types
-type TooltipProps = GetProps<typeof Tooltip>;
+type TooltipPropsAntd = GetProps<typeof Tooltip>;
 //#endregion
 
 //#region Define extended component tokens
@@ -14,6 +14,10 @@ type TooltipPropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdTooltipProps = TooltipProps & TooltipPropsExtend;
+export type RdTooltipProps = TooltipPropsAntd & TooltipPropsExtend;
 export type RdTooltipComponentToken = TooltipComponentTokenAntd & TooltipComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdTooltipComponent = React.ForwardRefExoticComponent<RdTooltipProps>;
 //#endregion

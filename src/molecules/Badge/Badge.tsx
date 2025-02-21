@@ -1,6 +1,11 @@
+import { forwardRef } from 'react';
+import { BadgeRibbon } from './BadgeRibbon';
 import { BadgeStyles } from './styles';
-import { RdBadgeProps } from './types';
+import { RdBadgeComponent, RdBadgeCompoundedComponent } from './types';
 
-export const Badge = ({ ...antdProps }: RdBadgeProps) => {
-    return <BadgeStyles {...antdProps} />;
-};
+export const BadgeInternal: RdBadgeComponent = forwardRef((props, ref) => {
+    return <BadgeStyles ref={ref} {...props} />;
+});
+
+export const Badge = BadgeInternal as RdBadgeCompoundedComponent;
+Badge.Ribbon = BadgeRibbon;

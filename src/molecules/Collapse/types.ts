@@ -24,7 +24,7 @@ export type RdCollapseComponentToken = CollapseComponentTokenAntd & CollapseComp
 //#endregion
 
 //#region Define component types
-export type RdCollapseInternalComponent = React.ForwardRefExoticComponent<
+export type RdCollapseComponent = React.ForwardRefExoticComponent<
     RdCollapseProps & React.RefAttributes<HTMLDivElement>
 >;
 
@@ -33,6 +33,6 @@ export type RdCollapsePanelComponent = React.ForwardRefExoticComponent<
 >;
 
 export type RdCollapseCompoundedComponent = typeof Collapse & {
-    Panel: typeof CollapsePanel;
+    Panel: RdCollapsePanelComponent;
 };
 //#endregion

@@ -1,11 +1,8 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { CompactStyles } from './styles';
-import { RdCompactProps } from './types';
+import { SpaceCompactStyled } from './styles';
+import { RdSpaceCompactProps } from './types';
 
-export const Compact = ({ block = false, ...antdProps }: RdCompactProps) => {
-    return (
-        <ConfigProviderDesign>
-            <CompactStyles block={block} {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const SpaceCompact = (props: RdSpaceCompactProps) => {
+    const { block, ...antdProps } = props;
+
+    return <SpaceCompactStyled block={block} {...antdProps} />;
 };

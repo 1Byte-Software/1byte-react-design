@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { OTPStyled } from './styles';
-import { RdOTPProps } from './types';
+import { RdOTPComponent } from './types';
 
-export const OTP = ({ ...antdProps }: RdOTPProps) => {
-    return (
-        <ConfigProviderDesign>
-            <OTPStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const OTP: RdOTPComponent = forwardRef((props, ref) => {
+    return <OTPStyled ref={ref} {...props} />;
+});

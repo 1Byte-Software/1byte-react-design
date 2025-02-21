@@ -1,4 +1,3 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { FormItemStyles } from './styles';
 import { RdFormItemProps } from './types';
 
@@ -17,9 +16,5 @@ export const FormItem = ({ errorMessage, description, ...antdProps }: RdFormItem
         );
     }
 
-    return (
-        <ConfigProviderDesign>
-            <FormItemStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+    return <FormItemStyles {...antdProps} />;
 };

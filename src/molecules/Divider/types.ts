@@ -15,5 +15,10 @@ type DividerPropsExtend = {};
 
 //#region Export types
 export type RdDividerProps = DividerPropsAntd & DividerPropsExtend;
+
 export type RdDividerComponentToken = DividerComponentTokenAntd & DividerComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdDividerComponent = React.FC<RdDividerProps>;
 //#endregion

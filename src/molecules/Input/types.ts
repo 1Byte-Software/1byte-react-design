@@ -1,4 +1,4 @@
-import { GetProps, Input } from 'antd';
+import { GetProps, Input, InputRef } from 'antd';
 import { ComponentToken as InputComponentTokenAntd } from 'antd/es/input/style';
 import { InputInternal } from './Input';
 import { Search } from './Search';
@@ -6,14 +6,21 @@ import { InputGroup } from './InputGroup';
 import { OTP } from './OTP';
 import { Password } from './Password';
 import { TextArea } from './TextArea';
+import { TextAreaRef } from 'antd/es/input/TextArea';
+import { OTPRef } from 'antd/es/input/OTP';
+import React from 'react';
 
 //#region Define Ant Design types
-type InputProps = GetProps<typeof Input>;
-type SearchProps = GetProps<typeof Input.Search>;
-type InputGroupProps = GetProps<typeof Input.Group>;
-type OTPProps = GetProps<typeof Input.OTP>;
-type PasswordProps = GetProps<typeof Input.Password>;
-type TextAreaProps = GetProps<typeof Input.TextArea>;
+type InputPropsAntd = GetProps<typeof Input>;
+type SearchPropsAntd = GetProps<typeof Input.Search>;
+type InputGroupPropsAntd = GetProps<typeof Input.Group>;
+type OTPPropsAntd = GetProps<typeof Input.OTP>;
+type PasswordPropsAntd = GetProps<typeof Input.Password>;
+type TextAreaPropsAntd = GetProps<typeof Input.TextArea>;
+
+type InputRefAntd = InputRef;
+type TextareaRefAntd = TextAreaRef;
+type OTPRefAntd = OTPRef;
 //#endregion
 
 //#region Define extended component tokens
@@ -30,12 +37,36 @@ type TextAreaPropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdInputProps = InputProps & InputPropsExtend;
-export type RdSearchProps = SearchProps & SearchPropsExtend;
-export type RdInputGroupProps = InputGroupProps & InputGroupPropsExtend;
-export type RdOTPProps = OTPProps & OTPPropsExtend;
-export type RdPasswordProps = PasswordProps & PasswordPropsExtend;
-export type RdTextAreaProps = TextAreaProps & TextAreaPropsExtend;
+export type RdInputProps = InputPropsAntd & InputPropsExtend;
+export type RdSearchProps = SearchPropsAntd & SearchPropsExtend;
+export type RdInputGroupProps = InputGroupPropsAntd & InputGroupPropsExtend;
+export type RdOTPProps = OTPPropsAntd & OTPPropsExtend;
+export type RdPasswordProps = PasswordPropsAntd & PasswordPropsExtend;
+export type RdTextAreaProps = TextAreaPropsAntd & TextAreaPropsExtend;
+//#endregion
+
+//#region Define component types
+export type RdInputInternalComponent = React.ForwardRefExoticComponent<
+    RdInputProps & React.RefAttributes<InputRefAntd>
+>;
+
+export type RdPasswordComponent = React.ForwardRefExoticComponent<
+    RdPasswordProps & React.RefAttributes<InputRefAntd>
+>;
+
+export type RdOTPComponent = React.ForwardRefExoticComponent<
+    RdOTPProps & React.RefAttributes<OTPRefAntd>
+>;
+
+export type RdTextareaComponent = React.ForwardRefExoticComponent<
+    RdTextAreaProps & React.RefAttributes<TextareaRefAntd>
+>;
+
+export type RdSearchComponent = React.ForwardRefExoticComponent<
+    RdSearchProps & React.RefAttributes<InputRef>
+>;
+
+export type RdInputGroupComponent = React.FC<RdInputGroupProps>;
 
 export type RdInputCompoundedComponent = typeof InputInternal & {
     Search: typeof Search;

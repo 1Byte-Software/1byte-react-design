@@ -1,6 +1,6 @@
-import { Button as ButtonAntd } from 'antd';
-import { RdButtonGroupProps } from './types';
+import { ButtonGroupStyles } from './styles';
+import { RdButtonGroupComponent } from './types';
 
-export const ButtonGroupInternal = (props: RdButtonGroupProps) => {
-    return <ButtonAntd.Group {...props} />;
+export const ButtonGroup: RdButtonGroupComponent = props => {
+    return <ButtonGroupStyles {...props} />;
 };

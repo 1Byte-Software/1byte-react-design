@@ -1,15 +1,14 @@
-import { ButtonProps } from 'antd';
 import { forwardRef } from 'react';
-import { ButtonGroupInternal } from './ButtonGroup';
+import { ButtonGroup } from './ButtonGroup';
 import { ButtonStyles } from './styles';
-import { RdButtonCompoundedComponent, RdButtonProps } from './types';
+import { RdButtonComponent, RdButtonCompoundedComponent } from './types';
+import clsx from 'clsx';
 
-export const ButtonInternal: React.ForwardRefExoticComponent<
-    RdButtonProps & React.RefAttributes<HTMLButtonElement | HTMLAnchorElement>
-> = forwardRef((props, ref) => {
-    return <ButtonStyles ref={ref} {...(props as ButtonProps)} />;
+export const ButtonInternal: RdButtonComponent = forwardRef((props, ref) => {
+    const { rootClassName } = props;
+
+    return <ButtonStyles rootClassName={clsx('rd-button', rootClassName)} ref={ref} {...props} />;
 });
 
 export const Button = ButtonInternal as RdButtonCompoundedComponent;
-
-Button.Group = ButtonGroupInternal;
+Button.Group = ButtonGroup;

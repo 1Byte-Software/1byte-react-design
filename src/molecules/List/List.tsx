@@ -1,14 +1,10 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ListItem } from './ListItem';
 import { ListStyles } from './styles';
-import { RdListProps } from './types';
+import { RdListComponent, RdListCompoundedComponent } from './types';
 
-export const List = ({ ...antdProps }: RdListProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ListStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const ListInternal: RdListComponent = props => {
+    return <ListStyles {...props} />;
 };
 
+export const List = ListInternal as RdListCompoundedComponent;
 List.Item = ListItem;

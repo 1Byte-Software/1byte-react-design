@@ -21,3 +21,12 @@ export type RdDropdownButtonProps = DropdownButtonPropsAntd & DropdownButtonProp
 
 export type RdDropdownComponentToken = DropdownComponentTokenAntd & DropdownComponentTokenExtend;
 //#endregion
+
+//#region Define component types
+export type RdDropdownComponent = React.FC<RdDropdownProps>;
+export type RdDropdownButtonComponent = React.FC<RdDropdownButtonProps>;
+
+export type RdDropdownCompoundedComponent = RdDropdownComponent & {
+    Button: RdDropdownButtonComponent;
+};
+//#endregion

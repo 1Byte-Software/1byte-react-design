@@ -1,6 +1,10 @@
+import { AnchorLink } from './AnchorLink';
 import { AnchorStyles } from './styles';
-import { RdAnchorProps } from './types';
+import { RdAnchorComponent, RdAnchorCompoundedComponent } from './types';
 
-export const Anchor = ({ ...antdProps }: RdAnchorProps) => {
-    return <AnchorStyles {...antdProps} />;
+export const AnchorInternal: RdAnchorComponent = props => {
+    return <AnchorStyles {...props} />;
 };
+
+export const Anchor = AnchorInternal as RdAnchorCompoundedComponent;
+Anchor.Link = AnchorLink;

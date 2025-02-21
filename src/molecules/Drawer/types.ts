@@ -17,3 +17,7 @@ type DrawerPropsExtend = {};
 export type RdDrawerProps = DrawerPropsAntd & DrawerPropsExtend;
 export type RdDrawerComponentToken = DrawerComponentTokenAntd & DrawerComponentTokenExtend;
 //#endregion
+
+//#region Define component types
+export type RdDrawerComponent = React.FC<RdDrawerProps>;
+//#endregion

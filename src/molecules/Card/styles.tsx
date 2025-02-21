@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Card } from 'antd';
 import { getExcludeForwardProps } from '../../utils/styles';
 import { getComponentOrGlobalToken, getComponentToken } from '../../utils/token';
-import { RdCardProps } from './types';
+import { RdCardProps, RdGridCardProps, RdMetaCardProps } from './types';
 
 export const CardStyles = styled(Card, {
     shouldForwardProp: prop =>
@@ -55,3 +55,6 @@ export const CardStyles = styled(Card, {
         }
     `}
 `;
+
+export const GridCardStyles = styled(Card.Grid)<RdGridCardProps>``;
+export const MetaCardStyles = styled(Card.Meta)<RdMetaCardProps>``;

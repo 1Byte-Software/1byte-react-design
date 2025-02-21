@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Space } from 'antd';
 import { RdSpaceProps } from './types';
 
-export const SpaceStyles = styled(Space, {
+export const SpaceStyled = styled(Space, {
     shouldForwardProp: prop => {
         const propsNotForward = ['block'];
 
@@ -14,4 +14,4 @@ export const SpaceStyles = styled(Space, {
         return block && 'width: 100%';
     }};
 `;
-export const CompactStyles = styled(Space.Compact)``;
+export const SpaceCompactStyled = styled(Space.Compact)``;

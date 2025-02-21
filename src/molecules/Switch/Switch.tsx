@@ -1,14 +1,9 @@
-import { SwitchProps } from 'antd';
 import { forwardRef } from 'react';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { SwitchStyled } from './styles';
-import { RdSwitchProps } from './types';
+import { RdSwitchComponent, RdSwitchCompoundedComponent } from './types';
 
-export const Switch = forwardRef((props: RdSwitchProps, ref: RdSwitchProps['ref']) => {
-    const { ...antdProps } = props;
-    return (
-        <ConfigProviderDesign>
-            <SwitchStyled ref={ref} {...(antdProps as SwitchProps)} />
-        </ConfigProviderDesign>
-    );
+export const SwitchInternal: RdSwitchComponent = forwardRef((props, ref) => {
+    return <SwitchStyled ref={ref} {...props} />;
 });
+
+export const Switch = SwitchInternal as RdSwitchCompoundedComponent;

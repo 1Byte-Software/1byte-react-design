@@ -1,8 +1,13 @@
 import { Card, GetProps } from 'antd';
 import { ComponentToken as CardComponentTokenAntd } from 'antd/es/card/style';
+import { CardInternal } from './Card';
+import { GridCard } from './Grid';
+import { MetaCard } from './Meta';
 
 //#region Define Ant Design types
-type CardProps = GetProps<typeof Card>;
+type CardPropsAntd = GetProps<typeof Card>;
+type GridCardPropsAntd = GetProps<typeof Card.Grid>;
+type MetaCardPropsAntd = GetProps<typeof Card.Meta>;
 //#endregion
 
 //#region Define extended component tokens
@@ -22,10 +27,28 @@ type CardPropsExtend = {
      */
     variant?: 'default' | 'compact';
 };
+
+type GridCardPropsExtend = {};
+type MetaCardPropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdCardProps = CardProps & CardPropsExtend;
+export type RdCardProps = CardPropsAntd & CardPropsExtend;
+export type RdGridCardProps = GridCardPropsAntd & GridCardPropsExtend;
+export type RdMetaCardProps = MetaCardPropsAntd & MetaCardPropsExtend;
 
 export type RdCardComponentToken = CardComponentTokenAntd & CardComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdCardInternalComponent = React.ForwardRefExoticComponent<
+    RdCardProps & React.RefAttributes<HTMLDivElement>
+>;
+export type RdGridCardComponent = React.FC<RdGridCardProps>;
+export type RdMetaCardComponent = React.FC<RdMetaCardProps>;
+
+export type RdCardCompoundedComponent = typeof CardInternal & {
+    Grid: typeof GridCard;
+    Meta: typeof MetaCard;
+};
 //#endregion

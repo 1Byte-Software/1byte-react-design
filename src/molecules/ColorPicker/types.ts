@@ -21,5 +21,5 @@ export type RdColorPickerComponentToken = ColorPickerComponentTokenAntd &
 //#endregion
 
 //#region Define component types
-
+export type RdColorPickerComponent = React.FC<RdColorPickerProps>;
 //#endregion

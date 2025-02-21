@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { InputPasswordStyled } from './styles';
-import { RdPasswordProps } from './types';
+import { RdPasswordComponent } from './types';
 
-export const Password = ({ ...antdProps }: RdPasswordProps) => {
-    return (
-        <ConfigProviderDesign>
-            <InputPasswordStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const Password: RdPasswordComponent = forwardRef((props, ref) => {
+    return <InputPasswordStyled ref={ref} {...props} />;
+});

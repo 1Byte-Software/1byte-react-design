@@ -1,20 +1,17 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { Content } from './Content';
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { Sider } from './Sider';
+import { forwardRef } from 'react';
+import { LayoutContent } from './Content';
+import { LayoutFooter } from './Footer';
+import { LayoutHeader } from './Header';
+import { LayoutSider } from './Sider';
 import { LayoutStyles } from './styles';
-import { RdLayoutProps } from './types';
+import { RdLayoutComponent, RdLayoutCompoundedComponent } from './types';
 
-export const Layout = ({ ...antdProps }: RdLayoutProps) => {
-    return (
-        <ConfigProviderDesign>
-            <LayoutStyles className='rd-layout' {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const LayoutInternal: RdLayoutComponent = forwardRef((props, ref) => {
+    return <LayoutStyles ref={ref} {...props} />;
+});
 
-Layout.Header = Header;
-Layout.Content = Content;
-Layout.Sider = Sider;
-Layout.Footer = Footer;
+export const Layout = LayoutInternal as RdLayoutCompoundedComponent;
+Layout.Header = LayoutHeader;
+Layout.Content = LayoutContent;
+Layout.Sider = LayoutSider;
+Layout.Footer = LayoutFooter;

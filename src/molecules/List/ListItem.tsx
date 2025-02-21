@@ -1,14 +1,11 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { ListItemMeta } from './ListItemMeta';
 import { ListItemStyles } from './styles';
-import { RdListItemProps } from './types';
+import { RdListItemComponent, RdListItemCompoundedComponent } from './types';
 
-export const ListItem = ({ ...antdProps }: RdListItemProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ListItemStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const ListItemInternal: RdListItemComponent = forwardRef((props, ref) => {
+    return <ListItemStyles {...props} />;
+});
 
+export const ListItem = ListItemInternal as RdListItemCompoundedComponent;
 ListItem.Meta = ListItemMeta;

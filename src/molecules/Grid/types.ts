@@ -20,7 +20,9 @@ export type RdColProps = ColPropsAntd & ColPropsExtend;
 export type RdRowProps = RowPropsAntd & RowPropsExtend;
 
 export type RdGridComponentToken = GridComponentTokenAntd & GridComponentTokenExtend;
+//#endregion
 
+//#region Define component types
 export type RdColComponent = React.ForwardRefExoticComponent<
     RdColProps & React.RefAttributes<HTMLDivElement>
 >;

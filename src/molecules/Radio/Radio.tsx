@@ -1,16 +1,13 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { RadioButton } from './RadioButton';
 import { RadioGroup } from './RadioGroup';
 import { RadioStyles } from './styles';
-import { RdRadioProps } from './types';
+import { RdRadioComponent, RdRadioCompoundedComponent } from './types';
 
-export const Radio = ({ ...antdProps }: RdRadioProps) => {
-    return (
-        <ConfigProviderDesign>
-            <RadioStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const RadioInternal: RdRadioComponent = forwardRef((props, ref) => {
+    return <RadioStyles ref={ref} {...props} />;
+});
 
+export const Radio = RadioInternal as RdRadioCompoundedComponent;
 Radio.Button = RadioButton;
 Radio.Group = RadioGroup;

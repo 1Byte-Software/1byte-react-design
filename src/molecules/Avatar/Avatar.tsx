@@ -1,6 +1,12 @@
+import { forwardRef } from 'react';
+import { AvatarGroup } from './AvatarGroup';
 import { AvatarStyles } from './styles';
-import { RdAvatarProps } from './types';
+import { RdAvatarComponent, RdAvatarCompoundedComponent } from './types';
 
-export const Avatar = (props: RdAvatarProps) => {
-    return <AvatarStyles {...props} />;
-};
+export const AvatarInternal: RdAvatarComponent = forwardRef((props, ref) => {
+    return <AvatarStyles ref={ref} {...props} />;
+});
+
+export const Avatar = AvatarInternal as RdAvatarCompoundedComponent;
+
+Avatar.Group = AvatarGroup;

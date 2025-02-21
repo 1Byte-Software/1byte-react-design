@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { ContentStyles } from './styles';
-import { RdContentProps } from './types';
+import { RdLayoutContentComponent } from './types';
 
-export const Content = ({ ...antdProps }: RdContentProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ContentStyles className='rd-content' {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const LayoutContent: RdLayoutContentComponent = forwardRef((props, ref) => {
+    return <ContentStyles ref={ref} {...props} />;
+});

@@ -24,3 +24,19 @@ export type RdListItemMetaProps = ListItemMetaProps & ListItemMetaPropsExtend;
 
 export type RdListComponentToken = ListComponentTokenAntd & ListComponentTokenExtend;
 //#endregion
+
+//#region Define component types
+export type RdListComponent = React.FC<RdListProps & React.RefAttributes<HTMLDivElement>>;
+export type RdListItemComponent = React.ForwardRefExoticComponent<
+    RdListItemProps & React.RefAttributes<HTMLDivElement>
+>;
+export type RdListItemMetaComponent = React.FC<RdListItemProps>;
+
+export type RdListItemCompoundedComponent = RdListItemComponent & {
+    Meta: RdListItemMetaComponent;
+};
+
+export type RdListCompoundedComponent = RdListComponent & {
+    Item: RdListItemCompoundedComponent;
+};
+//#endregion

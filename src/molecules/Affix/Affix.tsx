@@ -1,6 +1,7 @@
+import { forwardRef } from 'react';
 import { AffixStyles } from './styles';
-import { RdAffixProps } from './types';
+import { RdAffixComponent } from './types';
 
-export const Affix = ({ ...antdProps }: RdAffixProps) => {
-    return <AffixStyles {...antdProps} />;
-};
+export const Affix: RdAffixComponent = forwardRef((props, ref) => {
+    return <AffixStyles ref={ref} {...props} />;
+});

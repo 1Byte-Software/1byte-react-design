@@ -1,11 +1,11 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { TagStyles } from './styles';
-import { RdTagProps } from './types';
+import { forwardRef } from 'react';
+import { TagStyled } from './styles';
+import { RdTagComponent, RdTagCompoundedComponent } from './types';
+import { TagCheckable } from './TagCheckable';
 
-export const Tag = ({ ...antdProps }: RdTagProps) => {
-    return (
-        <ConfigProviderDesign>
-            <TagStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const TagInternal: RdTagComponent = forwardRef(props => {
+    return <TagStyled {...props} />;
+});
+
+export const Tag = TagInternal as RdTagCompoundedComponent;
+Tag.CheckableTag = TagCheckable;

@@ -1,11 +1,6 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { InputGroupStyled } from './styles';
-import { RdInputGroupProps } from './types';
+import { RdInputGroupComponent } from './types';
 
-export const InputGroup = ({ ...antdProps }: RdInputGroupProps) => {
-    return (
-        <ConfigProviderDesign>
-            <InputGroupStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const InputGroup: RdInputGroupComponent = props => {
+    return <InputGroupStyled {...props} />;
 };

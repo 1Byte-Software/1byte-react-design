@@ -1,11 +1,6 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { PaginationStyled } from './styles';
-import { RdPaginationProps } from './types';
+import { RdPaginationComponent } from './types';
 
-export const Pagination = ({ ...antdProps }: RdPaginationProps) => {
-    return (
-        <ConfigProviderDesign>
-            <PaginationStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const Pagination: RdPaginationComponent = props => {
+    return <PaginationStyled {...props} />;
 };

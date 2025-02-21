@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { TextAreaStyled } from './styles';
-import { RdTextAreaProps } from './types';
+import { RdTextareaComponent } from './types';
 
-export const TextArea = ({ ...antdProps }: RdTextAreaProps) => {
-    return (
-        <ConfigProviderDesign>
-            <TextAreaStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const TextArea: RdTextareaComponent = forwardRef((props, ref) => {
+    return <TextAreaStyled ref={ref} {...props} />;
+});

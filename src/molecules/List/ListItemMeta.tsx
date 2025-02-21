@@ -1,11 +1,6 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { ListItemMetaStyles } from './styles';
-import { RdListItemMetaProps } from './types';
+import { RdListItemMetaComponent } from './types';
 
-export const ListItemMeta = ({ ...antdProps }: RdListItemMetaProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ListItemMetaStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const ListItemMeta: RdListItemMetaComponent = props => {
+    return <ListItemMetaStyles {...props} />;
 };

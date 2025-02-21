@@ -4,6 +4,7 @@ import { ComponentToken as FloatButtonComponentTokenAntd } from 'antd/es/float-b
 import { FloatButtonInternal } from './FloatButton';
 import { FloatButtonGroup } from './FloatButtonGroup';
 import { BackTop } from './BackTop';
+import { FloatButtonElement } from 'antd/es/float-button/interface';
 
 //#region Define Ant Design types
 type FloatButtonPropsAntd = GetProps<typeof FloatButton>;
@@ -11,6 +12,7 @@ type BackTopPropsAntd = GetProps<typeof FloatButton.BackTop>;
 type FloatButtonGroupPropsAntd = GetProps<typeof FloatButton.Group>;
 
 type FloatButtonRefAntd = FloatButtonRef;
+type FloatButtonElementAtd = FloatButtonElement;
 //#endregion
 
 //#region Define extended component tokens
@@ -34,12 +36,18 @@ export type RdFloatButtonComponentToken = FloatButtonComponentTokenAntd &
 export type RdBackTopComponentToken = BackTopComponentTokenAntd & BackTopComponentTokenExtend;
 
 //#region Define component types
+export type RdFloatButtonComponent = React.ForwardRefExoticComponent<
+    RdFloatButtonProps & React.RefAttributes<FloatButtonElementAtd>
+>;
+
+export type RdFloatButtonGroupComponent = React.FC<Readonly<RdFloatButtonGroupProps>>;
+
 export type RdBackTopComponent = React.ForwardRefExoticComponent<
     RdBackTopProps & React.RefAttributes<FloatButtonRefAntd>
 >;
 
 export type RdFloatButtonCompoundedComponent = typeof FloatButtonInternal & {
-    Group: typeof FloatButtonGroup;
-    BackTop: typeof BackTop;
+    Group: RdFloatButtonGroupComponent;
+    BackTop: RdBackTopComponent;
 };
 //#endregion

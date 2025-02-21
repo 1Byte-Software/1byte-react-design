@@ -1,14 +1,10 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { DropdownButton } from './DropdownButton';
 import { DropdownStyles } from './styles';
-import { RdDropdownProps } from './types';
+import { RdDropdownButtonComponent, RdDropdownCompoundedComponent } from './types';
 
-export const Dropdown = ({ ...antdProps }: RdDropdownProps) => {
-    return (
-        <ConfigProviderDesign>
-            <DropdownStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const DropdownInternal: RdDropdownButtonComponent = props => {
+    return <DropdownStyles {...props} />;
 };
 
+export const Dropdown = DropdownInternal as RdDropdownCompoundedComponent;
 Dropdown.Button = DropdownButton;

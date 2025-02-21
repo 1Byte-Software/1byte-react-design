@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { InputSearchStyled } from './styles';
-import { RdSearchProps } from './types';
+import { RdSearchComponent } from './types';
 
-export const Search = ({ ...antdProps }: RdSearchProps) => {
-    return (
-        <ConfigProviderDesign>
-            <InputSearchStyled {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const Search: RdSearchComponent = forwardRef((props, ref) => {
+    return <InputSearchStyled ref={ref} {...props} />;
+});
