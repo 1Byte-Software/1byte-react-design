@@ -1,12 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { BackTopStyles } from './styles';
-import { RdBackTopProps } from './types';
+import { RdBackTopComponent } from './types';
 
-export const BackTop = ({ ...antdProps }: RdBackTopProps) => {
-    return (
-        <ConfigProviderDesign>
-            <BackTopStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
-
+export const BackTop: RdBackTopComponent = forwardRef((props, ref) => {
+    return <BackTopStyles ref={ref} {...props} />;
+});

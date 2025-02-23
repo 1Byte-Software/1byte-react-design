@@ -1,25 +1,7 @@
-import { RadioGroupProps } from 'antd';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
+import { forwardRef } from 'react';
 import { RadioGroupStyles } from './styles';
-import { RdRadioGroupProps } from './types';
+import { RdRadioGroupComponent } from './types';
 
-export const RadioGroup = ({
-    label: labelFieldProps,
-    axis = 'horizontal',
-
-    ...antdProps
-}: RdRadioGroupProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ConditionalWrapper
-                condition={Boolean(labelFieldProps)}
-                wrapper={LabelField}
-                wrapperProps={labelFieldProps}
-            >
-                <RadioGroupStyles axis={axis} {...(antdProps as RadioGroupProps)} />
-            </ConditionalWrapper>
-        </ConfigProviderDesign>
-    );
-};
+export const RadioGroup: RdRadioGroupComponent = forwardRef((props, ref) => {
+    return <RadioGroupStyles ref={ref} {...props} />;
+});

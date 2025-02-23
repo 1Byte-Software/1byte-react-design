@@ -1,16 +1,13 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { BackTop } from './Backtop';
+import { BackTop } from './BackTop';
 import { FloatButtonGroup } from './FloatButtonGroup';
 import { FloatButtonStyles } from './styles';
-import { RdFloatButtonProps } from './types';
+import { RdFloatButtonCompoundedComponent, RdFloatButtonProps } from './types';
 
-export const FloatButton = ({ ...antdProps }: RdFloatButtonProps) => {
-    return (
-        <ConfigProviderDesign>
-            <FloatButtonStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const FloatButtonInternal = (props: RdFloatButtonProps) => {
+    return <FloatButtonStyles {...props} />;
 };
+
+export const FloatButton = FloatButtonInternal as RdFloatButtonCompoundedComponent;
 
 FloatButton.BackTop = BackTop;
 FloatButton.Group = FloatButtonGroup;

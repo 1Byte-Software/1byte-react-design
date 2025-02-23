@@ -1,3 +1,4 @@
 import styled from '@emotion/styled';
+import { Pagination } from 'antd';
 
-export const PaginationWrapper = styled.div``;
+export const PaginationStyled = styled(Pagination)``;

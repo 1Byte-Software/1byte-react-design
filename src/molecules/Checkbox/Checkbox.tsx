@@ -1,26 +1,12 @@
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
+import { forwardRef } from 'react';
 import { CheckboxGroup } from './CheckboxGroup';
 import { CheckboxStyles } from './styles';
-import { RdCheckboxProps } from './types';
+import { RdCheckboxCompoundedComponent, RdInternalCheckboxComponent } from './types';
 
-export const Checkbox = ({
-    label: labelFieldProps,
+export const CheckboxInternal: RdInternalCheckboxComponent = forwardRef((props, ref) => {
+    return <CheckboxStyles ref={ref} {...props} />;
+});
 
-    ...antdProps
-}: RdCheckboxProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ConditionalWrapper
-                condition={Boolean(labelFieldProps)}
-                wrapper={LabelField}
-                wrapperProps={labelFieldProps}
-            >
-                <CheckboxStyles {...antdProps} />
-            </ConditionalWrapper>
-        </ConfigProviderDesign>
-    );
-};
+export const Checkbox = CheckboxInternal as RdCheckboxCompoundedComponent;
 
 Checkbox.Group = CheckboxGroup;

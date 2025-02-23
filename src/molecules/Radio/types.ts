@@ -1,32 +1,48 @@
-import { RadioGroupProps, RadioProps } from 'antd';
-import { RdRegistryControlField, TAxis } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
-import { RadioButtonProps } from 'antd/es/radio/radioButton';
+import { Radio, GetProps } from 'antd';
+import { RadioRef } from 'antd/es/radio';
+import { ComponentToken as RadioComponentTokenAntd } from 'antd/es/radio/style';
 
-//#region Radio
-export interface RdRadioProps extends RadioProps, RdLabelFieldWrapperProps {}
+//#region Define Ant Design types
+type RadioProps = GetProps<typeof Radio>;
+type RadioButtonProps = GetProps<typeof Radio.Button>;
+type RadioGroupProps = GetProps<typeof Radio.Group>;
 
-export interface RdRadioControlProps extends Omit<RdRadioProps, 'name'>, RdRegistryControlField {}
-//#endregion Radio
+type RadioRefAntd = RadioRef;
+//#endregion
 
-//#region RadioButton
-export interface RdRadioButtonProps extends RadioButtonProps, RdLabelFieldWrapperProps {}
+//#region Define extended component tokens
+type RadioComponentTokenExtend = {};
+//#endregion
 
-export interface RdRadioButtonControlProps
-    extends Omit<RdRadioButtonProps, 'name'>,
-        RdRegistryControlField {}
-//#endregion RadioButton
+//#region Define extended types
+type RadioPropsExtend = {};
+type RadioButtonPropsExtend = {};
+type RadioGroupPropsExtend = {};
+//#endregion
 
-//#region RadioGroup
-export interface RdRadioGroupProps extends RadioGroupProps, RdLabelFieldWrapperProps {
-    /**
-     * @description The axis of the radio options.
-     * @default 'horizontal'
-     */
-    axis?: TAxis;
-}
+//#region Export types
+export type RdRadioProps = RadioProps & RadioPropsExtend;
+export type RdRadioButtonProps = RadioButtonProps & RadioButtonPropsExtend;
+export type RdRadioGroupProps = RadioGroupProps & RadioGroupPropsExtend;
 
-export interface RdRadioGroupControlProps
-    extends Omit<RdRadioGroupProps, 'name'>,
-        RdRegistryControlField {}
-//#endregion RadioGroup
+export type RdRadioComponentToken = RadioComponentTokenAntd & RadioComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdRadioComponent = React.ForwardRefExoticComponent<
+    RdRadioProps & React.RefAttributes<RadioRefAntd>
+>;
+
+export type RdRadioButtonComponent = React.ForwardRefExoticComponent<
+    RdRadioButtonProps & React.RefAttributes<RadioRefAntd>
+>;
+
+export type RdRadioGroupComponent = React.NamedExoticComponent<
+    RdRadioGroupProps & React.RefAttributes<HTMLDivElement>
+>;
+
+export type RdRadioCompoundedComponent = RdRadioComponent & {
+    Button: RdRadioButtonComponent;
+    Group: RdRadioGroupComponent;
+};
+//#endregion

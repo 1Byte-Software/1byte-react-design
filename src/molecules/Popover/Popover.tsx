@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
+import { forwardRef } from 'react';
 import { PopoverStyles } from './styles';
-import { RdPopoverProps } from './types';
+import { RdPopoverComponent } from './types';
 
-export const Popover = ({ ...antdProps }: RdPopoverProps) => {
-    return (
-        <ConfigProviderDesign>
-            <PopoverStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const Popover: RdPopoverComponent = forwardRef(props => {
+    return <PopoverStyles {...props} />;
+});

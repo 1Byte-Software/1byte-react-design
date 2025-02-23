@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { HeaderStyles, LayoutStyles } from './styles';
-import { RdLayoutProps } from './types';
+import { forwardRef } from 'react';
+import { HeaderStyles } from './styles';
+import { RdLayoutHeaderComponent } from './types';
 
-export const Header = ({ ...antdProps }: RdLayoutProps) => {
-    return (
-        <ConfigProviderDesign>
-            <HeaderStyles className='rd-header' {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const LayoutHeader: RdLayoutHeaderComponent = forwardRef(props => {
+    return <HeaderStyles {...props} />;
+});

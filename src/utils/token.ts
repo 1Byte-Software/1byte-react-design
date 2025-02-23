@@ -1,5 +1,6 @@
 import { config } from '..';
-import { IRdAliasToken, IRdComponentsConfig } from '../organisms';
+import { RdComponentTokenMap } from '../molecules/types';
+import { IRdAliasToken, RdComponentsConfig } from './types';
 
 /**
  * Get the token value for a given component and alias name.
@@ -10,11 +11,23 @@ import { IRdAliasToken, IRdComponentsConfig } from '../organisms';
  * @returns The token value for the component or alias, or `undefined` if not found.
  */
 export const getComponentOrGlobalToken = (
-    componentName: keyof IRdComponentsConfig,
+    componentName: keyof RdComponentsConfig,
     aliasName: keyof IRdAliasToken
 ) => {
     const componentTokenValue = config.componentToken?.[componentName]?.[aliasName];
     const designTokenValue = config.designToken?.[aliasName];
 
     return componentTokenValue !== undefined ? componentTokenValue : designTokenValue;
+};
+
+export const getComponentToken = <
+    ComponentName extends keyof RdComponentTokenMap,
+    ComponentToken extends keyof NonNullable<RdComponentTokenMap[ComponentName]>
+>(
+    componentName: ComponentName,
+    componentToken: ComponentToken
+): NonNullable<RdComponentTokenMap[ComponentName]>[ComponentToken] | undefined => {
+    return (config.componentToken?.[componentName] as RdComponentTokenMap[ComponentName])?.[
+        componentToken
+    ];
 };

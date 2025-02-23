@@ -1,8 +1,8 @@
-import { IRdComponentsConfig } from '../../organisms';
+import { RdComponentsConfig } from '../../utils/types';
 import { variantSelectExtend } from './types';
 
 const useExtendVariant = (variant: variantSelectExtend) => {
-    const newSelectComponentToken: IRdComponentsConfig['Select'] = {};
+    const newSelectComponentToken: RdComponentsConfig['Select'] = {};
 
     switch (variant) {
         case 'outlined-transparent': {

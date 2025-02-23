@@ -1,11 +1,6 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { DividerStyles } from './styles';
-import { RdDividerProps } from './types';
+import { RdDividerComponent } from './types';
 
-export const Divider = ({ ...antdProps }: RdDividerProps) => {
-    return (
-        <ConfigProviderDesign>
-            <DividerStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const Divider: RdDividerComponent = props => {
+    return <DividerStyles {...props} />;
 };

@@ -1,7 +1,23 @@
-import { SliderSingleProps } from 'antd';
-import { SliderRangeProps } from 'antd/es/slider';
+import { Slider, GetProps } from 'antd';
+import { ComponentToken as SliderComponentTokenAntd } from 'antd/es/slider/style';
 
-export interface ISliderSingleProps extends SliderSingleProps {}
-export interface ISliderRangeProps extends SliderRangeProps {}
+//#region Define Ant Design types
+type SliderPropsAntd = GetProps<typeof Slider>;
+//#endregion
 
-export type RdSliderProps = ISliderSingleProps | ISliderRangeProps;
+//#region Define extended component tokens
+type SliderComponentTokenExtend = {};
+//#endregion
+
+//#region Define extended types
+type SliderPropsExtend = {};
+//#endregion
+
+//#region Export types
+export type RdSliderProps = SliderPropsAntd & SliderPropsExtend;
+export type RdSliderComponentToken = SliderComponentTokenAntd & SliderComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdSliderComponent = React.ForwardRefExoticComponent<SliderPropsAntd>;
+//#endregion

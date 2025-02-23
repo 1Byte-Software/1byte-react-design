@@ -1,4 +1,4 @@
-export * from './Input';
-export * from './InputControl';
+export { Input } from './Input';
 
+export * from './helper';
 export type * from './types';

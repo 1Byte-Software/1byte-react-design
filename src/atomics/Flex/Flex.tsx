@@ -1,8 +1,8 @@
 import { ConfigProviderDesign } from '../../ConfigProviderDesign';
 import { FlexStyles } from './styles';
-import { IFlexProps } from './types';
+import { RdFlexProps } from './types';
 
-export const Flex = ({ ...antdProps }: IFlexProps) => {
+export const Flex = ({ ...antdProps }: RdFlexProps) => {
     return (
         <ConfigProviderDesign>
             <FlexStyles {...antdProps} />

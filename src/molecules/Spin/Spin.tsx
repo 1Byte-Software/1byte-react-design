@@ -1,11 +1,6 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { SpinStyles } from './styles';
-import { RdSpinProps } from './types';
+import { SpinStyled } from './styles';
+import { RdSpinComponent } from './types';
 
-export const Spin = ({ ...antdProps }: RdSpinProps) => {
-    return (
-        <ConfigProviderDesign>
-            <SpinStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
+export const Spin: RdSpinComponent = props => {
+    return <SpinStyled {...props} />;
 };
