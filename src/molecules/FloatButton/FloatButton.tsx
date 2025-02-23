@@ -1,4 +1,4 @@
-import { BackTop } from './BackTop';
+import { BackTop } from './BackTop2';
 import { FloatButtonGroup } from './FloatButtonGroup';
 import { FloatButtonStyles } from './styles';
 import { RdFloatButtonCompoundedComponent, RdFloatButtonProps } from './types';
