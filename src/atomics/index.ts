@@ -1,2 +1,2 @@
-export * from './Flex/index';
+export * from './Flex';
 export * from './Typography';
