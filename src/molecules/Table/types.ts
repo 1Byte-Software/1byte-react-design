@@ -12,11 +12,15 @@ type TableComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type TablePropsExtend = {};
+type TablePropsExtend<RecordType = AnyObject> = {
+    allowSort?: boolean;
+    onChangeSort?: (dataSource: RecordType[]) => void;
+};
 //#endregion
 
 //#region Export types
-export type RdTableProps<RecordType = AnyObject> = TablePropsAntd<RecordType> & TablePropsExtend;
+export type RdTableProps<RecordType = AnyObject> = TablePropsAntd<RecordType> &
+    TablePropsExtend<RecordType>;
 export type RdTableComponentToken = TableComponentTokenAntd & TableComponentTokenExtend;
 //#endregion
 
