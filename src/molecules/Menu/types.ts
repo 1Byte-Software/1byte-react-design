@@ -1,5 +1,5 @@
-import { Menu, GetProps } from 'antd';
-import { MenuItemType } from 'antd/es/menu/interface';
+import { GetProps, Menu } from 'antd';
+import { ItemType, MenuItemType } from 'antd/es/menu/interface';
 import { ComponentToken as MenuComponentTokenAntd } from 'antd/es/menu/style';
 
 //#region Define Ant Design types
@@ -10,6 +10,8 @@ type MenuDividerPropsAntd = GetProps<typeof Menu.Divider>;
 type MenuSubMenuPropsAntd = GetProps<typeof Menu.SubMenu>;
 
 type MenuItemTypeAntd = MenuItemType;
+type ItemTypeAntd = ItemType;
+
 //#endregion
 
 //#region Define extended component tokens
@@ -23,6 +25,7 @@ type MenuItemGroupPropsExtend = {};
 type MenuDividerPropsExtend = {};
 type MenuSubMenuPropsExtend = {};
 type MenuItemTypeExtend = {};
+type ItemTypeExtend = {};
 //#endregion
 
 //#region Export types
@@ -32,6 +35,7 @@ export type RdMenuItemGroupProps = MenuItemGroupPropsAntd & MenuItemGroupPropsEx
 export type RdMenuDividerProps = MenuDividerPropsAntd & MenuDividerPropsExtend;
 export type RdMenuSubMenuProps = MenuSubMenuPropsAntd & MenuSubMenuPropsExtend;
 export type RdMenuItemType = MenuItemTypeAntd & MenuItemTypeExtend;
+export type RdItemType = ItemTypeAntd & ItemTypeExtend;
 
 export type RdMenuComponentToken = MenuComponentTokenAntd & MenuComponentTokenExtend;
 //#endregion
