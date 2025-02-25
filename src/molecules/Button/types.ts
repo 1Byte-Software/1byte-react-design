@@ -16,7 +16,7 @@ type ButtonComponentTokenExtend = {};
 /**
  * @description The color of the button extend.
  */
-export type ColorButtonExtendProp = 'second' | 'tertiary' | 'quaternary';
+export type ColorButtonExtendProp = 'second' | 'tertiary' | 'quaternary' | 'success';
 
 export type AlignButtonProp = 'left' | 'center' | 'right';
 
