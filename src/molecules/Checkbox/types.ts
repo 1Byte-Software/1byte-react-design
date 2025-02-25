@@ -1,23 +1,41 @@
-import { CheckboxProps } from 'antd';
-import { CheckboxGroupProps } from 'antd/es/checkbox';
-import { RdRegistryControlField, TAxis } from '../../models';
-import { RdLabelFieldWrapperProps } from '../LabelField/types';
+import { Checkbox, CheckboxRef, GetProps } from 'antd';
+import { ComponentToken } from 'antd/es/checkbox/style';
+import { CheckboxInternal } from './Checkbox';
+import { CheckboxGroup } from './CheckboxGroup';
 
-type RdCheckboxBaseProps = {};
+//#region Define Ant Design types
+type CheckboxPropsAntd = GetProps<typeof Checkbox>;
+type CheckboxGroupPropsAntd<T> = GetProps<typeof Checkbox.Group<T>>;
 
-export type RdCheckboxProps = CheckboxProps & RdCheckboxBaseProps & RdLabelFieldWrapperProps & {};
+type CheckboxRefAntd = CheckboxRef;
+//#endregion
 
-export type RdCheckboxControlProps = Omit<RdCheckboxProps, 'name'> & RdRegistryControlField & {};
+//#region Define extended component tokens
+type CheckboxComponentTokenExtend = {};
+//#endregion
 
-export type RdCheckboxGroupProps = CheckboxGroupProps &
-    RdCheckboxBaseProps &
-    RdLabelFieldWrapperProps & {
-        /**
-         * @description The axis of options in CheckboxGroup.
-         * @default 'horizontal'
-         */
-        axis?: TAxis;
-    };
-export interface RdCheckboxGroupControlProps
-    extends Omit<RdCheckboxGroupProps, 'name'>,
-        RdRegistryControlField {}
+//#region Define extended types
+export type CheckboxPropsExtend = {};
+export type CheckboxGroupPropsExtend = {};
+export type RdCheckboxRefExtend = {};
+//#endregion
+
+//#region Export types
+export type RdCheckboxProps = CheckboxPropsAntd & CheckboxPropsExtend;
+export type RdCheckboxGroupProps<T> = CheckboxGroupPropsAntd<T> & CheckboxGroupPropsExtend;
+export type RdCheckboxRef = CheckboxRefAntd & RdCheckboxRefExtend;
+
+export type CheckboxComponentToken = ComponentToken & CheckboxComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdInternalCheckboxComponent = React.ForwardRefExoticComponent<
+    RdCheckboxProps & React.RefAttributes<RdCheckboxRef>
+>;
+
+export type RdCheckboxGroupComponent<T> = React.FC<RdCheckboxGroupProps<T>>;
+
+export type RdCheckboxCompoundedComponent = typeof CheckboxInternal & {
+    Group: typeof CheckboxGroup;
+};
+//#endregion

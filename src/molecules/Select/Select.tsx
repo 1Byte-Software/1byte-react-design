@@ -1,80 +1,25 @@
-import { Select as SelectAntd, SelectProps } from 'antd';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
-import { SelectWrapper } from './styles';
-import { RdSelectProps, variantSelectExtend } from './types';
-import useExtendVariant from './useExtendVariant';
-import { IRdComponentsConfig } from '../../organisms';
-import { config } from '../..';
-import { RefAttributes } from 'react';
+import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
+import clsx from 'clsx';
+import React, { useMemo } from 'react';
+import { SelectStyledFunc } from './styles';
+import { RdSelectComponent, RdSelectProps } from './types';
+import { mergeToken } from 'antd/es/theme/internal';
 
-const isVariantSelectExtend = (
-    variant: NonNullable<RdSelectProps['variant']>
-): variant is variantSelectExtend => {
-    return ['outlined-transparent'].includes(variant);
-};
+export const Select: RdSelectComponent = <
+    ValueType = any,
+    OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType
+>(
+    props: React.PropsWithChildren<RdSelectProps<ValueType, OptionType>>
+) => {
+    const { rootClassName } = props;
 
-export const Select = ({
-    label: labelFieldProps,
-
-    // Custom props
-    width,
-    minWidth,
-    isHideValueOnLoading = true,
-    variant,
-    ref,
-
-    ...antdProps
-}: RdSelectProps & RefAttributes<RdSelectProps>) => {
-    let newSelectDesignToken: IRdComponentsConfig['Select'] = {
-        ...config.componentToken?.Select,
-        algorithm: true,
-    };
-
-    //#region  Handle isHideValueOnLoading prop
-    // Handle hide value when loading
-    if (isHideValueOnLoading) {
-        antdProps = {
-            ...antdProps,
-            value: !antdProps.loading && antdProps.value,
-        };
-    }
-    //#endregion
-
-    if (variant && isVariantSelectExtend(variant)) {
-        // Get design token config for color.
-        const designTokenConfig = useExtendVariant(variant);
-
-        // Merge design token config with button design token.
-        newSelectDesignToken = {
-            ...newSelectDesignToken,
-            ...designTokenConfig,
-        };
-
-        variant = 'outlined';
-    }
-
-    //#region
-    // Handle extend variant props
-
-    //#endregion
-
-    return (
-        <ConfigProviderDesign
-            componentToken={{
-                Select: newSelectDesignToken,
-            }}
-        >
-            <SelectWrapper className="rc-select__wrapper" width={width} minWidth={minWidth}>
-                <ConditionalWrapper
-                    condition={Boolean(labelFieldProps)}
-                    wrapper={LabelField}
-                    wrapperProps={labelFieldProps}
-                >
-                    <SelectAntd variant={variant} {...(antdProps as SelectProps)} />
-                </ConditionalWrapper>
-            </SelectWrapper>
-        </ConfigProviderDesign>
+    const SelectStyled = useMemo(
+        () =>
+            SelectStyledFunc<ValueType, OptionType>() as React.FC<
+                RdSelectProps<ValueType, OptionType>
+            >,
+        []
     );
+
+    return <SelectStyled rootClassName={clsx('rd-select', rootClassName)} {...props} />;
 };

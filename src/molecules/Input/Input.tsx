@@ -1,24 +1,20 @@
-import { InputProps } from 'antd';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
+import { forwardRef } from 'react';
+import { InputGroup } from './InputGroup';
+import { OTP } from './OTP';
+import { Password } from './Password';
+import { Search } from './Search';
+import { TextArea } from './TextArea';
 import { InputStyled } from './styles';
-import { RdInputProps } from './types';
+import { RdInputCompoundedComponent, RdInputInternalComponent } from './types';
 
-export const Input = ({
-    label: labelFieldProps,
+export const InputInternal: RdInputInternalComponent = forwardRef((props, ref) => {
+    return <InputStyled ref={ref} {...props} />;
+});
 
-    ...antdProps
-}: RdInputProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ConditionalWrapper
-                condition={Boolean(labelFieldProps)}
-                wrapper={LabelField}
-                wrapperProps={labelFieldProps}
-            >
-                <InputStyled {...(antdProps as InputProps)} />
-            </ConditionalWrapper>
-        </ConfigProviderDesign>
-    );
-};
+export const Input = InputInternal as RdInputCompoundedComponent;
+
+Input.Password = Password;
+Input.TextArea = TextArea;
+Input.Search = Search;
+Input.Group = InputGroup;
+Input.OTP = OTP;

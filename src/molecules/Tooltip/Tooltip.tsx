@@ -1,17 +1,8 @@
 import { TooltipRef } from 'antd/es/tooltip';
-import React from 'react';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { TooltipStyles } from './styles';
+import { forwardRef } from 'react';
+import { TooltipStyled } from './styles';
 import { RdTooltipProps } from './types';
 
-export const Tooltip = React.forwardRef<TooltipRef, RdTooltipProps>(
-    ({ children, ...antdProps }, ref) => {
-        return (
-            <ConfigProviderDesign>
-                <TooltipStyles {...antdProps} ref={ref}>
-                    {children}
-                </TooltipStyles>
-            </ConfigProviderDesign>
-        );
-    }
-);
+export const Tooltip = forwardRef<TooltipRef, RdTooltipProps>((props, ref) => {
+    return <TooltipStyled ref={ref} {...props} />;
+});

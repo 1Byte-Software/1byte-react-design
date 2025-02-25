@@ -1,48 +1,55 @@
-import { PropsWithChildren, ReactElement, ReactHTMLElement } from 'react';
+import { Typography, GetProps } from 'antd';
+import { ComponentToken as TypographyComponentTokenAntd } from 'antd/es/typography/style';
 
-export interface IBaseHProps extends PropsWithChildren {}
+//#region Define Ant Design types
+type TypographyProps = GetProps<typeof Typography>;
+type TypographyLinkProps = GetProps<typeof Typography.Link>;
+type TypographyParagraphProps = GetProps<typeof Typography.Paragraph>;
+type TypographyTextProps = GetProps<typeof Typography.Text>;
+type TypographyTitleProps = GetProps<typeof Typography.Title>;
+//#endregion
+
+//#region Define extended component tokens
+type TypographyComponentTokenExtend = {};
+//#endregion
+
+//#region Define extended types
+type TypographyPropsExtend = {};
+type TypographyLinkPropsExtend = {};
+type TypographyParagraphPropsExtend = {};
+type TypographyTextPropsExtend = {
+    /**
+     * @description The size of the text.
+     * @default "normal"
+     */
+    size?: 'small' | 'normal';
+
+    /**
+     * @description Callback function that is triggered when the text value changes.
+     * @param value The new value of the text.
+     */
+    onChange?: (value: string) => void;
+};
 
 /**
- * @description H1 component props
+ * Extended properties for customizing the Typography.Title component.
  */
-export interface IH1Props extends IBaseHProps {}
-
-export interface IH2Props extends IBaseHProps {}
-export interface IH3Props extends IBaseHProps {}
-export interface IH4Props extends IBaseHProps {}
-export interface IH5Props extends IBaseHProps {}
-export interface IH6Props extends IBaseHProps {}
-export interface ITitleProps extends IBaseHProps {}
-
-export type RdTextProps = IBaseHProps & {
+type TypographyTitlePropsExtend = {
     /**
-     * Font weight for the text.
-     * Can be a number (100-900) or a string representing font weight name.
-     * Examples: "thin", "light", "bold", etc.
+     * If set to `true`, disables the default margin applied to the Typography.Title component.
+     * @default false
      */
-    weight?:
-        | 100
-        | 200
-        | 300
-        | 400
-        | 500
-        | 600
-        | 700
-        | 800
-        | 900
-        | 'thin'
-        | 'extra-light'
-        | 'ultra-light'
-        | 'light'
-        | 'normal'
-        | 'regular'
-        | 'medium'
-        | 'semi-bold'
-        | 'demi-bold'
-        | 'bold'
-        | 'extra-bold'
-        | 'ultra-bold'
-        | 'black'
-        | 'heavy';
+    disableMargin?: boolean;
 };
-export interface IDescriptionProps extends IBaseHProps {}
+//#endregion
+
+//#region Export types
+export type RdTypographyProps = TypographyProps & TypographyPropsExtend;
+export type RdTypographyLinkProps = TypographyLinkProps & TypographyLinkPropsExtend;
+export type RdTypographyParagraphProps = TypographyParagraphProps & TypographyParagraphPropsExtend;
+export type RdTypographyTextProps = TypographyTextProps & TypographyTextPropsExtend;
+export type RdTypographyTitleProps = TypographyTitleProps & TypographyTitlePropsExtend;
+
+export type RdTypographyComponentToken = TypographyComponentTokenAntd &
+    TypographyComponentTokenExtend;
+//#endregion

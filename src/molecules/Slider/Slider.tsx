@@ -1,11 +1,7 @@
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { SliderStyles } from './styles';
-import { RdSliderProps } from './types';
+import { forwardRef } from 'react';
+import { SliderStyled } from './styles';
+import { RdSliderComponent } from './types';
 
-export const Slider = ({ ...antdProps }: RdSliderProps) => {
-    return (
-        <ConfigProviderDesign>
-            <SliderStyles {...antdProps} />
-        </ConfigProviderDesign>
-    );
-};
+export const Slider: RdSliderComponent = forwardRef((props, ref) => {
+    return <SliderStyled ref={ref} {...props} />;
+});

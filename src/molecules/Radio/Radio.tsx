@@ -1,29 +1,13 @@
-import { RadioProps } from 'antd';
-import ConditionalWrapper from '../../atomics/ConditionalWrapper';
-import { ConfigProviderDesign } from '../../ConfigProviderDesign';
-import { LabelField } from '../LabelField';
+import { forwardRef } from 'react';
 import { RadioButton } from './RadioButton';
 import { RadioGroup } from './RadioGroup';
 import { RadioStyles } from './styles';
-import { RdRadioProps } from './types';
+import { RdRadioComponent, RdRadioCompoundedComponent } from './types';
 
-export const Radio = ({
-    label: labelFieldProps,
+export const RadioInternal: RdRadioComponent = forwardRef((props, ref) => {
+    return <RadioStyles ref={ref} {...props} />;
+});
 
-    ...antdProps
-}: RdRadioProps) => {
-    return (
-        <ConfigProviderDesign>
-            <ConditionalWrapper
-                condition={Boolean(labelFieldProps)}
-                wrapper={LabelField}
-                wrapperProps={labelFieldProps}
-            >
-                <RadioStyles {...(antdProps as RadioProps)} />
-            </ConditionalWrapper>
-        </ConfigProviderDesign>
-    );
-};
-
+export const Radio = RadioInternal as RdRadioCompoundedComponent;
 Radio.Button = RadioButton;
 Radio.Group = RadioGroup;

@@ -1,5 +1,6 @@
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
     entry: './src/index.tsx',
@@ -32,4 +33,11 @@ module.exports = {
         react: 'react',
         'react-dom': 'react-dom',
     },
+    plugins: [
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+            reportFilename: 'bundle-report.html',
+        }),
+    ],
 };

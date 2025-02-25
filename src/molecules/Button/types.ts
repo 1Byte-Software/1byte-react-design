@@ -1,30 +1,63 @@
-import { ButtonProps } from 'antd';
+import { Button, ButtonProps, GetProps } from 'antd';
+import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
+import { ButtonInternal } from './Button';
+import { ButtonGroup } from './ButtonGroup';
 
+//#region Define Ant Design types
+type ButtonPropsAntd = GetProps<typeof Button>;
+type ButtonGroupPropsAntd = GetProps<typeof Button.Group>;
+//#endregion
+
+//#region Define extended component tokens
+type ButtonComponentTokenExtend = {};
+//#endregion
+
+//#region Define extended types
 /**
  * @description The color of the button extend.
  */
-export type colorButtonExtend = 'second' | 'tertiary' | 'quaternary';
+export type ColorButtonExtendProp = 'second' | 'tertiary' | 'quaternary' | 'success';
 
-/**
- * @description The props of the button.
- * @override antd.ButtonProps
- * @see ButtonProps
- */
-export interface RdButtonProps extends Omit<ButtonProps, 'color'> {
-    /**
-     * @description The width of the button.
-     */
-    width?: string | number;
+export type AlignButtonProp = 'left' | 'center' | 'right';
 
+type ButtonPropsExtend = {
     /**
      * @description The color of the button.
      * @see ButtonProps#color
      */
-    color?: ButtonProps['color'] | colorButtonExtend;
+    color?: ButtonPropsAntd['color'] | ColorButtonExtendProp;
 
     /**
-     * @description Link in react-router-dom.
-     * @see Link
+     * 	If `true`, the button  will take up the full width of its container.
+     * @default false
      */
-    to?: string;
-}
+    fullWidth?: boolean;
+
+    /**
+     * Align content in the button.
+     */
+    align?: 'left' | 'center' | 'right';
+};
+
+type ButtonGroupPropsExtend = {};
+//#endregion
+
+//#region Export types
+export type RdButtonProps = Omit<ButtonPropsAntd, 'color'> & ButtonPropsExtend;
+export type RdButtonGroupProps = ButtonGroupPropsAntd & ButtonGroupPropsExtend;
+
+export type RdButtonComponentToken = ButtonComponentTokenAntd & ButtonComponentTokenExtend;
+//#endregion
+
+//#region Define component types
+export type RdButtonComponent = React.ForwardRefExoticComponent<
+    RdButtonProps & React.RefAttributes<HTMLButtonElement | HTMLAnchorElement>
+>;
+
+export type RdButtonGroupComponent = React.FC<RdButtonGroupProps>;
+
+export type RdButtonCompoundedComponent = typeof ButtonInternal & {
+    Group: typeof ButtonGroup;
+};
+
+//#endregion

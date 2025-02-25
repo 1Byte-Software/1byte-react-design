@@ -1,33 +1,39 @@
 import styled from '@emotion/styled';
-import { config } from '../..';
+import { Typography } from 'antd';
+import { getComponentOrGlobalToken } from '../../utils/token';
+import { RdTypographyTextProps, RdTypographyTitleProps } from './types';
+import { css } from '@emotion/react';
+import { getExcludeForwardProps } from '../../utils/styles';
 
-export const H1Wrapper = styled.h1`
-    font-size: ${config.designToken.fontSizeHeading1}px;
+export const TypographyLinkStyles = styled(Typography.Link)``;
+
+export const TypographyTitleStyles = styled(Typography.Title, {
+    shouldForwardProp: prop =>
+        getExcludeForwardProps<RdTypographyTitleProps>(
+            ['disableMargin'] as (keyof RdTypographyTitleProps)[],
+            prop
+        ),
+})<RdTypographyTitleProps>`
+    ${({ disableMargin }) => {
+        return (
+            disableMargin &&
+            css`
+                margin-bottom: 0 !important;
+            `
+        );
+    }}
 `;
-export const H2Wrapper = styled.h2`
-    font-size: ${config.designToken.fontSizeHeading2}px;
+
+export const TypographyTextStyles = styled(Typography.Text)<Pick<RdTypographyTextProps, 'size'>>`
+    ${({ size }) => {
+        switch (size) {
+            case 'small':
+                return `
+                    font-size: ${getComponentOrGlobalToken('Typography', 'fontSizeSM')}px;
+                `;
+            // Case normal is the default size
+        }
+    }}
 `;
-export const H3Wrapper = styled.h3`
-    font-size: ${config.designToken.fontSizeHeading3}px;
-`;
-export const H4Wrapper = styled.h4`
-    font-size: ${config.designToken.fontSizeHeading4}px;
-`;
-export const H5Wrapper = styled.h5`
-    font-size: ${config.designToken.fontSizeHeading5}px;
-`;
-export const H6Wrapper = styled.h6`
-    font-size: ${config.designToken.fontSizeLG}px;
-`;
-export const TitleWrapper = styled.span`
-    font-size: ${config.designToken.fontSizeLG}px;
-    font-weight: ${config.designToken.fontWeightStrong};
-`;
-export const TextWrapper = styled.span`
-    font-size: ${config.designToken.fontSize};
-`;
-export const DescriptionWrapper = styled.span`
-    font-size: ${config.designToken.fontSizeSM}px;
-    color: ${config.designToken.colorTextDescription};
-    font-style: italic;
-`;
+
+export const TypographyParagraphStyles = styled(Typography.Paragraph)``;

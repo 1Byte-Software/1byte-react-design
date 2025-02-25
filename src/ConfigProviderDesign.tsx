@@ -1,5 +1,5 @@
 import { ConfigProvider, ThemeConfig } from 'antd';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useContext } from 'react';
 import { config } from '.';
 
 interface IConfigProviderDesignProps extends PropsWithChildren {
