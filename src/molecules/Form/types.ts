@@ -39,11 +39,6 @@ type FormItemPropsExtend = {
     errorMessage?: string;
 
     /**
-     * @description Extra description for label
-     */
-    description?: string;
-
-    /**
      * @description Option to fit Space width to its parent width, default is false
      */
     block?: boolean;
@@ -86,7 +81,7 @@ export type FormItemReactHookFormProps<
     disabled?: boolean;
     defaultValue?: any;
     overrideFieldOnChange?: (...values: any[]) => void;
-} & Omit<FormItemPropsAntd, 'name' | 'rules' | 'validateStatus'>;
+} & Omit<RdFormItemProps, 'name' | 'rules' | 'validateStatus' | 'help'>;
 //#endregion
 
 //#region Define component types

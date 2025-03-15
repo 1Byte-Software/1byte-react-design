@@ -3,13 +3,13 @@ import { Children, cloneElement, isValidElement, useEffect, useLayoutEffect, use
 import { FieldValues, useController } from 'react-hook-form';
 import { FormItemStyles } from './styles';
 import { FormItemReactHookFormProps } from './types';
+import { FormItem } from './FormItem';
 
 export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldValues>({
     children,
     control,
     name,
     disabled,
-    help,
     valuePropName,
     shouldUnregister,
     defaultValue,
@@ -30,12 +30,12 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
     }, [field.value, form, name]);
 
     return (
-        <FormItemStyles
+        <FormItem
             {...props}
             name={name}
             initialValue={field.value}
             validateStatus={fieldState.invalid ? 'error' : undefined}
-            help={fieldState.error?.message ?? help}
+            help={fieldState.error?.message}
         >
             {Children.map(
                 children,
@@ -61,6 +61,6 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
                         }),
                     })
             )}
-        </FormItemStyles>
+        </FormItem>
     );
 };
