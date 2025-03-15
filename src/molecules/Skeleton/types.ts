@@ -15,6 +15,14 @@ type SkeletonComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
+type SkeletonBaseProps = {
+    /**
+     * 	If `true`, the skeleton image  will take up the full width of its container.
+     * @default false
+     */
+    fullWidth?: boolean;
+};
+
 type SkeletonPropsExtend = {};
 type SkeletonButtonPropsExtend = {};
 type SkeletonAvatarPropsExtend = {};
@@ -24,12 +32,22 @@ type SkeletonNodePropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdSkeletonProps = SkeletonPropsAntd & SkeletonPropsExtend;
-export type RdSkeletonButtonProps = SkeletonButtonPropsAntd & SkeletonButtonPropsExtend;
-export type RdSkeletonAvatarProps = SkeletonAvatarPropsAntd & SkeletonAvatarPropsExtend;
-export type RdSkeletonInputProps = SkeletonInputPropsAntd & SkeletonInputPropsExtend;
-export type RdSkeletonImageProps = SkeletonImagePropsAntd & SkeletonImagePropsExtend;
-export type RdSkeletonNodeProps = SkeletonNodePropsAntd & SkeletonNodePropsExtend;
+export type RdSkeletonProps = SkeletonPropsAntd & SkeletonBaseProps & SkeletonPropsExtend;
+export type RdSkeletonButtonProps = SkeletonButtonPropsAntd &
+    SkeletonBaseProps &
+    SkeletonButtonPropsExtend;
+export type RdSkeletonAvatarProps = SkeletonAvatarPropsAntd &
+    SkeletonBaseProps &
+    SkeletonAvatarPropsExtend;
+export type RdSkeletonInputProps = SkeletonInputPropsAntd &
+    SkeletonBaseProps &
+    SkeletonInputPropsExtend;
+export type RdSkeletonImageProps = SkeletonImagePropsAntd &
+    SkeletonBaseProps &
+    SkeletonImagePropsExtend;
+export type RdSkeletonNodeProps = SkeletonNodePropsAntd &
+    SkeletonBaseProps &
+    SkeletonNodePropsExtend;
 
 export type RdSkeletonComponentToken = SkeletonComponentTokenAntd & SkeletonComponentTokenExtend;
 //#endregion
