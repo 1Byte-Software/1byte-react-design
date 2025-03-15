@@ -30,7 +30,7 @@ export type RdListComponent = React.FC<RdListProps & React.RefAttributes<HTMLDiv
 export type RdListItemComponent = React.ForwardRefExoticComponent<
     RdListItemProps & React.RefAttributes<HTMLDivElement>
 >;
-export type RdListItemMetaComponent = React.FC<RdListItemProps>;
+export type RdListItemMetaComponent = React.FC<RdListItemMetaProps>;
 
 export type RdListItemCompoundedComponent = RdListItemComponent & {
     Meta: RdListItemMetaComponent;
