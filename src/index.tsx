@@ -1,9 +1,9 @@
 import { theme } from 'antd';
-import { IRdThemeConfig } from './utils/types';
+import { RdThemeConfig } from './organisms';
 
 export interface IConfig {
-    designToken: NonNullable<IRdThemeConfig['token']>;
-    componentToken: IRdThemeConfig['components'];
+    designToken: NonNullable<RdThemeConfig['token']>;
+    componentToken: RdThemeConfig['components'];
 }
 
 export const config: IConfig = {
@@ -14,4 +14,5 @@ export const config: IConfig = {
 export * from './atomics';
 export * from './molecules';
 export * from './organisms';
+export * from './templates';
 export * from './utils';
