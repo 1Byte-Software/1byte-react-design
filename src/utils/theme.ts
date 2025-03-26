@@ -1,12 +1,11 @@
 import { theme } from 'antd';
+import { darken, lighten } from 'polished';
+import { RdAliasToken, RdThemeConfig } from '../organisms';
 import {
     IQuaternaryColor,
-    IRdAliasToken,
-    IRdThemeConfig,
     ISecondaryColor,
     ITertiaryColor,
-} from './types';
-import { darken, lighten } from 'polished';
+} from '../organisms/ConfigProvider/types.colors';
 
 /**
  * @description Generate color based on base color
@@ -28,7 +27,7 @@ const generateColor = (baseColor: string) => {
 
 export const rdTheme = {
     ...theme,
-    getDesignToken: (config: IRdThemeConfig): IRdAliasToken => {
+    getDesignToken: (config: RdThemeConfig): RdAliasToken => {
         // getDesignToken in antd
         const design = theme.getDesignToken(config);
 
@@ -75,7 +74,7 @@ export const rdTheme = {
             colorQuaternaryTextHover: quaternaryColorGenerated.colorTextHover,
         };
 
-        const result: IRdAliasToken = {
+        const result: RdAliasToken = {
             ...design,
             ...secondaryColorAdditional,
             ...tertiaryColorAdditional,

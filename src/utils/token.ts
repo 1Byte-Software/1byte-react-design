@@ -1,6 +1,4 @@
-import { config } from '..';
-import { RdComponentTokenMap } from '../molecules/types';
-import { IRdAliasToken, RdComponentsConfig } from './types';
+import { config, RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '..';
 
 /**
  * Get the token value for a given component and alias name.
@@ -12,7 +10,7 @@ import { IRdAliasToken, RdComponentsConfig } from './types';
  */
 export const getComponentOrGlobalToken = (
     componentName: keyof RdComponentsConfig,
-    aliasName: keyof IRdAliasToken
+    aliasName: keyof RdAliasToken
 ) => {
     const componentTokenValue = config.componentToken?.[componentName]?.[aliasName];
     const designTokenValue = config.designToken?.[aliasName];

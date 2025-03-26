@@ -41,7 +41,7 @@ import { RdTagComponentToken } from './Tag';
 import { RdTooltipComponentToken } from './Tooltip';
 import { RdUploadComponentToken } from './Upload';
 
-export interface RdComponentTokenMap {
+export interface RdMoleculesTokenMap {
     Affix?: RdAffixComponentToken;
     // Alert?: AlertComponentToken;
     Anchor?: RdAnchorComponentToken;
