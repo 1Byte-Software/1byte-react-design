@@ -9,7 +9,6 @@ export const ButtonStyles = styled(Button as RdButtonComponent, {
         getExcludeForwardProps<RdButtonProps>(['fullWidth'] as (keyof RdButtonProps)[], prop),
 })<RdButtonProps>`
     ${({ fullWidth }) => fullWidth && fullWidthCSS}
-
     ${({ color }) => {
         switch (color) {
             case 'second':
@@ -28,8 +27,7 @@ export const ButtonStyles = styled(Button as RdButtonComponent, {
                 return color;
         }
     }}
-
-     ${({ align }) => {
+        ${({ align }) => {
         switch (align) {
             case 'left':
                 return css`
@@ -46,7 +44,7 @@ export const ButtonStyles = styled(Button as RdButtonComponent, {
             default:
                 return null;
         }
-    }}
+    }};
 `;
 export const ButtonGroupStyles = styled(Button.Group)<RdButtonGroupProps>``;
 
