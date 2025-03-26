@@ -12,3 +12,5 @@ export const InputSearchStyled = styled(Input.Search)``;
 export const InputGroupStyled = styled(Input.Group)``;
 
 export const OTPStyled = styled(Input.OTP)``;
+
+export const InputUploadStyled = styled(Input)``;
