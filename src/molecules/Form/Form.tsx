@@ -5,9 +5,9 @@ import { FormItemControl } from './FormItemControl';
 import { FormList } from './FormList';
 import { FormProvider } from './FormProvider';
 import { FormStyles } from './styles';
-import { RdFormCompoundedComponent, RdFormProps } from './types';
+import { RdFormComponent, RdFormCompoundedComponent, RdFormProps } from './types';
 
-export const FormInternal = (props: RdFormProps) => {
+export const FormInternal: RdFormComponent = (props: RdFormProps) => {
     return <FormStyles {...props} />;
 };
 

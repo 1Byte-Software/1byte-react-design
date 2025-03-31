@@ -6,6 +6,7 @@ export * from './Blur';
 export * from './Breadcrumb';
 export * from './Button';
 export * from './Card';
+export * from './Carousel';
 export * from './Checkbox';
 export * from './Collapse';
 export * from './DatePicker';

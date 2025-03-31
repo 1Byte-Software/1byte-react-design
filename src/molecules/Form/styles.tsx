@@ -9,8 +9,14 @@ export const FormListStyles = styled(Form.List)``;
 export const FormProviderStyles = styled(Form.Provider)``;
 export const FormErrorListStyles = styled(Form.ErrorList)``;
 export const FormItemStyles = styled(Form.Item, {
-    shouldForwardProp: prop => getExcludeForwardProps<RdFormItemProps>(['block'], prop),
+    shouldForwardProp: prop => getExcludeForwardProps<RdFormItemProps>(['block', 'disableMargin'], prop),
 })<RdFormItemProps>`
+    ${({ disableMargin }) =>
+        disableMargin &&
+        css`
+            margin-bottom: 0px;
+        `}
+
     ${({ block }) =>
         block &&
         css`

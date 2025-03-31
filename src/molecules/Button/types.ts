@@ -2,6 +2,7 @@ import { Button, ButtonProps, GetProps } from 'antd';
 import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
 import { ButtonInternal } from './Button';
 import { ButtonGroup } from './ButtonGroup';
+import { RdTooltipProps } from '../Tooltip';
 
 //#region Define Ant Design types
 type ButtonPropsAntd = GetProps<typeof Button>;
@@ -37,6 +38,18 @@ type ButtonPropsExtend = {
      * Align content in the button.
      */
     align?: 'left' | 'center' | 'right';
+
+    /**
+     * Configuration for the tooltip displayed when hovering over the button.
+     * @see string | RdTooltipProps for more details on available options.
+     */
+    tooltip?: string | RdTooltipProps;
+
+    /**
+     * 	If `true`, the button  will auto hide when the button is clicked.
+     * @default true
+     */
+    hideTooltipWhenClick?: boolean;
 };
 
 type ButtonGroupPropsExtend = {};

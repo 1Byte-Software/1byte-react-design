@@ -1,12 +1,16 @@
-import { GetProps, Layout } from 'antd';
+import { SiderProps as SiderPropsAntd } from 'antd';
+import { BasicProps as BasicPropsAntd } from 'antd/es/layout/layout';
 import { ComponentToken as LayoutComponentTokenAntd } from 'antd/es/layout/style';
 
 //#region Define Ant Design types
-type LayoutProps = GetProps<typeof Layout>;
-type ContentProps = GetProps<typeof Layout.Content>;
-type FooterProps = GetProps<typeof Layout.Footer>;
-type HeaderProps = GetProps<typeof Layout.Header>;
-type SiderProps = GetProps<typeof Layout.Sider>;
+type LayoutProps = BasicPropsAntd;
+type ContentProps = BasicPropsAntd;
+type FooterProps = BasicPropsAntd;
+type HeaderProps = BasicPropsAntd;
+type SiderProps = SiderPropsAntd;
+
+type LayoutBaseRefAntd = React.RefAttributes<HTMLElement>;
+type LayoutSiderRefAntd = React.RefAttributes<HTMLDivElement>;
 //#endregion
 
 //#region Define extended component tokens
@@ -19,6 +23,13 @@ type ContentPropsExtend = {};
 type FooterPropsExtend = {};
 type HeaderPropsExtend = {};
 type SiderPropsExtend = {};
+
+type LayoutRefExtend = {};
+type LayoutHeaderRefExtend = {};
+type LayoutFooterRefExtend = {};
+type LayoutContentRefExtend = {};
+type LayoutSiderRefExtend = {};
+
 //#endregion
 
 //#region Export types
@@ -28,25 +39,29 @@ export type RdFooterProps = FooterProps & FooterPropsExtend;
 export type RdHeaderProps = HeaderProps & HeaderPropsExtend;
 export type RdSiderProps = SiderProps & SiderPropsExtend;
 
+export type RdLayoutRef = LayoutBaseRefAntd & LayoutRefExtend;
+export type RdLayoutHeaderRef = LayoutBaseRefAntd & LayoutHeaderRefExtend;
+export type RdLayoutFooterRef = LayoutBaseRefAntd & LayoutFooterRefExtend;
+export type RdLayoutContentRef = LayoutBaseRefAntd & LayoutContentRefExtend;
+export type RdLayoutSiderRef = LayoutSiderRefAntd & LayoutSiderRefExtend;
+
 export type RdLayoutComponentToken = LayoutComponentTokenAntd & LayoutComponentTokenExtend;
 //#endregion
 
 //#region Define component types
-export type RdLayoutComponent = React.ForwardRefExoticComponent<
-    RdLayoutProps & React.RefAttributes<HTMLElement>
->;
+export type RdLayoutComponent = React.ForwardRefExoticComponent<RdLayoutProps & RdLayoutRef>;
 
 export type RdLayoutHeaderComponent = React.ForwardRefExoticComponent<
-    RdHeaderProps & React.RefAttributes<HTMLElement>
+    RdHeaderProps & RdLayoutHeaderRef
 >;
 export type RdLayoutFooterComponent = React.ForwardRefExoticComponent<
-    RdFooterProps & React.RefAttributes<HTMLElement>
+    RdFooterProps & RdLayoutFooterRef
 >;
 export type RdLayoutContentComponent = React.ForwardRefExoticComponent<
-    RdContentProps & React.RefAttributes<HTMLElement>
+    RdContentProps & RdLayoutContentRef
 >;
 export type RdLayoutSiderComponent = React.ForwardRefExoticComponent<
-    RdSiderProps & React.RefAttributes<HTMLDivElement>
+    RdSiderProps & RdLayoutSiderRef
 >;
 
 export type RdLayoutCompoundedComponent = RdLayoutComponent & {

@@ -1,7 +1,7 @@
 import { Form as AntdForm } from 'antd';
-import { Children, cloneElement, isValidElement, useEffect, useLayoutEffect, useMemo } from 'react';
+import { Children, cloneElement, isValidElement, useEffect } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
-import { FormItemStyles } from './styles';
+import { FormItem } from './FormItem';
 import { FormItemReactHookFormProps } from './types';
 
 export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldValues>({
@@ -9,7 +9,6 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
     control,
     name,
     disabled,
-    help,
     valuePropName,
     shouldUnregister,
     defaultValue,
@@ -30,12 +29,12 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
     }, [field.value, form, name]);
 
     return (
-        <FormItemStyles
+        <FormItem
             {...props}
             name={name}
             initialValue={field.value}
             validateStatus={fieldState.invalid ? 'error' : undefined}
-            help={fieldState.error?.message ?? help}
+            help={fieldState.error?.message}
         >
             {Children.map(
                 children,
@@ -61,6 +60,6 @@ export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldVa
                         }),
                     })
             )}
-        </FormItemStyles>
+        </FormItem>
     );
 };

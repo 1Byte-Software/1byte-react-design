@@ -39,14 +39,15 @@ type FormItemPropsExtend = {
     errorMessage?: string;
 
     /**
-     * @description Extra description for label
-     */
-    description?: string;
-
-    /**
      * @description Option to fit Space width to its parent width, default is false
      */
     block?: boolean;
+
+    /**
+     * If set to `true`, disables the default margin applied to the Typography.Title component.
+     * @default false
+     */
+    disableMargin?: boolean;
 };
 
 type FormListPropsExtend = {};
@@ -86,7 +87,7 @@ export type FormItemReactHookFormProps<
     disabled?: boolean;
     defaultValue?: any;
     overrideFieldOnChange?: (...values: any[]) => void;
-} & Omit<FormItemPropsAntd, 'name' | 'rules' | 'validateStatus'>;
+} & Omit<RdFormItemProps, 'name' | 'rules' | 'validateStatus' | 'help'>;
 //#endregion
 
 //#region Define component types
