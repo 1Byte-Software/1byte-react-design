@@ -3,7 +3,9 @@ import { RdDashboardTemplateHeaderComponent, RdDashboardTemplateHeaderProps } fr
 import { RdDashboardTemplateSiderComponent, RdDashboardTemplateSiderProps } from './Sider/types';
 
 //#region Define extended component tokens
-type DashboardTemplateComponentTokenExtend = {};
+type DashboardTemplateComponentTokenExtend = {
+    contentPadding?: string;
+};
 
 //#endregion
 

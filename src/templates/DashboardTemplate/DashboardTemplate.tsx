@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import DashboardTemplateHeader from './Header';
 import DashboardTemplateSider from './Sider';
-import { DashboardTemplateStyles } from './styles';
+import { DashboardTemplateContent, DashboardTemplateStyles } from './styles';
 import { RdDashboardTemplateComponent, RdDashboardTemplateCompoundedComponent } from './types';
 import { Layout } from '../../molecules';
 
@@ -15,7 +15,7 @@ const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((prop
             <Layout hasSider>
                 <DashboardTemplateSider {...siderProps} />
 
-                <Layout>{props.children}</Layout>
+                <DashboardTemplateContent>{props.children}</DashboardTemplateContent>
             </Layout>
         </DashboardTemplateStyles>
     );

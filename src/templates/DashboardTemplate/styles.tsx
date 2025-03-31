@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { getComponentOrGlobalToken } from '../..';
+import { getComponentOrGlobalToken, getComponentToken } from '../..';
 import { Layout } from '../../molecules';
 
 export const DashboardTemplateStyles = styled(Layout, {
@@ -8,5 +8,13 @@ export const DashboardTemplateStyles = styled(Layout, {
 })`
     ${() => css`
         background: ${getComponentOrGlobalToken('DashboardTemplate', 'colorBgLayout')};
+    `}
+`;
+
+export const DashboardTemplateContent = styled(Layout, {
+    label: 'rd-dashboard-template-content',
+})`
+    ${() => css`
+        padding: ${getComponentToken('CenteredTemplate', 'contentPadding') || '32px 32px'};
     `}
 `;

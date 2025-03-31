@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Layout } from 'antd';
-import { getExcludeForwardProps } from '../../../utils';
+import { getComponentOrGlobalToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateHeaderProps } from './types';
 
 export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
@@ -17,5 +17,6 @@ export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
         css`
             position: sticky;
             top: 0;
+            z-index: 1;
         `}
 `;
