@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import { ComponentToken } from 'antd/es/form/style';
 import { FormRef } from 'rc-field-form/lib/interface';
 import React, { ReactElement } from 'react';
-import { Control, FieldPath, FieldValues, Path, PathValue } from 'react-hook-form';
+import { Control, FieldPath, FieldValues } from 'react-hook-form';
 
 //#region Define Ant Design types
 type FormPropsAntd<Values = any> = GetProps<typeof Form<Values>>;
