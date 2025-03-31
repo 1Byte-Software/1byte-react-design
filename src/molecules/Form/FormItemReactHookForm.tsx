@@ -1,9 +1,8 @@
 import { Form as AntdForm } from 'antd';
-import { Children, cloneElement, isValidElement, useEffect, useLayoutEffect, useMemo } from 'react';
+import { Children, cloneElement, isValidElement, useEffect } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
-import { FormItemStyles } from './styles';
-import { FormItemReactHookFormProps } from './types';
 import { FormItem } from './FormItem';
+import { FormItemReactHookFormProps } from './types';
 
 export const FormItemReactHookForm = <TFieldValues extends FieldValues = FieldValues>({
     children,
