@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Typography } from 'antd';
 import { getComponentOrGlobalToken } from '../../utils/token';
-import { RdTypographyTextProps, RdTypographyTitleProps } from './types';
+import { RdTypographyParagraphProps, RdTypographyTextProps, RdTypographyTitleProps } from './types';
 import { css } from '@emotion/react';
 import { getExcludeForwardProps } from '../../utils/styles';
 
@@ -36,4 +36,19 @@ export const TypographyTextStyles = styled(Typography.Text)<Pick<RdTypographyTex
     }}
 `;
 
-export const TypographyParagraphStyles = styled(Typography.Paragraph)``;
+export const TypographyParagraphStyles = styled(Typography.Paragraph, {
+    shouldForwardProp: prop =>
+        getExcludeForwardProps<RdTypographyParagraphProps>(
+            ['minRows'] as (keyof RdTypographyParagraphProps)[],
+            prop
+        ),
+})<RdTypographyParagraphProps>`
+    ${({ minRows }) => {
+        return (
+            minRows &&
+            css`
+                min-height: ${Number(getComponentOrGlobalToken('Typography', 'lineHeight')) * Number(getComponentOrGlobalToken('Typography', 'fontSize')) * minRows}px;
+            `
+        );
+    }}
+`;
