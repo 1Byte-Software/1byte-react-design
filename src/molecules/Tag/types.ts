@@ -11,7 +11,9 @@ type TagComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type TagPropsExtend = {};
+type TagPropsExtend = {
+    loading?: boolean;
+};
 type TagCheckablePropsExtend = {};
 //#endregion
 

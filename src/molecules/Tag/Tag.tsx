@@ -1,10 +1,17 @@
 import { forwardRef } from 'react';
+import { Skeleton } from '../Skeleton';
 import { TagStyled } from './styles';
-import { RdTagComponent, RdTagCompoundedComponent } from './types';
 import { TagCheckable } from './TagCheckable';
+import { RdTagComponent, RdTagCompoundedComponent } from './types';
 
 export const TagInternal: RdTagComponent = forwardRef((props, ref) => {
-    return <TagStyled ref={ref} {...props} />;
+    const { loading = false, ...antdProps } = props;
+
+    if (loading) {
+        return <Skeleton.Button active />;
+    }
+
+    return <TagStyled ref={ref} {...antdProps} />;
 });
 
 export const Tag = TagInternal as RdTagCompoundedComponent;

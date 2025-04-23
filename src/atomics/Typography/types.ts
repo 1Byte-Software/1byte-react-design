@@ -14,10 +14,18 @@ type TypographyComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type TypographyPropsExtend = {};
-type TypographyLinkPropsExtend = {};
-type TypographyParagraphPropsExtend = {};
-type TypographyTextPropsExtend = {
+type TypographyBaseProps = {
+    loading?: boolean;
+};
+type TypographyPropsExtend = TypographyBaseProps & {};
+type TypographyLinkPropsExtend = TypographyBaseProps & {};
+type TypographyParagraphPropsExtend = TypographyBaseProps & {
+    /**
+     * Min rows of paragraph
+     */
+    minRows?: number;
+};
+type TypographyTextPropsExtend = TypographyBaseProps & {
     /**
      * @description The size of the text.
      * @default "normal"
@@ -34,7 +42,7 @@ type TypographyTextPropsExtend = {
 /**
  * Extended properties for customizing the Typography.Title component.
  */
-type TypographyTitlePropsExtend = {
+type TypographyTitlePropsExtend = TypographyBaseProps & {
     /**
      * If set to `true`, disables the default margin applied to the Typography.Title component.
      * @default false

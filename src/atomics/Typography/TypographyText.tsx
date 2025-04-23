@@ -1,10 +1,20 @@
 import { forwardRef, useMemo } from 'react';
 import { TypographyTextStyles } from './styles';
 import { RdTypographyTextProps } from './types';
+import { Skeleton } from '../../molecules';
 
 export const TypographyText = forwardRef(
     (props: RdTypographyTextProps, ref: RdTypographyTextProps['ref']) => {
-        const { size = 'normal', editable, autoFocus = false, onChange, ...antdProps } = props;
+        const {
+            size = 'normal',
+            editable,
+            autoFocus = false,
+            loading = false,
+            onChange,
+            ...antdProps
+        } = props;
+
+        if (loading) return <Skeleton.Input active />;
 
         const editableCustom = useMemo(() => {
             if (editable && typeof editable === 'object') {
