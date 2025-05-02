@@ -10,7 +10,15 @@ type ColorPickerComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type ColorPickerPropsExtend = {};
+type ColorPickerPropsExtend = {
+    /**
+     * Determines whether the color picker should be in a read-only state.
+     * When set to `true`, user interactions such as selecting or changing colors are disabled.
+     *
+     * @default false
+     */
+    readonly?: boolean;
+};
 //#endregion
 
 //#region Export types
