@@ -5,11 +5,23 @@ import { AnyObject } from 'antd/es/_util/type';
 import { RowSortable } from './sortable';
 import { TableStyledFunc } from './styles';
 import { RdTableProps } from './types';
+import { useContext, useMemo } from 'react';
+import { ConfigProvider } from '../../organisms';
 
 export const Table = <RecordType extends AnyObject = AnyObject>(
     props: RdTableProps<RecordType>
 ) => {
-    const { allowSort = false, onChangeSort, ...antdProps } = props;
+    const { allowSort = false, pagination, onChangeSort, ...antdProps } = props;
+    const { table: defaultTableProps } = useContext(ConfigProvider.ConfigContext);
+    const { pagination: defaultPagination } = defaultTableProps || {};
+
+    const paginationWithDefault = useMemo(() => {
+        return {
+            ...defaultPagination,
+            ...pagination,
+        };
+    }, [pagination, defaultPagination]);
+
     const TableStyled = TableStyledFunc<RecordType>();
 
     if (allowSort && props.rowKey) {
@@ -32,11 +44,15 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
                     items={dataSource.map(i => i[props.rowKey as string])}
                     strategy={verticalListSortingStrategy}
                 >
-                    <TableStyled components={{ body: { row: RowSortable } }} {...antdProps} />
+                    <TableStyled
+                        components={{ body: { row: RowSortable } }}
+                        pagination={paginationWithDefault}
+                        {...antdProps}
+                    />
                 </SortableContext>
             </DndContext>
         );
     }
 
-    return <TableStyled {...antdProps} />;
+    return <TableStyled pagination={paginationWithDefault} {...antdProps} />;
 };
