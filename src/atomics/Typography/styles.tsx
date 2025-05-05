@@ -24,15 +24,29 @@ export const TypographyTitleStyles = styled(Typography.Title, {
     }}
 `;
 
-export const TypographyTextStyles = styled(Typography.Text)<Pick<RdTypographyTextProps, 'size'>>`
+export const TypographyTextStyles = styled(Typography.Text, {
+    shouldForwardProp: prop =>
+        getExcludeForwardProps<RdTypographyTextProps>(
+            ['noWrap', 'size'] as (keyof RdTypographyTextProps)[],
+            prop
+        ),
+})<Pick<RdTypographyTextProps, 'size' | 'noWrap'>>`
     ${({ size }) => {
         switch (size) {
             case 'small':
                 return `
                     font-size: ${getComponentOrGlobalToken('Typography', 'fontSizeSM')}px;
                 `;
-            // Case normal is the default size
         }
+    }}
+
+    ${({ noWrap }) => {
+        return (
+            noWrap &&
+            css`
+                text-wrap: nowrap;
+            `
+        );
     }}
 `;
 
@@ -47,7 +61,9 @@ export const TypographyParagraphStyles = styled(Typography.Paragraph, {
         return (
             minRows &&
             css`
-                min-height: ${Number(getComponentOrGlobalToken('Typography', 'lineHeight')) * Number(getComponentOrGlobalToken('Typography', 'fontSize')) * minRows}px;
+                min-height: ${Number(getComponentOrGlobalToken('Typography', 'lineHeight')) *
+                Number(getComponentOrGlobalToken('Typography', 'fontSize')) *
+                minRows}px;
             `
         );
     }}

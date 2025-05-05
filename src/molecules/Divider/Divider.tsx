@@ -2,5 +2,6 @@ import { DividerStyles } from './styles';
 import { RdDividerComponent } from './types';
 
 export const Divider: RdDividerComponent = props => {
-    return <DividerStyles {...props} />;
+    const { disableMargin = false, ...antdProps } = props;
+    return <DividerStyles disableMargin={disableMargin} {...antdProps} />;
 };

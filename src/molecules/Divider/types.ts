@@ -10,7 +10,13 @@ type DividerComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type DividerPropsExtend = {};
+type DividerPropsExtend = {
+    /**
+     * If `true`, removes the default margin of the Divider.
+     * @default false.
+     */
+    disableMargin?: boolean;
+};
 //#endregion
 
 //#region Export types

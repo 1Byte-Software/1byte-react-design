@@ -27,13 +27,20 @@ type TypographyParagraphPropsExtend = TypographyBaseProps & {
 };
 type TypographyTextPropsExtend = TypographyBaseProps & {
     /**
-     * @description The size of the text.
+     * If true, the text will not wrap to the next line and instead will be truncated with an ellipsis when it overflows.
+     * This is useful when you want to keep the text in a single line.
+     * @default false
+     */
+    noWrap?: boolean;
+
+    /**
+     * The size of the text.
      * @default "normal"
      */
     size?: 'small' | 'normal';
 
     /**
-     * @description Callback function that is triggered when the text value changes.
+     * Callback function that is triggered when the text value changes.
      * @param value The new value of the text.
      */
     onChange?: (value: string) => void;
