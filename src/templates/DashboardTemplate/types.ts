@@ -5,6 +5,7 @@ import { RdDashboardTemplateSiderComponent, RdDashboardTemplateSiderProps } from
 //#region Define extended component tokens
 type DashboardTemplateComponentTokenExtend = {
     contentPadding?: string;
+    siderWidth?: number;
 };
 
 //#endregion
