@@ -10,7 +10,12 @@ export const DirectoryTree: RdDirectoryTreeComponent = <
     props: React.PropsWithChildren<RdDirectoryTreeProps<T>> & React.RefAttributes<RcTree>
 ) => {
     const DirectoryTreeStyles = useMemo(
-        () => DirectoryTreeStylesFunc<T>() as typeof DirectoryTree,
+        () =>
+            DirectoryTreeStylesFunc<T>() as (<T extends BasicDataNode | DataNode = DataNode>(
+                props: React.PropsWithChildren<RdDirectoryTreeProps<T>> &
+                    React.RefAttributes<RcTree>
+            ) => React.ReactElement) &
+                Pick<React.FC, 'displayName'>,
         []
     );
 
