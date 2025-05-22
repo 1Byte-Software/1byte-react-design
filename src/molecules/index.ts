@@ -42,4 +42,5 @@ export * from './Table';
 export * from './Tabs';
 export * from './Tag';
 export * from './Tooltip';
+export * from './Tree';
 export * from './Upload';

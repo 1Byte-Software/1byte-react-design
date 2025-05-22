@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react';
+import { getComponentToken } from '../../../utils';
 import { DashboardTemplateSiderStyles } from './styles';
 import { RdDashboardTemplateSiderComponent } from './types';
-import { getComponentOrGlobalToken, getComponentToken } from '../../../utils';
 
 export const DashboardTemplateSider: RdDashboardTemplateSiderComponent = forwardRef(
     (props, ref) => {

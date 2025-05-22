@@ -1,4 +1,5 @@
 import { RdLayoutProps, RdLayoutRef } from '../../molecules';
+import { RdDashboardTemplateFooterComponent, RdDashboardTemplateFooterProps } from './Footer/types';
 import { RdDashboardTemplateHeaderComponent, RdDashboardTemplateHeaderProps } from './Header/types';
 import { RdDashboardTemplateSiderComponent, RdDashboardTemplateSiderProps } from './Sider/types';
 
@@ -14,6 +15,7 @@ type DashboardTemplateComponentTokenExtend = {
 type DashboardTemplatePropsExtend = {
     headerProps?: RdDashboardTemplateHeaderProps;
     siderProps?: RdDashboardTemplateSiderProps;
+    footerProps?: RdDashboardTemplateFooterProps | false;
     test?: boolean;
 };
 
@@ -36,6 +38,7 @@ export type RdDashboardTemplateComponent = React.ForwardRefExoticComponent<
 export type RdDashboardTemplateCompoundedComponent = RdDashboardTemplateComponent & {
     Header: RdDashboardTemplateHeaderComponent;
     Sider: RdDashboardTemplateSiderComponent;
+    Footer: RdDashboardTemplateFooterComponent;
     // Content: RdLayoutContentComponent;
     // Sider: RdLayoutSiderComponent;
 };

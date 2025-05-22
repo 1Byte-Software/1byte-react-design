@@ -11,7 +11,7 @@ export const DashboardTemplateStyles = styled(Layout, {
     `}
 `;
 
-export const DashboardTemplateContent = styled(Layout, {
+export const DashboardTemplateContent = styled(Layout.Content, {
     label: 'rd-dashboard-template-content',
 })`
     ${() => css`

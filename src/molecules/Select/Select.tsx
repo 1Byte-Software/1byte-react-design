@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import React, { useMemo } from 'react';
 import { SelectStyledFunc } from './styles';
 import { RdSelectComponent, RdSelectProps } from './types';
-import { mergeToken } from 'antd/es/theme/internal';
 
 export const Select: RdSelectComponent = <
     ValueType = any,
