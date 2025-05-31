@@ -4,31 +4,6 @@ import { Select } from 'antd';
 import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
 import { getComponentOrGlobalToken, getComponentToken, getExcludeForwardProps } from '../../utils';
 import { RdSelectComponent, RdSelectProps } from './types';
-import { config } from '../..';
-
-// export const SelectStyled = styled(Select)<{ width?: string | number; minWidth?: string | number }>`
-//     ${props => {
-//         return (
-//             props.width &&
-//             css`
-//                 width: ${props.width};
-//             `
-//         );
-//     }}
-
-//     ${props => {
-//         return (
-//             props.minWidth &&
-//             css`
-//                 min-width: ${props.minWidth};
-//             `
-//         );
-//     }}
-
-//     .ant-select {
-//         width: 100%;
-//     }
-// `;
 
 export const SelectStyledFunc = <
     ValueType = any,
