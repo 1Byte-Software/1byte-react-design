@@ -25,7 +25,7 @@ export const getComponentToken = <
     componentName: ComponentName,
     componentToken: ComponentToken
 ): NonNullable<RdComponentTokenMap[ComponentName]>[ComponentToken] | undefined => {
-    return (config.componentToken?.[componentName] as RdComponentTokenMap[ComponentName])?.[
+    return (config?.componentToken?.[componentName] as RdComponentTokenMap[ComponentName])?.[
         componentToken
     ];
 };

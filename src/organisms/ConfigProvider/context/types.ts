@@ -1,6 +1,7 @@
 import { ConfigConsumerProps } from 'antd/es/config-provider';
 import { RdPaginationConfig } from '../configs/pagination';
 import { RdTableConfig } from '../configs/table';
+import { RdTextAreaConfig } from '../configs/textArea';
 
 //#region Define Ant Design types
 type ConfigConsumerPropsAntd = ConfigConsumerProps;
@@ -10,6 +11,7 @@ type ConfigConsumerPropsAntd = ConfigConsumerProps;
 interface ConfigConsumerPropsExtend {
     pagination?: RdPaginationConfig;
     table?: RdTableConfig;
+    textArea?: RdTextAreaConfig;
 }
 //#endregion
 
