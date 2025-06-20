@@ -1,6 +1,6 @@
-import { CardStyles } from './styles';
+import { GridCardStyles } from './styles';
 import { RdGridCardComponent } from './types';
 
 export const GridCard: RdGridCardComponent = props => {
-    return <CardStyles {...props} />;
+    return <GridCardStyles {...props} />;
 };

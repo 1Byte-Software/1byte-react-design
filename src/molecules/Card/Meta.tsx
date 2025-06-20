@@ -1,6 +1,6 @@
-import { CardStyles } from './styles';
+import { MetaCardStyles } from './styles';
 import { RdMetaCardComponent } from './types';
 
 export const MetaCard: RdMetaCardComponent = props => {
-    return <CardStyles {...props} />;
+    return <MetaCardStyles {...props} />;
 };
