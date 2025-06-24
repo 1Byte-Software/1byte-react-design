@@ -5,7 +5,7 @@ import { RdDashboardTemplateFooterProps } from './types';
 import { css } from '@emotion/react';
 
 export const DashboardTemplateFooterStyles = styled(Layout.Footer, {
-    label: 'rd-dashboard-template-header',
+    label: 'rd-dashboard-template-footer',
     shouldForwardProp: prop =>
         getExcludeForwardProps<Omit<RdDashboardTemplateFooterProps, 'render'>>(
             [] as (keyof Omit<RdDashboardTemplateFooterProps, 'render'>)[],
