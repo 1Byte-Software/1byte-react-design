@@ -55,7 +55,7 @@ export type RdComponentTokenMap = RdMoleculesTokenMap & RdTemplatesTokenMap;
 export type RdAliasToken = AliasToken & AliasTokenExtend;
 export type RdComponentsConfigExtend = RdComponentsConfig & ComponentsConfigExtend;
 export type RdAlgorithm = Algorithm & AlgorithmExtend;
-export type RdThemeConfig = ThemeConfig & ThemeConfigExtend;
+export type RdThemeConfig = Omit<ThemeConfig, 'token'> & ThemeConfigExtend;
 export type RdOverrideToken = OverrideTokenMap<RdComponentTokenMap, RdAliasToken>;
 export type RdComponentsConfig = {
     [key in keyof RdOverrideToken]?: RdOverrideToken[key] & {

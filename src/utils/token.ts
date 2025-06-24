@@ -1,4 +1,24 @@
+import type { TokenType } from '@ant-design/cssinjs';
+import type {
+    TokenMap,
+    TokenMapKey
+} from '@ant-design/cssinjs-utils';
 import { config, RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '..';
+
+export type RdGetDefaultTokenTypeUtil<
+    CompTokenMap extends TokenMap,
+    AliasToken extends TokenType,
+    C extends TokenMapKey<CompTokenMap>
+> = RdGetDefaultTokenFn<CompTokenMap, AliasToken, C>;
+
+export type RdGetDefaultToken<C extends TokenMapKey<RdComponentTokenMap>> =
+    RdGetDefaultTokenTypeUtil<RdComponentTokenMap, RdAliasToken, C>;
+
+export type RdGetDefaultTokenFn<
+    CompTokenMap extends TokenMap,
+    AliasToken extends TokenType,
+    C extends TokenMapKey<CompTokenMap>
+> = (token: AliasToken & Partial<CompTokenMap[C]>) => CompTokenMap[C];
 
 /**
  * Get the token value for a given component and alias name.
