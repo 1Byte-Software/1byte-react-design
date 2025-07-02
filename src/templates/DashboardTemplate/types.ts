@@ -13,8 +13,8 @@ type DashboardTemplateComponentTokenExtend = {
 
 //#region Define extended types
 type DashboardTemplatePropsExtend = {
-    headerProps?: RdDashboardTemplateHeaderProps;
-    siderProps?: RdDashboardTemplateSiderProps;
+    headerProps?: RdDashboardTemplateHeaderProps | false;
+    siderProps?: RdDashboardTemplateSiderProps | false;
     footerProps?: RdDashboardTemplateFooterProps | false;
     test?: boolean;
 };

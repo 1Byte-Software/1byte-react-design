@@ -11,10 +11,10 @@ const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((prop
 
     return (
         <DashboardTemplateStyles ref={ref} {...restProps}>
-            <DashboardTemplateHeader {...headerProps} />
+            {headerProps && <DashboardTemplateHeader {...headerProps} />}
 
-            <Layout hasSider>
-                <DashboardTemplateSider {...siderProps} />
+            <Layout hasSider={Boolean(siderProps)}>
+                {siderProps && <DashboardTemplateSider {...siderProps} />}
 
                 <Layout>
                     <DashboardTemplateContent>{props.children}</DashboardTemplateContent>
