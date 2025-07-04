@@ -1,4 +1,4 @@
-import { GetProps, Tree } from 'antd';
+import { GetProps, Tree, TreeDataNode as TreeDataNodeAntd } from 'antd';
 import { ComponentToken as TreeComponentTokenAntd } from 'antd/es/card/style';
 import { BasicDataNode, DataNode } from 'antd/es/tree';
 import type RcTree from 'rc-tree';
@@ -26,6 +26,8 @@ type DirectoryTreePropsExtend = {};
 //#endregion
 
 //#region Export types
+export type RdTreeDataNode = TreeDataNodeAntd;
+
 export type RdTreeProps<T extends BasicDataNode | DataNode = DataNode> = TreePropsAntd<T> &
     TreePropsExtend;
 export type RdTreeNodeProps = TreeNodePropsAntd & TreeNodePropsExtend;
