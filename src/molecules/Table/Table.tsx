@@ -2,11 +2,11 @@ import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { AnyObject } from 'antd/es/_util/type';
+import { useContext, useMemo } from 'react';
+import { ConfigProvider } from '../../organisms';
 import { RowSortable } from './sortable';
 import { TableStyledFunc } from './styles';
 import { RdTableProps } from './types';
-import { useContext, useMemo } from 'react';
-import { ConfigProvider } from '../../organisms';
 
 export const Table = <RecordType extends AnyObject = AnyObject>(
     props: RdTableProps<RecordType>
@@ -16,6 +16,8 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
     const { pagination: defaultPagination } = defaultTableProps || {};
 
     const paginationWithDefault = useMemo(() => {
+        if (pagination === false) return false;
+
         return {
             ...defaultPagination,
             ...pagination,
