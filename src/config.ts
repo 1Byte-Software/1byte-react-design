@@ -1,5 +1,4 @@
 import { theme } from 'antd';
-import { rdPrepareComponentToken } from '.';
 import { RdThemeConfig } from './organisms';
 
 export interface IConfig {
