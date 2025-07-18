@@ -1,9 +1,9 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Typography } from 'antd';
-import { getComponentOrGlobalToken } from '../../utils/token';
-import { RdTypographyParagraphProps, RdTypographyTextProps, RdTypographyTitleProps } from './types';
-import { css } from '@emotion/react';
+import { getComponentOrGlobalToken } from '../..';
 import { getExcludeForwardProps } from '../../utils/styles';
+import { RdTypographyParagraphProps, RdTypographyTextProps, RdTypographyTitleProps } from './types';
 
 export const TypographyLinkStyles = styled(Typography.Link)``;
 
