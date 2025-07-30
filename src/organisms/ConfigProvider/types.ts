@@ -1,38 +1,18 @@
 import { OverrideTokenMap } from '@ant-design/cssinjs-utils';
-import {
-    ConfigProvider as ConfigProviderAntd,
-    GetProps,
-    MappingAlgorithm,
-    ThemeConfig,
-} from 'antd';
+import { ConfigProvider as ConfigProviderAntd, MappingAlgorithm, ThemeConfig } from 'antd';
 import { AliasToken } from 'antd/es/theme/internal';
 import { RdMoleculesTokenMap } from '../../molecules/types';
-import { ConfigProviderInternal } from './ConfigProvider';
 import { RdTemplatesTokenMap } from '../../templates/types';
-import { RdConfigProviderProps } from './types.props';
+import { ConfigProviderInternal } from './ConfigProvider';
 import { RdConfigContext } from './context/types';
+import { RdConfigProviderProps } from './types.props';
 
 //#region Define Ant Design types
 type Algorithm = ThemeConfig['algorithm'];
 //#endregion
 
 //#region Define extended types
-type AliasTokenExtend = {
-    /**
-     * Brand secondary color is one of the most direct visual elements to reflect the characteristics and communication of the product. After you have selected the brand color, we will automatically generate a complete color palette and assign it effective design semantics.
-     */
-    colorSecondary: string;
-
-    /**
-     * Brand tertiary color is one of the most direct visual elements to reflect the characteristics and communication of the product. After you have selected the brand color, we will automatically generate a complete color palette and assign it effective design semantics.
-     */
-    colorTertiary: string;
-
-    /**
-     * Brand quaternary color is one of the most direct visual elements to reflect the characteristics and communication of the product. After you have selected the brand color, we will automatically generate a complete color palette and assign it effective design semantics.
-     */
-    colorQuaternary: string;
-};
+type AliasTokenExtend = {};
 type ComponentsConfigExtend = {};
 type AlgorithmExtend = {};
 type ThemeConfigExtend = {

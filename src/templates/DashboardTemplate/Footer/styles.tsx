@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Layout } from 'antd';
-import { getComponentOrGlobalToken, getExcludeForwardProps } from '../../../utils';
+import { getAliasToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateFooterProps } from './types';
 import { css } from '@emotion/react';
 
@@ -15,7 +15,7 @@ export const DashboardTemplateFooterStyles = styled(Layout.Footer, {
     ${() => {
         return css`
             border-top: 1px solid
-                ${getComponentOrGlobalToken('DashboardTemplate', 'colorBorderSecondary')};
+                ${getAliasToken('DashboardTemplate', 'colorBorderSecondary')};
         `;
     }}
 `;

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Layout } from 'antd';
-import { getComponentOrGlobalToken, getExcludeForwardProps } from '../../../utils';
+import { getAliasToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateHeaderProps } from './types';
 
 export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
@@ -17,7 +17,7 @@ export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
             css`
                 position: sticky;
                 top: 0;
-                z-index: ${getComponentOrGlobalToken('DashboardTemplate', 'zIndexBase') ?? 1050};
+                z-index: ${getAliasToken('DashboardTemplate', 'zIndexBase') ?? 1050};
             `;
     }}
 `;

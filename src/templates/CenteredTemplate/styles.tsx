@@ -1,7 +1,7 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Layout } from '../../molecules';
-import { getComponentOrGlobalToken, getExcludeForwardProps, unit } from '../../utils';
-import { css } from '@emotion/react';
+import { getAliasToken, getExcludeForwardProps } from '../../utils';
 import { RdCenteredTemplateProps } from './types';
 
 export const CenteredTemplateStyles = styled(Layout, {
@@ -14,7 +14,7 @@ export const CenteredTemplateStyles = styled(Layout, {
 })`
     ${() => {
         return css`
-            background-color: ${getComponentOrGlobalToken('CenteredTemplate', 'colorPrimary')};
+            background-color: ${getAliasToken('CenteredTemplate', 'colorPrimary')};
         `;
     }}
 
@@ -36,10 +36,10 @@ export const CenteredTemplateContent = styled('div', {
     ${({ maxWidth }) => {
         return css`
             max-width: ${maxWidth}px;
-            background-color: ${getComponentOrGlobalToken('CenteredTemplate', 'colorBgElevated')};
-            padding: ${getComponentOrGlobalToken('CenteredTemplate', 'paddingContentVerticalLG')}px
-                ${getComponentOrGlobalToken('CenteredTemplate', 'paddingContentHorizontalLG')}px;
-            border-radius: ${getComponentOrGlobalToken('CenteredTemplate', 'borderRadius')}px;
+            background-color: ${getAliasToken('CenteredTemplate', 'colorBgElevated')};
+            padding: ${getAliasToken('CenteredTemplate', 'paddingContentVerticalLG')}px
+                ${getAliasToken('CenteredTemplate', 'paddingContentHorizontalLG')}px;
+            border-radius: ${getAliasToken('CenteredTemplate', 'borderRadius')}px;
         `;
     }}
 `;
