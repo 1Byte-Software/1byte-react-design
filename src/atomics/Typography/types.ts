@@ -67,4 +67,5 @@ export type RdTypographyTitleProps = TypographyTitleProps & TypographyTitleProps
 
 export type RdTypographyComponentToken = TypographyComponentTokenAntd &
     TypographyComponentTokenExtend;
+
 //#endregion

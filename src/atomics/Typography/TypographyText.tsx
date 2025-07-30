@@ -1,7 +1,8 @@
 import { forwardRef, useMemo } from 'react';
+import { Skeleton } from '../../molecules';
 import { TypographyTextStyles } from './styles';
 import { RdTypographyTextProps } from './types';
-import { Skeleton } from '../../molecules';
+import { detectHeightBySize } from './TypographyText.helper';
 
 export const TypographyText = forwardRef(
     (props: RdTypographyTextProps, ref: RdTypographyTextProps['ref']) => {
@@ -14,7 +15,16 @@ export const TypographyText = forwardRef(
             ...antdProps
         } = props;
 
-        if (loading) return <Skeleton.Input active />;
+        if (loading) {
+            return (
+                <Skeleton.Input
+                    active
+                    style={{
+                        height: detectHeightBySize(size),
+                    }}
+                />
+            );
+        }
 
         const editableCustom = useMemo(() => {
             if (editable && typeof editable === 'object') {
