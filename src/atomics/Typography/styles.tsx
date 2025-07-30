@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Typography } from 'antd';
-import { getComponentOrGlobalToken } from '../..';
+import { getAliasToken } from '../..';
 import { getExcludeForwardProps } from '../../utils/styles';
 import { RdTypographyParagraphProps, RdTypographyTextProps, RdTypographyTitleProps } from './types';
 
@@ -35,7 +35,7 @@ export const TypographyTextStyles = styled(Typography.Text, {
         switch (size) {
             case 'small':
                 return `
-                    font-size: ${getComponentOrGlobalToken('Typography', 'fontSizeSM')}px;
+                    font-size: ${getAliasToken('Typography', 'fontSizeSM')}px;
                 `;
         }
     }}
@@ -61,8 +61,8 @@ export const TypographyParagraphStyles = styled(Typography.Paragraph, {
         return (
             minRows &&
             css`
-                min-height: ${Number(getComponentOrGlobalToken('Typography', 'lineHeight')) *
-                Number(getComponentOrGlobalToken('Typography', 'fontSize')) *
+                min-height: ${Number(getAliasToken('Typography', 'lineHeight')) *
+                Number(getAliasToken('Typography', 'fontSize')) *
                 minRows}px;
             `
         );
