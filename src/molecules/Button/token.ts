@@ -11,10 +11,14 @@ import {
 } from '../..';
 
 export const rdPrepareComponentToken: RdGetDefaultToken<'Button'> = aliasToken => {
+    // ⚠️ DO NOT modify this block.
+    // This is the original token fetched from Ant Design. Altering it may break default styling.
     const componentToken = (
         prepareComponentToken as RdGetDefaultTokenFn<RdComponentTokenMap, AliasToken, 'Button'>
     )({ ...(aliasToken as Required<AliasToken>) }) as ButtonComponentTokenAntd;
 
+    // ✅ You can safely extend or override Button tokens below.
+    // Add any custom token values to `extendComponentToken`.
     const extendComponentToken: ButtonComponentTokenExtend = {};
 
     return {
