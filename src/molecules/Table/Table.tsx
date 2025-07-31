@@ -24,7 +24,9 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
         };
     }, [pagination, defaultPagination]);
 
-    const TableStyled = TableStyledFunc<RecordType>();
+    const TableStyled = useMemo(() => {
+        return TableStyledFunc<RecordType>();
+    }, [TableStyledFunc]);
 
     if (allowSort && props.rowKey) {
         const dataSource = antdProps.dataSource || [];
