@@ -2,17 +2,17 @@ import { Form as AntdForm } from 'antd';
 import { Children, cloneElement, isValidElement, ReactElement, ReactNode, useEffect } from 'react';
 import {
     Control,
+    ControllerFieldState,
+    ControllerRenderProps,
     FieldPath,
     FieldValues,
-    useController,
-    ControllerRenderProps,
-    ControllerFieldState,
-    UseFormStateReturn,
-    useFormState,
     PathValue,
+    useController,
+    useFormState,
+    UseFormStateReturn,
 } from 'react-hook-form';
 import { FormItem } from './FormItem';
-import { RdFormItemProps } from '../..';
+import { RdFormItemProps } from './types';
 
 // Define a type for child components that may have onChange and onBlur
 type ChildWithHandlers = {
@@ -42,7 +42,10 @@ export type RdFormItemControlProps<
     defaultValue?: PathValue<TFieldValues, TName>;
     overrideFieldOnChange?: (...values: any[]) => void;
     valuePropName?: string;
-} & Omit<RdFormItemProps, 'name' | 'rules' | 'validateStatus' | 'help' | 'errorMessage' | 'children'>;
+} & Omit<
+    RdFormItemProps,
+    'name' | 'rules' | 'validateStatus' | 'help' | 'errorMessage' | 'children'
+>;
 
 export const FormItemControl = <
     TFieldValues extends FieldValues = FieldValues,

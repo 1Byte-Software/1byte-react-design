@@ -1,6 +1,7 @@
 import type { TokenType } from '@ant-design/cssinjs';
 import type { TokenMap, TokenMapKey } from '@ant-design/cssinjs-utils';
-import { config, RdAliasToken, RdComponentsConfig, RdComponentTokenMap, RdOverrideToken } from '..';
+import { RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '../organisms';
+import { config } from '../config';
 
 export type RdGetDefaultTokenTypeUtil<
     CompTokenMap extends TokenMap,

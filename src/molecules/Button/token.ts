@@ -1,14 +1,10 @@
 import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
 import { prepareComponentToken } from 'antd/es/button/style/token';
 import type { AliasToken } from 'antd/es/theme/interface';
-import {
-    ButtonComponentTokenExtend,
-    config,
-    RdAliasToken,
-    RdComponentTokenMap,
-    RdGetDefaultToken,
-    RdGetDefaultTokenFn,
-} from '../..';
+import { config } from '../../config';
+import { RdAliasToken, RdComponentTokenMap } from '../../organisms';
+import { RdGetDefaultToken, RdGetDefaultTokenFn } from '../../utils';
+import { ButtonComponentTokenExtend } from './types';
 
 export const rdPrepareComponentToken: RdGetDefaultToken<'Button'> = aliasToken => {
     // ⚠️ DO NOT modify this block.

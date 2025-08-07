@@ -1,4 +1,4 @@
-import { getAliasToken } from '../..';
+import { getAliasToken } from '../../utils';
 import { RdTypographyTitleProps } from './types';
 
 /**

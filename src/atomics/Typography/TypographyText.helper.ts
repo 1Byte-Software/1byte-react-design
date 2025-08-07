@@ -1,4 +1,5 @@
-import { getAliasToken, RdAliasToken } from '../..';
+import { RdAliasToken } from '../../organisms';
+import { getAliasToken } from '../../utils';
 import { RdTypographyTextProps } from './types';
 
 /**
