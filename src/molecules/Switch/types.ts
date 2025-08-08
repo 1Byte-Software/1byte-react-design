@@ -10,12 +10,7 @@ type SwitchComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types
-type SwitchPropsExtend = {
-    /**
-     * The value type you want to get from the switch. Default is 'boolean'.
-     */
-    responseType?: 'number' | 'boolean';
-};
+type SwitchPropsExtend = {};
 //#endregion
 
 //#region Export types
