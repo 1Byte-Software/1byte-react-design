@@ -4,6 +4,7 @@ import { ComponentToken } from 'antd/es/form/style';
 import { FormRef } from 'rc-field-form/lib/interface';
 import React, { ReactElement } from 'react';
 import { Control, FieldPath, FieldValues } from 'react-hook-form';
+import { FormItemControl } from './FormItemControl';
 
 //#region Define Ant Design types
 type FormPropsAntd<Values = any> = GetProps<typeof Form<Values>>;
@@ -71,23 +72,15 @@ export type RdFormErrorListProps = FormErrorListPropsAntd & FormErrorListPropsEx
 export type RdFormItemControlProps<
     TFieldValues extends FieldValues = FieldValues,
     TContext = any
-> = FormItemReactHookFormProps<TFieldValues> &
-    Omit<FormItemPropsExtend, 'errorMessage'> & {
-        shouldUnregister?: boolean;
-    };
-
-export type FormItemReactHookFormProps<
-    TFieldValues extends FieldValues = FieldValues,
-    TContext = any
 > = {
-    children: React.ReactNode;
+    children: React.ReactNode | ((props: RdFormItemControlProps<TFieldValues,TContext>) => React.ReactNode);
     control: Control<TFieldValues, TContext>;
     shouldUnregister?: boolean;
     name: FieldPath<TFieldValues>;
     disabled?: boolean;
     defaultValue?: any;
     overrideFieldOnChange?: (...values: any[]) => void;
-} & Omit<RdFormItemProps, 'name' | 'rules' | 'validateStatus' | 'help'>;
+} & Omit<RdFormItemProps, 'name' | 'rules' | 'validateStatus' | 'help' | 'errorMessage'>;
 //#endregion
 
 //#region Define component types
@@ -110,7 +103,7 @@ export type RdFormErrorListComponent = React.FC<RdFormErrorListProps>;
 
 export type RdFormCompoundedComponent = RdFormComponent & {
     Item: RdFormItemComponent;
-    ItemControl: RdFormItemControlComponent;
+    ItemControl: typeof FormItemControl;
     List: RdFormListComponent;
     Provider: RdFormProviderComponent;
     ErrorList: RdFormErrorListComponent;

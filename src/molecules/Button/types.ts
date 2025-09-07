@@ -1,8 +1,8 @@
 import { Button, ButtonProps, GetProps } from 'antd';
 import { ComponentToken as ButtonComponentTokenAntd } from 'antd/es/button/style';
+import { RdTooltipProps } from '../Tooltip';
 import { ButtonInternal } from './Button';
 import { ButtonGroup } from './ButtonGroup';
-import { RdTooltipProps } from '../Tooltip';
 
 //#region Define Ant Design types
 type ButtonPropsAntd = GetProps<typeof Button>;
@@ -10,7 +10,7 @@ type ButtonGroupPropsAntd = GetProps<typeof Button.Group>;
 //#endregion
 
 //#region Define extended component tokens
-type ButtonComponentTokenExtend = {};
+export type ButtonComponentTokenExtend = {};
 //#endregion
 
 //#region Define extended types

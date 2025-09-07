@@ -5,7 +5,7 @@ import { getComponentToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateSiderProps } from './types';
 
 export const DashboardTemplateSiderStyles = styled(Layout.Sider, {
-    label: 'rd-dashboard-template-header',
+    label: 'rd-dashboard-template-sider',
     shouldForwardProp: prop =>
         getExcludeForwardProps<Omit<RdDashboardTemplateSiderProps, 'render'>>(
             ['fixedOnScroll'] as (keyof Omit<RdDashboardTemplateSiderProps, 'render'>)[],

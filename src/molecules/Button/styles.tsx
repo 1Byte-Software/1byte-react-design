@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Button } from 'antd';
-import { getComponentOrGlobalToken, getExcludeForwardProps } from '../../utils';
+import { getAliasToken, getExcludeForwardProps } from '../../utils';
 import { RdButtonComponent, RdButtonGroupProps, RdButtonProps } from './types';
 
 export const ButtonStyles = styled(Button as RdButtonComponent, {
@@ -20,7 +20,7 @@ export const ButtonStyles = styled(Button as RdButtonComponent, {
             case 'success':
                 return css`
                     &.ant-btn {
-                        color: ${getComponentOrGlobalToken('Button', 'colorSuccess')};
+                        color: ${getAliasToken('Button', 'colorSuccess')};
                     }
                 `;
             default:

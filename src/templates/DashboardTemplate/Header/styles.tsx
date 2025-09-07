@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Layout } from 'antd';
-import { getComponentOrGlobalToken, getExcludeForwardProps } from '../../../utils';
+import { getAliasToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateHeaderProps } from './types';
 
 export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
@@ -12,11 +12,12 @@ export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
             prop
         ),
 })<Omit<RdDashboardTemplateHeaderProps, 'render'>>`
-    ${({ fixedOnScroll }) =>
-        fixedOnScroll &&
-        css`
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        `}
+    ${({ fixedOnScroll }) => {
+        return fixedOnScroll &&
+            css`
+                position: sticky;
+                top: 0;
+                z-index: ${getAliasToken('DashboardTemplate', 'zIndexBase') ?? 1050};
+            `;
+    }}
 `;

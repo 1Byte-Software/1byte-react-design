@@ -1,4 +1,3 @@
-export * from './Upload';
-export * from './UploadDragger';
+export { Upload } from './Upload';
 
 export * from './types';

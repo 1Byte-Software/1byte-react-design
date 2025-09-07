@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Card } from 'antd';
 import { getExcludeForwardProps } from '../../utils/styles';
-import { getComponentOrGlobalToken, getComponentToken } from '../../utils/token';
+import { getAliasToken, getComponentToken } from '../../utils/token';
 import { RdCardProps, RdGridCardProps, RdMetaCardProps } from './types';
 
 export const CardStyles = styled(Card, {
@@ -16,15 +16,15 @@ export const CardStyles = styled(Card, {
                 background-color: transparent;
 
                 // border-radius: 0 []px []px []px;
-                border-radius: 0 ${getComponentOrGlobalToken('Card', 'borderRadiusLG')}px
-                    ${getComponentOrGlobalToken('Card', 'borderRadiusLG')}px
-                    ${getComponentOrGlobalToken('Card', 'borderRadiusLG')}px;
+                border-radius: 0 ${getAliasToken('Card', 'borderRadiusLG')}px
+                    ${getAliasToken('Card', 'borderRadiusLG')}px
+                    ${getAliasToken('Card', 'borderRadiusLG')}px;
             }
 
             &:not(:has(> .ant-card-head)) {
                 > .ant-card-body {
                     border-top: 10px solid ${getComponentToken('Card', 'headerBg')};
-                    border-radius: ${getComponentOrGlobalToken('Card', 'borderRadiusLG')}px;
+                    border-radius: ${getAliasToken('Card', 'borderRadiusLG')}px;
                 }
             }
 
@@ -33,15 +33,15 @@ export const CardStyles = styled(Card, {
             }
 
             > .ant-card-body {
-                background-color: ${getComponentOrGlobalToken('Card', 'colorBgContainer')};
+                background-color: ${getAliasToken('Card', 'colorBgContainer')};
             }
 
             &.ant-card-bordered {
                 border: none;
 
                 > .ant-card-body {
-                    border-width: ${getComponentOrGlobalToken('Card', 'lineWidth')}px;
-                    border-color: ${getComponentOrGlobalToken('Card', 'colorBorderSecondary')};
+                    border-width: ${getAliasToken('Card', 'lineWidth')}px;
+                    border-color: ${getAliasToken('Card', 'colorBorderSecondary')};
                 }
             }
 
@@ -49,7 +49,7 @@ export const CardStyles = styled(Card, {
                 box-shadow: none;
 
                 > .ant-card-body {
-                    box-shadow: ${getComponentOrGlobalToken('Card', 'boxShadowTertiary')};
+                    box-shadow: ${getAliasToken('Card', 'boxShadowTertiary')};
                 }
             }
         }

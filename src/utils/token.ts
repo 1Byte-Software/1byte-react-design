@@ -1,4 +1,41 @@
-import { config, RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '..';
+import type { TokenType } from '@ant-design/cssinjs';
+import type { TokenMap, TokenMapKey } from '@ant-design/cssinjs-utils';
+import { RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '../organisms';
+import { config } from '../config';
+
+export type RdGetDefaultTokenTypeUtil<
+    CompTokenMap extends TokenMap,
+    AliasToken extends TokenType,
+    C extends TokenMapKey<CompTokenMap>
+> = RdGetDefaultTokenFn<CompTokenMap, AliasToken, C>;
+
+export type RdGetDefaultToken<C extends TokenMapKey<RdComponentTokenMap>> =
+    RdGetDefaultTokenTypeUtil<RdComponentTokenMap, RdAliasToken, C>;
+
+export type RdGetDefaultTokenFn<
+    CompTokenMap extends TokenMap,
+    AliasToken extends TokenType,
+    C extends TokenMapKey<CompTokenMap>
+> = (token: AliasToken & Partial<CompTokenMap[C]>) => CompTokenMap[C];
+
+/**
+ * Get the token value for a given component and alias name.
+ * It checks for the component-specific token first, then the design token if the component token is not found.
+ *
+ * @param componentName - The name of the component to fetch its token.
+ * @param aliasName - The alias name of the token to fetch.
+ * @returns The token value for the component or alias, or `undefined` if not found.
+ * @deprecated use getAliasToken instead
+ */
+export const getComponentOrGlobalToken = (
+    componentName: keyof RdComponentsConfig,
+    aliasName: keyof RdAliasToken
+) => {
+    const componentTokenValue = config.componentToken?.[componentName]?.[aliasName];
+    const designTokenValue = config.designToken?.[aliasName];
+
+    return componentTokenValue !== undefined ? componentTokenValue : designTokenValue;
+};
 
 /**
  * Get the token value for a given component and alias name.
@@ -8,9 +45,12 @@ import { config, RdAliasToken, RdComponentsConfig, RdComponentTokenMap } from '.
  * @param aliasName - The alias name of the token to fetch.
  * @returns The token value for the component or alias, or `undefined` if not found.
  */
-export const getComponentOrGlobalToken = (
-    componentName: keyof RdComponentsConfig,
-    aliasName: keyof RdAliasToken
+export const getAliasToken = <
+    ComponentName extends keyof RdComponentsConfig,
+    AliasName extends keyof RdAliasToken
+>(
+    componentName: ComponentName,
+    aliasName: AliasName
 ) => {
     const componentTokenValue = config.componentToken?.[componentName]?.[aliasName];
     const designTokenValue = config.designToken?.[aliasName];
@@ -25,7 +65,7 @@ export const getComponentToken = <
     componentName: ComponentName,
     componentToken: ComponentToken
 ): NonNullable<RdComponentTokenMap[ComponentName]>[ComponentToken] | undefined => {
-    return (config.componentToken?.[componentName] as RdComponentTokenMap[ComponentName])?.[
+    return (config?.componentToken?.[componentName] as RdComponentTokenMap[ComponentName])?.[
         componentToken
     ];
 };

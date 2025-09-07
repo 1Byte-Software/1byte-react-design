@@ -1,6 +1,7 @@
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import { RdPaginationConfig } from './configs/pagination';
 import { RdTableConfig } from './configs/table';
+import { RdTextAreaConfig } from './configs/textArea';
 
 //#region Define Ant Design types
 type ConfigProviderPropsAntd = ConfigProviderProps;
@@ -10,10 +11,14 @@ type ConfigProviderPropsAntd = ConfigProviderProps;
 interface ConfigProviderPropsExtend {
     pagination?: RdPaginationConfig;
     table?: RdTableConfig;
+    textArea?: RdTextAreaConfig;
 }
 //#endregion
 
 //#region Export types
-export type RdConfigProviderProps = Omit<ConfigProviderPropsAntd, 'pagination' | 'table'> &
+export type RdConfigProviderProps = Omit<
+    ConfigProviderPropsAntd,
+    'pagination' | 'table' | 'textArea'
+> &
     ConfigProviderPropsExtend;
 //#endregion
