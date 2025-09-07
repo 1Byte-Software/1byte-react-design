@@ -1,7 +1,7 @@
 {
     "name": "1byte-react-design",
-    "version": "1.5.11-1",
-    "main": "dist/index.js",
+    "version": "1.6.1",
+    "main": "src/index.tsx",
     "license": "MIT",
     "scripts": {
         "build": "webpack --config webpack.config.js",
