@@ -1,5 +1,6 @@
 import { GetProps, Upload, UploadFile } from 'antd';
 import { ComponentToken as UploadComponentTokenAntd } from 'antd/es/upload/style';
+import { UploadDragger } from './UploadDragger';
 
 //#region Define Ant Design types
 type UploadProps = GetProps<typeof Upload>;
@@ -27,4 +28,9 @@ export type RdUploadFile<T = any> = UploadFile<T>;
 //#region Define component types
 export type RdUploadComponent = React.ForwardRefExoticComponent<RdUploadProps>;
 export type RdUploadDraggerComponent = React.ForwardRefExoticComponent<RdUploadDraggerProps>;
+
+export type RdUploadCompoundedComponent = typeof Upload & {
+    Dragger: typeof UploadDragger;
+};
+
 //#endregion

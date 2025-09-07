@@ -2,9 +2,10 @@ import clsx from 'clsx';
 import { forwardRef } from 'react';
 import { UPLOAD_ROOT_CLASS_NAME } from './constants';
 import { UploadStyled } from './styles';
-import { RdUploadComponent } from './types';
+import { RdUploadComponent, RdUploadCompoundedComponent } from './types';
+import { UploadDragger } from './UploadDragger';
 
-export const Upload: RdUploadComponent = forwardRef((props, ref) => {
+export const UploadInternal: RdUploadComponent = forwardRef((props, ref) => {
     const { rootClassName, ...antProps } = props;
 
     return (
@@ -15,3 +16,7 @@ export const Upload: RdUploadComponent = forwardRef((props, ref) => {
         />
     );
 });
+
+export const Upload = UploadInternal as RdUploadCompoundedComponent;
+
+Upload.Dragger = UploadDragger;
