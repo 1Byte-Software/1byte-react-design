@@ -25,7 +25,7 @@ type CardPropsExtend = {
      *
      * This property allows you to customize the appearance of the card to match specific design requirements.
      */
-    variant?: 'default' | 'compact';
+    variant?: 'default' | 'compact' | CardPropsAntd['variant'];
 };
 
 type GridCardPropsExtend = {};
@@ -33,7 +33,7 @@ type MetaCardPropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdCardProps = CardPropsAntd & CardPropsExtend;
+export type RdCardProps = Omit<CardPropsAntd, 'variant'> & CardPropsExtend;
 export type RdGridCardProps = GridCardPropsAntd & GridCardPropsExtend;
 export type RdMetaCardProps = MetaCardPropsAntd & MetaCardPropsExtend;
 
