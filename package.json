@@ -26,7 +26,12 @@
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-hook-form": "^7.53.0",
-        "react-router-dom": "^6.28.0"
+        "react-router-dom": "^6.28.0",
+        "@ant-design/icons": "^5.0.0",
+        "@ant-design/cssinjs": "^1.0.0",
+        "rc-field-form": "^1.0.0",
+        "rc-table": "^7.0.0",
+        "rc-tree": "^5.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",
