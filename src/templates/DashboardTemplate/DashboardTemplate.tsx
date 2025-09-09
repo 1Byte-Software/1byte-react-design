@@ -3,25 +3,31 @@ import { Layout } from '../../molecules';
 import DashboardTemplateFooter from './Footer';
 import DashboardTemplateHeader from './Header';
 import DashboardTemplateSider from './Sider';
-import { DashboardTemplateContent, DashboardTemplateStyles } from './styles';
+import {
+    DashboardTemplateContent,
+    DashboardTemplateSkeletonLayout,
+    DashboardTemplateStyles,
+} from './styles';
 import { RdDashboardTemplateComponent, RdDashboardTemplateCompoundedComponent } from './types';
 
 const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((props, ref) => {
-    const { headerProps, siderProps, footerProps, ...restProps } = props;
+    const { headerProps, siderProps, footerProps, fitScreen = false, ...restProps } = props;
 
     return (
-        <DashboardTemplateStyles ref={ref} {...restProps}>
+        <DashboardTemplateStyles ref={ref} fitScreen={fitScreen} {...restProps}>
             {headerProps && <DashboardTemplateHeader {...headerProps} />}
 
             <Layout hasSider={Boolean(siderProps)}>
                 {siderProps && <DashboardTemplateSider {...siderProps} />}
 
-                <Layout>
-                    <DashboardTemplateContent>{props.children}</DashboardTemplateContent>
+                <DashboardTemplateSkeletonLayout>
+                    <DashboardTemplateContent fitScreen={fitScreen}>
+                        {props.children}
+                    </DashboardTemplateContent>
                     {footerProps !== false && (
                         <DashboardTemplateFooter {...footerProps}></DashboardTemplateFooter>
                     )}
-                </Layout>
+                </DashboardTemplateSkeletonLayout>
             </Layout>
         </DashboardTemplateStyles>
     );
