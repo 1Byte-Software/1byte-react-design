@@ -35,9 +35,6 @@ importers:
       '@emotion/styled':
         specifier: ^11.13.0
         version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.24)(react@18.3.1))(@types/react@18.3.24)(react@18.3.1)
-      Slider:
-        specifier: link:rc-slider/lib/Slider
-        version: link:rc-slider/lib/Slider
       antd:
         specifier: ^5.21.2
         version: 5.27.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
