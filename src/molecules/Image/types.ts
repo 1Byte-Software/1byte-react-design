@@ -1,8 +1,11 @@
 import { Image, GetProps } from 'antd';
+import { CompositionImage, ImageProps } from 'antd/es/image';
 import { ComponentToken as ImageComponentTokenAntd } from 'antd/es/image/style';
+import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 
 //#region Define Ant Design types
-type ImagePropsAntd = GetProps<typeof Image>;
+type ImagePropsAntd = ImageProps;
+type PreviewGroupPropsAntd = GroupConsumerProps;
 //#endregion
 
 //#region Define extended component tokens
@@ -15,13 +18,18 @@ type ImagePropsExtend = {
     loading?: boolean;
     loadingType?: ImagePropsAntd['loading'];
 };
+
+type PreviewGroupPropsExtend = {};
 //#endregion
 
 //#region Export types
 export type RdImageProps = Omit<ImagePropsAntd, 'loading'> & ImagePropsExtend;
+export type RdPreviewGroupProps = PreviewGroupPropsAntd & PreviewGroupPropsExtend;
 export type RdImageComponentToken = ImageComponentTokenAntd & ImageComponentTokenExtend;
 //#endregion
 
 //#region Define component types
-export type RdImageComponent = React.FC<RdImageProps>;
+export type RdImageInternalComponent = React.FC<RdImageProps>;
+export type RdPreviewGroupComponent = React.FC<PreviewGroupPropsAntd>;
+export type RdImageCompositionComponent = CompositionImage<RdImageProps>;
 //#endregion

@@ -1,6 +1,9 @@
 import { ColorPickerStyles } from './styles';
-import { RdColorPickerComponent } from './types';
+import { RdColorPickerCompoundedComponent, RdColorPickerInternalComponent } from './types';
 
-export const ColorPicker: RdColorPickerComponent = props => {
+export const ColorPickerInternal: RdColorPickerInternalComponent = props => {
     return <ColorPickerStyles {...props} />;
 };
+
+export const ColorPicker = ColorPickerInternal as RdColorPickerCompoundedComponent;
+

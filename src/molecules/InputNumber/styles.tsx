@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
 import { InputNumber } from 'antd';
+import type { ValueType } from 'rc-input-number';
 
-export const InputNumberStyled = styled(InputNumber)``;
+export const InputNumberStyledFunc = <T extends ValueType = ValueType>() =>
+    styled(InputNumber<T>)``;

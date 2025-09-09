@@ -1,8 +1,10 @@
-import { GetProps, InputNumber } from 'antd';
+import { InputNumberProps } from 'antd';
 import { ComponentToken as InputNumberComponentTokenAntd } from 'antd/es/input-number/style';
+import type { ValueType } from 'rc-input-number';
+import React from 'react';
 
 //#region Define Ant Design types
-type InputNumberPropsAntd = GetProps<typeof InputNumber>;
+type InputNumberPropsAntd<T extends ValueType = ValueType> = InputNumberProps<T>;
 //#endregion
 
 //#region Define extended component tokens
@@ -14,12 +16,20 @@ type InputNumberPropsExtend = {};
 //#endregion
 
 //#region Export types
-export type RdInputNumberProps = InputNumberPropsAntd & InputNumberPropsExtend;
+export type RdInputNumberProps<T extends ValueType = ValueType> = InputNumberPropsAntd<T> &
+    InputNumberPropsExtend;
 
 export type RdInputNumberComponentToken = InputNumberComponentTokenAntd &
     InputNumberComponentTokenExtend;
 //#endregion
 
 //#region Define component types
-export type RdInputNumberComponent = React.FC<RdInputNumberProps>;
+export type RdInputNumberInternalComponent = <T extends ValueType = ValueType>(
+    props: React.PropsWithChildren<RdInputNumberProps<T>> & React.RefAttributes<HTMLInputElement>
+) => React.ReactElement;
+
+export type RdInputNumberComponent = RdInputNumberInternalComponent & {
+    displayName?: string;
+    _InternalPanelDoNotUseOrYouWillBeFired: React.FC<RdInputNumberProps>;
+};
 //#endregion
