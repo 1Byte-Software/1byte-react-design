@@ -16,7 +16,7 @@ type DashboardTemplatePropsExtend = {
     headerProps?: RdDashboardTemplateHeaderProps | false;
     siderProps?: RdDashboardTemplateSiderProps | false;
     footerProps?: RdDashboardTemplateFooterProps | false;
-    test?: boolean;
+    fitScreen?: boolean;
 };
 
 type DashboardTemplateRefExtend = {};
