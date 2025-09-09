@@ -4,10 +4,16 @@ import { MetaCard } from './Meta';
 import { CardStyles } from './styles';
 import { RdCardCompoundedComponent, RdCardProps } from './types';
 
-export const CardInternal = ({ className, variant = 'default', ...antdProps }: RdCardProps) => {
+export const CardInternal: React.FC<RdCardProps> = ({
+    className,
+    variant = 'default',
+    ...antdProps
+}) => {
     const variantClass: Record<NonNullable<RdCardProps['variant']>, string> = {
         compact: 'rd-card-variant-compact',
-        default: '',
+        default: 'rd-card-variant-default',
+        borderless: 'rd-card-variant-borderless',
+        outlined: 'rd-card-variant-outlined',
     };
 
     return <CardStyles className={clsx(className, variantClass[variant])} {...antdProps} />;

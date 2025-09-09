@@ -1,8 +1,9 @@
 import { Skeleton } from '../Skeleton';
-import { ImageStyles } from './styles';
-import { RdImageComponent } from './types';
+import { PreviewGroup } from './PreviewGroup';
+import { ImageStyled } from './styles';
+import { RdImageCompositionComponent, RdImageInternalComponent } from './types';
 
-export const Image: RdImageComponent = props => {
+const ImageInternal: RdImageInternalComponent = props => {
     const { loading = false, ...antdProps } = props;
 
     return (
@@ -10,7 +11,7 @@ export const Image: RdImageComponent = props => {
             {/**
              * Note:
              * Previously, when `loading = true`, the component only rendered the `Skeleton.Node`
-             * and skipped rendering the `ImageStyles` completely.
+             * and skipped rendering the `ImageStyled` completely.
              *
              * However, in that case, the `img` element was never created, so the browser wouldn't start downloading the image,
              * and we couldn't catch the `onLoad` event.
@@ -31,7 +32,11 @@ export const Image: RdImageComponent = props => {
                     }}
                 />
             )}
-            <ImageStyles hidden={loading} {...antdProps} />
+            <ImageStyled hidden={loading} {...antdProps} />
         </>
     );
 };
+
+export const Image = ImageInternal as RdImageCompositionComponent;
+
+Image.PreviewGroup = PreviewGroup;

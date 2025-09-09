@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "lib": ["es2016", "dom"],
         "module": "commonjs",
         "jsx": "react-jsx",
         "strict": true,
@@ -8,7 +9,7 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
-        "outDir": "./dist",
+        "outDir": "./dist"
 
         // "baseUrl": ".",
         // "paths": {
