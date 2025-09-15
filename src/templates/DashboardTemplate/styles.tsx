@@ -4,10 +4,12 @@ import { Layout } from '../../molecules';
 import { getAliasToken, getComponentToken } from '../../utils';
 
 export const DashboardTemplateStyles = styled(Layout, {
-    label: 'rd-dashboard-template',
+    target: 'rd-dashboard-template',
 })<{
     fitScreen: boolean;
 }>`
+    min-height: 100vh;
+
     ${() => css`
         background: ${getAliasToken('DashboardTemplate', 'colorBgLayout')};
     `}
@@ -20,14 +22,15 @@ export const DashboardTemplateStyles = styled(Layout, {
 `;
 
 export const DashboardTemplateSkeletonLayout = styled(Layout, {
-    label: 'rd-dashboard-template-skeleton',
+    target: 'rd-dashboard-template-skeleton',
 })``;
 
 export const DashboardTemplateContent = styled(Layout.Content, {
-    label: 'rd-dashboard-template-content',
+    target: 'rd-dashboard-template-content',
 })<{
     fitScreen: boolean;
 }>`
+    height: 0;
     ${() => css`
         padding: ${getComponentToken('DashboardTemplate', 'contentPadding') || '32px 32px'};
     `}
