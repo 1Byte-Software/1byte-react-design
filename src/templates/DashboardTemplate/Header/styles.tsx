@@ -13,11 +13,13 @@ export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
         ),
 })<Omit<RdDashboardTemplateHeaderProps, 'render'>>`
     ${({ fixedOnScroll }) => {
-        return fixedOnScroll &&
+        return (
+            fixedOnScroll &&
             css`
                 position: sticky;
                 top: 0;
-                z-index: ${getAliasToken('DashboardTemplate', 'zIndexBase') ?? 1050};
-            `;
+                z-index: ${getAliasToken('DashboardTemplate', 'zIndexBase')};
+            `
+        );
     }}
 `;
