@@ -30,7 +30,9 @@ export const DashboardTemplateContent = styled(Layout.Content, {
 })<{
     fitScreen: boolean;
 }>`
-    height: 0;
+    display: flex;
+    align-items: stretch;
+    
     ${() => css`
         padding: ${getComponentToken('DashboardTemplate', 'contentPadding') || '32px 32px'};
     `}
