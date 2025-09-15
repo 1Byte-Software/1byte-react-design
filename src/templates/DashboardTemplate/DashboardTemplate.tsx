@@ -11,7 +11,13 @@ import {
 import { RdDashboardTemplateComponent, RdDashboardTemplateCompoundedComponent } from './types';
 
 const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((props, ref) => {
-    const { headerProps, siderProps, footerProps, fitScreen = false, ...restProps } = props;
+    const {
+        headerProps = null,
+        siderProps = null,
+        footerProps = null,
+        fitScreen = false,
+        ...restProps
+    } = props;
 
     return (
         <DashboardTemplateStyles ref={ref} fitScreen={fitScreen} {...restProps}>
@@ -24,7 +30,7 @@ const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((prop
                     <DashboardTemplateContent fitScreen={fitScreen}>
                         {props.children}
                     </DashboardTemplateContent>
-                    {footerProps !== false && (
+                    {footerProps && (
                         <DashboardTemplateFooter {...footerProps}></DashboardTemplateFooter>
                     )}
                 </DashboardTemplateSkeletonLayout>
