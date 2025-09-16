@@ -13,6 +13,7 @@ import {
 } from 'react-hook-form';
 import { FormItem } from './FormItem';
 import { RdFormItemProps } from './types';
+import { Form } from './Form';
 
 // Define a type for child components that may have onChange and onBlur
 type ChildWithHandlers = {
@@ -69,7 +70,7 @@ export const FormItemControl = <
         defaultValue,
     });
     const formState = useFormState({ control });
-    const form = AntdForm.useFormInstance();
+    const form = Form.useFormInstance();
 
     useEffect(() => {
         form.setFieldValue(name, field.value);
