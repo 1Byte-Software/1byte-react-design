@@ -31,6 +31,7 @@ export * from './Pagination';
 export * from './Popconfirm';
 export * from './Popover';
 export * from './Radio';
+export * from './Result';
 export * from './Select';
 export * from './Skeleton';
 export * from './Slider';
