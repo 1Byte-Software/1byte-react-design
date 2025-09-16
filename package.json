@@ -2,9 +2,12 @@
     "name": "1byte-react-design",
     "version": "1.6.7",
     "description": "A simple React UI library",
-    "main": "src/index.tsx",
-    "module": "src/index.tsx",
-    "types": "src/index.tsx",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "license": "MIT",
     "scripts": {
         "build": "webpack --config webpack.config.js",
