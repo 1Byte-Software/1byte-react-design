@@ -1,6 +1,7 @@
 {
     "name": "1byte-react-design",
-    "version": "1.6.6",
+    "version": "1.6.7",
+    "description": "A simple React UI library",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -12,6 +13,10 @@
         "build": "webpack --config webpack.config.js",
         "test": "yalc publish --push --no-scripts --files .",
         "tsc": "tsc -p tsconfig.json"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "dependencies": {
         "@ant-design/cssinjs": "^1.24.0",
@@ -33,17 +38,15 @@
         "rc-slider": "^11.1.8",
         "rc-table": "^7.53.0",
         "rc-tree": "^5.13.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
         "react-hook-form": "^7.53.0",
         "react-router-dom": "^6.28.0"
     },
     "devDependencies": {
+        "@types/react": "^18.3.10",
+        "@types/react-dom": "^18.3.0",
         "@babel/core": "^7.25.2",
         "@babel/preset-env": "^7.25.4",
         "@babel/preset-react": "^7.24.7",
-        "@types/react": "^18.3.10",
-        "@types/react-dom": "^18.3.0",
         "babel-loader": "^9.2.1",
         "css-loader": "^7.1.2",
         "style-loader": "^4.0.0",
