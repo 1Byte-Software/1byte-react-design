@@ -3,13 +3,13 @@ import { Space } from '../../molecules';
 import { SummaryCardWrapper } from './styles';
 import { SummaryCardProps } from './types';
 
-const SummaryCard = (props: SummaryCardProps) => {
+export const SummaryCard = (props: SummaryCardProps) => {
     const {
         format = 'number',
         value,
-        subValue,
+        subValue = null,
         label = 'Total',
-        subLabel = 'Today total',
+        subLabel = null,
         ...cardProps
     } = props;
 
@@ -39,5 +39,3 @@ const SummaryCard = (props: SummaryCardProps) => {
         </SummaryCardWrapper>
     );
 };
-
-export default SummaryCard;
