@@ -1,9 +1,9 @@
 import { Typography } from '../..';
 import { Space } from '../../molecules';
 import { SummaryCardWrapper } from './styles';
-import { SummaryCardProps } from './types';
+import { RdSummaryCardProps } from './types';
 
-export const SummaryCard = (props: SummaryCardProps) => {
+export const SummaryCard: React.FC<RdSummaryCardProps> = props => {
     const {
         format = 'number',
         value,

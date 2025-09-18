@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { RdCardProps } from '../../molecules';
 
-export interface SummaryCardProps extends RdCardProps {
+export interface RdSummaryCardProps extends RdCardProps {
     /**
      * Determines the display format of values.
      *
