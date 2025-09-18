@@ -1,41 +1,48 @@
-import { Typography } from '../..';
-import { Space } from '../../molecules';
-import { SummaryCardWrapper } from './styles';
+import { ArrowUpOutlined, Typography } from '../..';
+import { StatisticWrapper, SummaryCardWrapper } from './styles';
+import TotalLineChart from './TotalLineChart';
 import { RdSummaryCardProps } from './types';
 
 export const SummaryCard: React.FC<RdSummaryCardProps> = props => {
     const {
-        format = 'number',
+        title,
         value,
-        subValue = null,
-        label = 'Total',
-        subLabel = null,
+        statistic,
+        icon,
+        chart = null,
+
+        trend,
+
+        children,
         ...cardProps
     } = props;
 
+    const { changePercent, isPositive = true } = trend || {};
+    const { data: chartData = [], color } = chart || {};
+
     return (
         <SummaryCardWrapper {...cardProps}>
-            <Space direction="vertical" block size={0}>
-                <Typography.Text strong type="secondary">
-                    {label}
-                </Typography.Text>
-                <Space align="baseline">
-                    <Typography.Title level={1} disableMargin>
-                        {value}
-                    </Typography.Title>
-                </Space>
+            <StatisticWrapper
+                title={title}
+                value={value}
+                prefix={icon}
+                {...statistic}
+                suffix={
+                    trend && (
+                        <Typography.Text type={isPositive ? 'success' : 'danger'}>
+                            <ArrowUpOutlined /> {changePercent}%
+                        </Typography.Text>
+                    )
+                }
+            />
 
-                {(subLabel || subValue) && (
-                    <Space>
-                        {subLabel && (
-                            <Typography.Text strong type="secondary">
-                                {subLabel}
-                            </Typography.Text>
-                        )}
-                        {subValue && <Typography.Text strong>{subValue}</Typography.Text>}
-                    </Space>
-                )}
-            </Space>
+            {chart && (
+                <div style={{ height: 64 }}>
+                    <TotalLineChart color={color} data={chartData} />
+                </div>
+            )}
+
+            {children}
         </SummaryCardWrapper>
     );
 };
