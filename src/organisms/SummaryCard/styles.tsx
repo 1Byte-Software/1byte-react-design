@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import Statistic from 'antd/es/statistic/Statistic';
 import { Card } from '../../molecules';
+import { Statistic } from '../../molecules/Statistic';
 
 export const SummaryCardWrapper = styled(Card)``;
 

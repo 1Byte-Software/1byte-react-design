@@ -1,0 +1,4 @@
+export const DEFAULT_DESIGN_TOKEN = {
+    COLOR_BORDER_INLINE_END: '#ddd',
+    WIDTH_BORDER_INLINE_END: 1,
+};

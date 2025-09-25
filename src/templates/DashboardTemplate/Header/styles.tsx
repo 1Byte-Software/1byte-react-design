@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Layout } from 'antd';
 import { getAliasToken, getExcludeForwardProps } from '../../../utils';
 import { RdDashboardTemplateHeaderProps } from './types';
+import { Flex } from '../../../atomics';
 
 export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
     label: 'rd-dashboard-template-header',
@@ -12,14 +13,22 @@ export const DashboardTemplateHeaderStyles = styled(Layout.Header, {
             prop
         ),
 })<Omit<RdDashboardTemplateHeaderProps, 'render'>>`
+    display: flex;
+    justify-content: space-between;
+
     ${({ fixedOnScroll }) => {
+        const zIndexBase = getAliasToken('DashboardTemplate', 'zIndexBase') || 0;
+        const zIndexHeader = zIndexBase;
+
         return (
             fixedOnScroll &&
             css`
                 position: sticky;
                 top: 0;
-                z-index: ${getAliasToken('DashboardTemplate', 'zIndexBase')};
+                z-index: ${zIndexHeader};
             `
         );
     }}
 `;
+
+export const DashboardTemplateHeaderContent = styled(Flex)``;

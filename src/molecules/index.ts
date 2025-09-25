@@ -37,6 +37,7 @@ export * from './Skeleton';
 export * from './Slider';
 export * from './Space';
 export * from './Spin';
+export * from './Statistic';
 export * from './Steps';
 export * from './Switch';
 export * from './Table';

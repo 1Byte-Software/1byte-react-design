@@ -7,6 +7,9 @@ import { RdDashboardTemplateSiderComponent, RdDashboardTemplateSiderProps } from
 type DashboardTemplateComponentTokenExtend = {
     contentPadding?: string;
     siderWidth?: number;
+    colorBorderInlineEnd?: string;
+    widthBorderInlineEnd?: number;
+    colorBgHeaderSider?: string;
 };
 
 //#endregion
