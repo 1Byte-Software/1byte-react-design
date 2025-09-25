@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
-import { DashboardTemplateHeaderStyles } from './styles';
+import { DashboardTemplateHeaderContent, DashboardTemplateHeaderStyles } from './styles';
 import { RdDashboardTemplateHeaderComponent } from './types';
 
 export const DashboardTemplateHeader: RdDashboardTemplateHeaderComponent = forwardRef(
     (props, ref) => {
-        const { children, render, ...restProps } = props;
+        const { children, render, collapsed, toggleSider, ...restProps } = props;
 
         if (render) {
             return render({ children, ...restProps });
@@ -12,7 +12,7 @@ export const DashboardTemplateHeader: RdDashboardTemplateHeaderComponent = forwa
 
         return (
             <DashboardTemplateHeaderStyles ref={ref} {...restProps}>
-                {children}
+                <DashboardTemplateHeaderContent flex={1}>{children}</DashboardTemplateHeaderContent>
             </DashboardTemplateHeaderStyles>
         );
     }
