@@ -48,7 +48,7 @@ type StatisticRefExtend = {};
 
 //#region Export types
 export type RdStatisticProps = StatisticPropsAntd & StatisticPropsExtend;
-export type RdTimerProps = TimerPropsAntd & TimerPropsExtend;
+export type RdStatisticTimerProps = TimerPropsAntd & TimerPropsExtend;
 export type RdStatisticRef = StatisticRefAntd & StatisticRefExtend;
 export type RdStatisticComponentToken = StatisticComponentTokenAntd & StatisticComponentTokenExtend;
 //#endregion
@@ -63,9 +63,9 @@ export type RdStatisticComponent = React.ForwardRefExoticComponent<
         React.RefAttributes<RdStatisticRef>
 >;
 
-export type RdTimerComponent = React.FC<RdTimerProps>;
+export type RdStatisticTimerComponent = React.FC<RdStatisticTimerProps>;
 
 export type RdStatisticCompoundedComponent = RdStatisticComponent & {
-    Timer: RdTimerComponent;
+    Timer: RdStatisticTimerComponent;
 };
 //#endregion

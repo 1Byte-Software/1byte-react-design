@@ -1,6 +1,6 @@
-import { TimerStyles } from './styles';
-import { RdTimerComponent } from './types';
+import { TimerStyled } from './styles';
+import { RdStatisticTimerComponent } from './types';
 
-export const Timer: RdTimerComponent = props => {
-    return <TimerStyles {...props} />;
+export const Timer: RdStatisticTimerComponent = props => {
+    return <TimerStyled {...props} />;
 };
