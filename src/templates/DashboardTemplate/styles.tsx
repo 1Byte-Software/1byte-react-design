@@ -32,7 +32,7 @@ export const DashboardTemplateContent = styled(Layout.Content, {
 }>`
     display: flex;
     align-items: stretch;
-    
+
     ${() => css`
         padding: ${getComponentToken('DashboardTemplate', 'contentPadding') || '32px 32px'};
     `}

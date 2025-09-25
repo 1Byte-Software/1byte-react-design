@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { Layout } from '../../molecules';
 import DashboardTemplateFooter from './Footer';
 import DashboardTemplateHeader from './Header';
@@ -18,25 +18,74 @@ const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((prop
         fitScreen = false,
         ...restProps
     } = props;
+    const [collapsed, setCollapsed] = useState(false);
 
-    return (
-        <DashboardTemplateStyles ref={ref} fitScreen={fitScreen} {...restProps}>
-            {headerProps && <DashboardTemplateHeader {...headerProps} />}
+    const handleToggleSider = () => {
+        setCollapsed(!collapsed);
+    };
 
-            <Layout hasSider={Boolean(siderProps)}>
-                {siderProps && <DashboardTemplateSider {...siderProps} />}
-
+    const renderFullHeightLayout = () => (
+        <DashboardTemplateStyles
+            ref={ref}
+            fitScreen={fitScreen}
+            hasSider={Boolean(siderProps)}
+            {...restProps}
+        >
+            {siderProps && (
+                <DashboardTemplateSider
+                    collapsed={collapsed}
+                    toggleSider={handleToggleSider}
+                    {...siderProps}
+                />
+            )}
+            <Layout>
+                {headerProps && (
+                    <DashboardTemplateHeader
+                        collapsed={collapsed}
+                        toggleSider={handleToggleSider}
+                        {...headerProps}
+                    />
+                )}
                 <DashboardTemplateSkeletonLayout>
                     <DashboardTemplateContent fitScreen={fitScreen}>
                         {props.children}
                     </DashboardTemplateContent>
-                    {footerProps && (
-                        <DashboardTemplateFooter {...footerProps}></DashboardTemplateFooter>
-                    )}
+                    {footerProps && <DashboardTemplateFooter {...footerProps} />}
                 </DashboardTemplateSkeletonLayout>
             </Layout>
         </DashboardTemplateStyles>
     );
+
+    const renderContentHeightLayout = () => (
+        <DashboardTemplateStyles ref={ref} fitScreen={fitScreen} {...restProps}>
+            {headerProps && (
+                <DashboardTemplateHeader
+                    collapsed={collapsed}
+                    toggleSider={handleToggleSider}
+                    {...headerProps}
+                />
+            )}
+            <Layout>
+                {siderProps && (
+                    <DashboardTemplateSider
+                        collapsed={collapsed}
+                        toggleSider={handleToggleSider}
+                        {...siderProps}
+                    />
+                )}
+                <DashboardTemplateSkeletonLayout hasSider={Boolean(siderProps)}>
+                    <DashboardTemplateContent fitScreen={fitScreen}>
+                        {props.children}
+                    </DashboardTemplateContent>
+                    {footerProps && <DashboardTemplateFooter {...footerProps} />}
+                </DashboardTemplateSkeletonLayout>
+            </Layout>
+        </DashboardTemplateStyles>
+    );
+
+    const sidebarMode = props.siderProps?.sidebarMode; // 'fullHeight' | 'contentHeight';
+
+    return sidebarMode === 'fullHeight' ? renderFullHeightLayout() : renderContentHeightLayout();
 });
 
 export const DashboardTemplate =

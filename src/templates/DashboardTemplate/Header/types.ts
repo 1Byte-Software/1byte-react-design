@@ -12,5 +12,9 @@ export type RdDashboardTemplateHeaderProps = RdHeaderProps & DashboardTemplateHe
 export type RdDashboardTemplateHeaderRef = RdLayoutHeaderRef & {};
 
 export type RdDashboardTemplateHeaderComponent = React.ForwardRefExoticComponent<
-    RdDashboardTemplateHeaderProps & RdDashboardTemplateHeaderRef
+    RdDashboardTemplateHeaderProps &
+        RdDashboardTemplateHeaderRef & {
+            collapsed: boolean;
+            toggleSider: () => void;
+        }
 >;
