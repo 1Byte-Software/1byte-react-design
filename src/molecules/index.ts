@@ -1,4 +1,5 @@
 export * from './Affix';
+export * from './Alert';
 export * from './Anchor';
 export * from './Avatar';
 export * from './Badge';
@@ -30,6 +31,7 @@ export * from './Notification';
 export * from './Pagination';
 export * from './Popconfirm';
 export * from './Popover';
+export * from './Progress';
 export * from './Radio';
 export * from './Result';
 export * from './Select';

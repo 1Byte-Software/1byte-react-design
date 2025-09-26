@@ -11,9 +11,9 @@ import { RdTableProps } from './types';
 export const Table = <RecordType extends AnyObject = AnyObject>(
     props: RdTableProps<RecordType>
 ) => {
-    const { allowSort = false, pagination, onChangeSort, ...antdProps } = props;
+    const { allowSort = false, pagination, scroll, onChangeSort, ...antdProps } = props;
     const { table: defaultTableProps } = useContext(ConfigProvider.ConfigContext);
-    const { pagination: defaultPagination } = defaultTableProps || {};
+    const { pagination: defaultPagination, scroll: defaultScroll } = defaultTableProps || {};
 
     const paginationWithDefault = useMemo(() => {
         if (pagination === false) return false;
@@ -23,6 +23,13 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
             ...pagination,
         };
     }, [pagination, defaultPagination]);
+
+    const scrollWithDefault = useMemo(() => {
+        return {
+            ...defaultScroll,
+            ...scroll,
+        };
+    }, [scroll, defaultScroll]);
 
     const TableStyled = useMemo(() => {
         return TableStyledFunc<RecordType>();
@@ -51,6 +58,7 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
                     <TableStyled
                         components={{ body: { row: RowSortable } }}
                         pagination={paginationWithDefault}
+                        scroll={scrollWithDefault}
                         {...antdProps}
                     />
                 </SortableContext>
@@ -58,5 +66,7 @@ export const Table = <RecordType extends AnyObject = AnyObject>(
         );
     }
 
-    return <TableStyled pagination={paginationWithDefault} {...antdProps} />;
+    return (
+        <TableStyled pagination={paginationWithDefault} scroll={scrollWithDefault} {...antdProps} />
+    );
 };

@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+-   Added `Alert` component.
+-   Added `Progress` component.
+-   Added default `scroll` for `Table` component.
+
+## [1.8.0]
+
+### Added
+
 -   Added chart to `SummaryCard` component.
 -   Added `Statistic` component.
 -   Added `Grid.useBreakpoint()` hooks.
