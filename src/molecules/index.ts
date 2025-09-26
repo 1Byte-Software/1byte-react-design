@@ -1,4 +1,5 @@
 export * from './Affix';
+export * from './Alert';
 export * from './Anchor';
 export * from './Avatar';
 export * from './Badge';
