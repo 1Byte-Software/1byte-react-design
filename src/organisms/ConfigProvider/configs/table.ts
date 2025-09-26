@@ -6,7 +6,7 @@ type TableConfigAntd = TableConfig;
 //#endregion
 
 //#region Define extended types
-interface TableConfigExtend extends Pick<RdTableProps, 'pagination'> {}
+interface TableConfigExtend extends Pick<RdTableProps, 'pagination' | 'scroll'> {}
 //#endregion
 
 //#region Export types
