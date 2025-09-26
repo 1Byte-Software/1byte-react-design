@@ -37,7 +37,7 @@ export const DashboardTemplateSider: RdDashboardTemplateSiderComponent = forward
 
         useEffect(() => {
             // On smaller screens, we want the sidebar to be fixed and overlay the content
-            if (!screens.lg && sidebarMode === 'fullHeight') {
+            if (!screens[breakpoint] && sidebarMode === 'fullHeight') {
                 setFixed(true);
 
                 if (sidebarMode === 'fullHeight') {
@@ -49,7 +49,7 @@ export const DashboardTemplateSider: RdDashboardTemplateSiderComponent = forward
                 setFixed(false);
                 setCollapsedWidth(DEFAULT_COLLAPSED_WIDTH);
             }
-        }, [screens.lg]);
+        }, [screens[breakpoint]]);
 
         return (
             <DashboardTemplateSiderStyles

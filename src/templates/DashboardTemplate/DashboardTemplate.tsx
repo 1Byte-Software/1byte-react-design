@@ -55,7 +55,7 @@ const DashboardTemplateInternal: RdDashboardTemplateComponent = forwardRef((prop
             </Layout>
         </DashboardTemplateStyles>
     );
-
+    
     const renderContentHeightLayout = () => (
         <DashboardTemplateStyles ref={ref} fitScreen={fitScreen} {...restProps}>
             {headerProps && (
