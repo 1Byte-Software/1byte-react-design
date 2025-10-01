@@ -61,7 +61,18 @@ type SelectPropsExtend = {
 type SelectOptionPropsExtend = {};
 type SelectOptionGroupPropsExtend = {};
 type BaseOptionTypeExtend = {};
-type DefaultOptionTypeExtend = {};
+type DefaultOptionTypeExtend = {
+    /**
+     * Extends Ant Design's DefaultOptionType.
+     *
+     * Reason:
+     * - Ant Design's <Select> supports nested `options`, but the official `DefaultOptionType`
+     *   type does not include this property.
+     * - Added here for type-safety when building hierarchical option trees.
+     * - Temporary workaround: can be removed if Ant Design updates DefaultOptionType to include it.
+     */
+    options?: RdDefaultOptionType[];
+};
 //#endregion
 
 //#region Export types
