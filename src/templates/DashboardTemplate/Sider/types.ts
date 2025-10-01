@@ -44,6 +44,8 @@ export type DashboardTemplateSiderPropsExtend = {
      */
     headerSidebar?: (collapsed: boolean) => React.ReactNode;
 
+    fixedSiderBreakpoint?: RdSiderProps['breakpoint'];
+
     /**
      * Determines how the sidebar should be positioned relative to the header and content.
      *
