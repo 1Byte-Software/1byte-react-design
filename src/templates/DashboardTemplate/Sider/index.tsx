@@ -99,9 +99,12 @@ export const DashboardTemplateSider: RdDashboardTemplateSiderComponent = forward
                     - For "contentHeight": when the screen shrinks into fixed overlay mode,
                       the headerSidebar still renders (at this point, the sider behaves like fullHeight).
                 */}
-                <DashboardTemplateHeaderSidebarStyled fixedOnScroll={fixedHeaderOnScroll}>
-                    {headerSidebar?.(collapsed ?? false)}
-                </DashboardTemplateHeaderSidebarStyled>
+                {(sidebarMode === 'fullHeight' ||
+                    (sidebarMode === 'contentHeight' && collapsed)) && (
+                    <DashboardTemplateHeaderSidebarStyled fixedOnScroll={fixedHeaderOnScroll}>
+                        {headerSidebar?.(collapsed ?? false)}
+                    </DashboardTemplateHeaderSidebarStyled>
+                )}
 
                 <DashboardTemplateSiderContentStyled>
                     {children}
