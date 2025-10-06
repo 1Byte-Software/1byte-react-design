@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
--   Fix `HeaderSider` in `DashboardTemplate`.
+-   Remove cache when header parameters change for all query.
+-   Hidden learn more wallet in client cPanel
 
 ## [1.10.0]
 
@@ -34,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Added chart to `SummaryCard` component.
 -   Added `Statistic` component.
 -   Added `Grid.useBreakpoint()` hooks.
--   Added  `sidebarMode` for sidebarProps for `DashboardTemplate`.
+-   Added `sidebarMode` for sidebarProps for `DashboardTemplate`.
 -   Support responsive for `DashboardTemplate`.
 -   Added `LineChart` component.
 
