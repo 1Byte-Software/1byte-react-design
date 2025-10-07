@@ -1,3 +1,4 @@
 export * from './App';
 export * from './ConfigProvider';
-export * from './SummaryCard'
+export * from './Filter';
+export * from './SummaryCard';
