@@ -29,9 +29,10 @@ module.exports = {
             },
         ],
     },
-    externals: {
+    externals: { // Externalize for use from client
         react: 'react',
         'react-dom': 'react-dom',
+        'react-router': 'react-router',
     },
     plugins: [
         new BundleAnalyzerPlugin({
