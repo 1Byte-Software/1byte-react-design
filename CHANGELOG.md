@@ -9,8 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Add
 
+-   Add `Filter` component.
 -   Add `Tag.Group` component.
 -   Add `type` prop for `Tag` component.
+-   Add  `useFilter` hooks.
 
 ## [1.10.1]
 
