@@ -74,9 +74,6 @@ importers:
       react:
         specifier: ^18.0.0
         version: 18.3.1
-      react-dom:
-        specifier: ^18.0.0
-        version: 18.3.1(react@18.3.1)
       react-hook-form:
         specifier: ^7.53.0
         version: 7.62.0(react@18.3.1)
