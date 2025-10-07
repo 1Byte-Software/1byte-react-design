@@ -12,7 +12,8 @@
     "scripts": {
         "build": "webpack --config webpack.config.js",
         "test": "yalc publish --push --no-scripts --files .",
-        "tsc": "tsc -p tsconfig.json"
+        "tsc": "tsc -p tsconfig.json",
+        "test:publish": "pnpm install --no-frozen-lockfile && webpack --config webpack.config.js"
     },
     "peerDependencies": {
         "react": "^18.0.0",
