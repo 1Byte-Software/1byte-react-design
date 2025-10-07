@@ -1,6 +1,6 @@
 {
     "name": "1byte-react-design",
-    "version": "1.11.1-hotfix.1",
+    "version": "1.11.1-hotfix.2",
     "description": "A simple React UI library",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -17,7 +17,8 @@
     "peerDependencies": {
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
-        "react-router": "^7.0.0"
+        "react-router": "^7.0.0",
+        "yup": "^1.7.0"
     },
     "dependencies": {
         "@ant-design/cssinjs": "^1.24.0",
@@ -41,8 +42,7 @@
         "rc-slider": "^11.1.8",
         "rc-table": "^7.53.0",
         "rc-tree": "^5.13.1",
-        "react-hook-form": "^7.53.0",
-        "yup": "^1.7.0"
+        "react-hook-form": "^7.53.0"
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",
@@ -60,7 +60,8 @@
         "webpack": "^5.95.0",
         "webpack-bundle-analyzer": "^4.10.2",
         "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^5.1.0"
+        "webpack-dev-server": "^5.1.0",
+        "yup": "1.7.0"
     },
     "publishConfig": {
         "access": "public"
