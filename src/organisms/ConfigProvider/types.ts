@@ -6,6 +6,7 @@ import { RdTemplatesTokenMap } from '../../templates/types';
 import { ConfigProviderInternal } from './ConfigProvider';
 import { RdConfigContext } from './context/types';
 import { RdConfigProviderProps } from './types.props';
+import { RdOrganismsTokenMap } from '../types';
 
 //#region Define Ant Design types
 type Algorithm = ThemeConfig['algorithm'];
@@ -31,7 +32,7 @@ type ThemeConfigExtend = {
 //#endregion
 
 //#region Export types
-export type RdComponentTokenMap = RdMoleculesTokenMap & RdTemplatesTokenMap;
+export type RdComponentTokenMap = RdMoleculesTokenMap & RdOrganismsTokenMap & RdTemplatesTokenMap;
 export type RdAliasToken = AliasToken & AliasTokenExtend;
 export type RdComponentsConfigExtend = RdComponentsConfig & ComponentsConfigExtend;
 export type RdAlgorithm = Algorithm & AlgorithmExtend;
