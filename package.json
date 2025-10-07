@@ -42,7 +42,7 @@
         "rc-table": "^7.53.0",
         "rc-tree": "^5.13.1",
         "react-hook-form": "^7.53.0",
-        "yup": "^1.7.1"
+        "yup": "^1.7.0"
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",
