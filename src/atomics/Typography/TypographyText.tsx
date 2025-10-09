@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef } from 'react';
 import { Skeleton } from '../../molecules';
 import { TypographyTextStyles } from './styles';
 import { RdTypographyTextProps } from './types';
@@ -6,14 +6,7 @@ import { detectHeightBySize } from './TypographyText.helper';
 
 export const TypographyText = forwardRef(
     (props: RdTypographyTextProps, ref: RdTypographyTextProps['ref']) => {
-        const {
-            size = 'normal',
-            editable,
-            autoFocus = false,
-            loading = false,
-            onChange,
-            ...antdProps
-        } = props;
+        const { size = 'normal', autoFocus = false, loading = false, ...antdProps } = props;
 
         if (loading) {
             return (
@@ -26,20 +19,6 @@ export const TypographyText = forwardRef(
             );
         }
 
-        const editableCustom = useMemo(() => {
-            if (editable && typeof editable === 'object') {
-                if (onChange) {
-                    editable.onChange = onChange;
-                }
-
-                return editable;
-            }
-
-            return editable;
-        }, [editable]);
-
-        return (
-            <TypographyTextStyles ref={ref} editable={editableCustom} size={size} {...antdProps} />
-        );
+        return <TypographyTextStyles ref={ref} size={size} {...antdProps} />;
     }
 );
