@@ -1,6 +1,6 @@
 {
     "name": "1byte-react-design",
-    "version": "1.11.2",
+    "version": "1.11.3",
     "description": "A simple React UI library",
     "main": "dist/index.js",
     "module": "dist/index.js",
