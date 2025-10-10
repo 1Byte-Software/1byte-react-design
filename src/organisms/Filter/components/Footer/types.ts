@@ -24,6 +24,7 @@ export type RdFilterFooterComponent = <T extends {}>(
 interface IFieldItem<T extends {}> extends RdSelectProps {
     name: keyof T;
     label: ReactNode;
+    render?: () => ReactNode;
 }
 
 export interface FilterFooterLocalization {

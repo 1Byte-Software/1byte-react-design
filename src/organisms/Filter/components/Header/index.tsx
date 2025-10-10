@@ -3,6 +3,7 @@ import { RdSearchProps, Space } from '../../../../molecules';
 import { FilterHeaderWrapper, InputFilterStyles } from './styles';
 import { RdFilterHeaderProps } from './types';
 import i18next from 'i18next';
+import { localize } from '../../../../utils/localize';
 
 export const FilterHeader = (props: RdFilterHeaderProps) => {
     const { defaultKeywords, className, localization, onChangeKeywords } = props;
@@ -17,7 +18,7 @@ export const FilterHeader = (props: RdFilterHeaderProps) => {
             <Space size="small" direction="vertical" block>
                 <InputFilterStyles
                     defaultValue={defaultKeywords}
-                    placeholder={i18next.t(search_placeholder)}
+                    placeholder={localize(search_placeholder)}
                     onSearch={handleChangeKeywords}
                 />
 

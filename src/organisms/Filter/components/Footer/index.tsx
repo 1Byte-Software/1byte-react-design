@@ -6,6 +6,19 @@ import { Flex, Typography } from '../../../../atomics';
 import { Form, Select, Space, Tooltip } from '../../../../molecules';
 import { FilterFooterWrapper } from './styles';
 import { RdFilterFooterProps } from './types';
+import { localize } from '../../../../utils/localize';
+
+// export const rdI118next = i18next;
+// (rdI118next as any).fromLib = '1byte-react-design';
+
+// export const useRdLocation = useLocation;
+// (useRdLocation as any).fromLib = '1byte-react-design';
+
+// export const rdReact = React;
+// (rdReact as any).fromLib = '1byte-react-design';
+
+// export const rdYup = Yup;
+// (rdYup as any).fromLib = '1byte-react-design';
 
 export const FilterFooter = <T extends Record<string, string>>(props: RdFilterFooterProps<T>) => {
     const {
@@ -16,6 +29,7 @@ export const FilterFooter = <T extends Record<string, string>>(props: RdFilterFo
         isLoading,
         filterValue,
         localization,
+        children,
         onChangeFilterValue,
     } = props;
 
@@ -39,38 +53,46 @@ export const FilterFooter = <T extends Record<string, string>>(props: RdFilterFo
             <Flex justify="space-between" wrap>
                 {Boolean(fields?.length) && (
                     <Space>
-                        {fields?.map(field => (
-                            <Form.Item
-                                key={field.name as string}
-                                label={field.label}
-                                disableMargin
-                                // labelCol={{
-                                //     flex: 1,
-                                // }}
-                                // wrapperCol={false}
-                            >
-                                <Select
-                                    options={field.options}
-                                    value={filterValue?.[field.name] || null}
-                                    onChange={e => {
-                                        const newFilterValue = { ...filterValue } as T;
-                                        newFilterValue[field.name] = e;
+                        {fields?.map(field => {
+                            return (
+                                <Form.Item
+                                    key={field.name as string}
+                                    label={field.label}
+                                    disableMargin
+                                    // labelCol={{
+                                    //     flex: 1,
+                                    // }}
+                                    // wrapperCol={false}
+                                >
+                                    {field?.render ? (
+                                        field.render()
+                                    ) : (
+                                        <Select
+                                            options={field.options}
+                                            value={filterValue?.[field.name] || null}
+                                            onChange={e => {
+                                                const newFilterValue = { ...filterValue } as T;
+                                                newFilterValue[field.name] = e;
 
-                                        onChangeFilterValue?.(newFilterValue);
-                                    }}
-                                    popupMatchSelectWidth={false}
-                                />
-                            </Form.Item>
-                        ))}
+                                                onChangeFilterValue?.(newFilterValue);
+                                            }}
+                                            popupMatchSelectWidth={false}
+                                        />
+                                    )}
+                                </Form.Item>
+                            );
+                        })}
                     </Space>
                 )}
+
+                {children}
 
                 {Boolean(totalItems || showTotalItemsCount) && (
                     <Space size={'small'} style={{ marginLeft: 'auto' }} align="end">
                         {isLoading && <LoadingOutlined />}
                         <Typography.Text>
-                            {i18next.t(showing, { total: totalItems, count: showTotalItemsCount })}{' '}
-                            <Tooltip title={i18next.t(showing_tooltip)}>
+                            {localize(showing, { total: totalItems, count: showTotalItemsCount })}{' '}
+                            <Tooltip title={localize(showing_tooltip)}>
                                 <Typography.Text type="secondary">
                                     <InfoCircleFilled />
                                 </Typography.Text>
