@@ -29,7 +29,8 @@ module.exports = {
             },
         ],
     },
-    externals: { // Externalize for use from client
+    externals: {
+        // Externalize for use from client
         react: 'react',
         'react-dom': 'react-dom',
         'react-router': 'react-router',
