@@ -8,6 +8,6 @@
  *      />
  */
 export const countWordsStrategy = (value: string): number => {
-    const words = value.split(' ');
+    const words = value.trim().split(/\s+/).filter(Boolean);
     return words.length;
 };
