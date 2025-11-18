@@ -1,4 +1,11 @@
-import { Children, cloneElement, isValidElement, ReactElement, ReactNode, useMemo } from 'react';
+import {
+    Children,
+    cloneElement,
+    isValidElement,
+    ReactElement,
+    ReactNode,
+    useEffect
+} from 'react';
 import {
     Control,
     ControllerFieldState,
@@ -10,6 +17,7 @@ import {
     useFormState,
     UseFormStateReturn,
 } from 'react-hook-form';
+import { Form } from './Form';
 import { FormItem } from './FormItem';
 import { RdFormItemProps } from './types';
 
@@ -71,7 +79,9 @@ export const FormItemControl = <
     valuePropName,
     shouldUnregister,
     defaultValue,
-    overrideFieldOnChange,
+    // overrideFieldOnChange,
+    // getValueFromEvent,
+    // getValueProps,
     ...props
 }: RdFormItemControlProps<TFieldValues, TName>) => {
     // Get field controller from react-hook-form
@@ -86,6 +96,8 @@ export const FormItemControl = <
     // Subscribe to form state (errors, isSubmitting, etc.)
     const formState = useFormState({ control });
 
+    const form = Form.useFormInstance();
+
     // Props passed to render function — user decides what to use
     const renderProps = {
         field: field as ControllerRenderProps<TFieldValues, TName>,
@@ -93,28 +105,6 @@ export const FormItemControl = <
         formState,
     };
 
-    // ——————————————————————————————————————
-    // CASE 1: children is a React element (e.g., <Input />)
-    // → AUTO-INJECT value, onChange, onBlur
-    // → valuePropName controls the name of the value prop
-    // ——————————————————————————————————————
-    const fieldProps = useMemo(() => {
-        if (!valuePropName) return field;
-
-        // Remove "value" from field but keep everything else
-        const { value, ...rest } = field;
-        return rest;
-    }, [field, valuePropName]);
-
-    const injectedValueProps = useMemo(() => {
-        return valuePropName ? { [valuePropName]: field.value } : { value: field.value };
-    }, [valuePropName, field.value]);
-
-    // ——————————————————————————————————————
-    // CASE 2: children is a render function (callback)
-    // → NO auto-injection of value/onChange
-    // → User must manually use `field` from props
-    // ——————————————————————————————————————
     if (typeof children === 'function') {
         const renderFn = children as RenderProp<TFieldValues, TName>;
 
@@ -123,50 +113,46 @@ export const FormItemControl = <
                 {...props}
                 name={name} // For Antd form state
                 initialValue={field.value} // For Antd initial value
-                valuePropName="__rdInternalValue" // Dummy prop to prevent Antd auto value handling, use RHF instead
                 validateStatus={fieldState.invalid ? 'error' : undefined}
                 help={fieldState.error?.message}
             >
-                {/* User has full control */}
                 {renderFn(renderProps)}
             </FormItem>
         );
     }
+
+    // If other component sets different value prop name, sync RHF state to Antd form state
+    useEffect(() => {
+        if (!form) return;
+
+        if (field.value !== form.getFieldValue(name)) {
+            console.debug('set', { name, value: field.value });
+            form.setFieldValue(name, field.value);
+        }
+    }, [field.value, name, form]);
 
     return (
         <FormItem
             {...props}
             name={name} // For Antd form state
             initialValue={field.value} // For Antd initial value
-            valuePropName="__rdInternalValue" // Dummy prop to prevent Antd auto value handling, use RHF instead
             validateStatus={fieldState.invalid ? 'error' : undefined}
             help={fieldState.error?.message}
         >
             {Children.map(children, child =>
                 isValidElement<ChildWithHandlers>(child)
                     ? cloneElement(child as ReactElement<ChildWithHandlers>, {
-                          ...fieldProps,
-                          ...injectedValueProps,
+                          ...field,
 
-                          // Merge child's onChange with RHF's onChange
+                          //   Merge child's onChange with RHF's onChange
                           onChange: (...params: any[]) => {
-                              const [event] = params;
-
-                              const value = event.currentTarget?.value;
-
-                              // Call original onChange if exists
-                              if (typeof value === 'string') {
-                                  child.props.onChange?.(event.currentTarget?.value);
+                              if (props?.getValueFromEvent) {
+                                  field.onChange(props.getValueFromEvent(...params));
+                                  child.props.onChange?.(props.getValueFromEvent(...params));
                               } else {
+                                  field.onChange(...params);
                                   child.props.onChange?.(...params);
                               }
-
-                              //   // Call override or default RHF onChange
-                              //   if (overrideFieldOnChange) {
-                              //       overrideFieldOnChange(...params, field);
-                              //   } else {
-                              //       //   field.onChange(...params);
-                              //   }
                           },
 
                           // Merge child's onBlur with RHF's onBlur
