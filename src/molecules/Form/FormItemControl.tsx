@@ -1,11 +1,4 @@
-import {
-    Children,
-    cloneElement,
-    isValidElement,
-    ReactElement,
-    ReactNode,
-    useEffect
-} from 'react';
+import { Children, cloneElement, isValidElement, ReactElement, ReactNode, useEffect } from 'react';
 import {
     Control,
     ControllerFieldState,
@@ -105,6 +98,15 @@ export const FormItemControl = <
         formState,
     };
 
+    // If other component sets different value prop name, sync RHF state to Antd form state
+    useEffect(() => {
+        if (!form) return;
+
+        if (field.value !== form.getFieldValue(name)) {
+            form.setFieldValue(name, field.value);
+        }
+    }, [field.value, name, form]);
+
     if (typeof children === 'function') {
         const renderFn = children as RenderProp<TFieldValues, TName>;
 
@@ -120,16 +122,6 @@ export const FormItemControl = <
             </FormItem>
         );
     }
-
-    // If other component sets different value prop name, sync RHF state to Antd form state
-    useEffect(() => {
-        if (!form) return;
-
-        if (field.value !== form.getFieldValue(name)) {
-            console.debug('set', { name, value: field.value });
-            form.setFieldValue(name, field.value);
-        }
-    }, [field.value, name, form]);
 
     return (
         <FormItem
