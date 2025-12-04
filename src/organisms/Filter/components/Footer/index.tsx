@@ -69,7 +69,7 @@ export const FilterFooter = <T extends Record<string, string>>(props: RdFilterFo
                                     ) : (
                                         <Select
                                             options={field.options}
-                                            value={filterValue?.[field.name] || null}
+                                            value={filterValue?.[field.name] ?? null}
                                             onChange={e => {
                                                 const newFilterValue = { ...filterValue } as T;
                                                 newFilterValue[field.name] = e;
