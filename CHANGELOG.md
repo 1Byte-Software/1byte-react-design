@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 -   Fix `Select` in `Filter` to allow the value `false`.
--   
+-   Fix `Form.ItemControl` supports `getValueFromEvent`, `normalize` prop.
 
 ## [1.12.3]
 
