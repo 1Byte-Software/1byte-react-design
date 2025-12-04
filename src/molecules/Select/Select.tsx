@@ -1,15 +1,13 @@
 import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
 import clsx from 'clsx';
-import React, { useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { SelectStyledFunc } from './styles';
 import { RdSelectComponent, RdSelectProps } from './types';
 
-export const Select: RdSelectComponent = <
+function SelectInner<
     ValueType = any,
     OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType
->(
-    props: React.PropsWithChildren<RdSelectProps<ValueType, OptionType>>
-) => {
+>(props: React.PropsWithChildren<RdSelectProps<ValueType, OptionType>>, ref: React.Ref<any>) {
     const { rootClassName } = props;
 
     const SelectStyled = useMemo(
@@ -20,5 +18,7 @@ export const Select: RdSelectComponent = <
         []
     );
 
-    return <SelectStyled rootClassName={clsx('rd-select', rootClassName)} {...props} />;
-};
+    return <SelectStyled ref={ref} rootClassName={clsx('rd-select', rootClassName)} {...props} />;
+}
+
+export const Select = forwardRef(SelectInner) as RdSelectComponent;
