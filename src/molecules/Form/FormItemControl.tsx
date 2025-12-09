@@ -117,6 +117,8 @@ export const FormItemControl = <
         return (
             <Form.Item
                 {...props}
+                name={name as string | undefined} // Required for Antd internal state management and validation
+                initialValue={field.value} // Initial value for Antd (useful on first render)
                 validateStatus={fieldState.invalid ? 'error' : undefined}
                 help={fieldState.error?.message}
             >

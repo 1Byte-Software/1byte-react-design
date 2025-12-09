@@ -3,8 +3,15 @@ import { RdNotificationGlobalConfig, RdNotificationProps, RdNotificationStaticFn
 
 let notification: RdNotificationProps = {} as RdNotificationProps;
 
-const rdNotificationStaticFunc: RdNotificationStaticFn = (rdNotificationArgsProps, type) => {
+/**
+ * This is Internal Function. Do not use in your production.
+ */
+export const __rdNotificationStaticFunc: RdNotificationStaticFn = (
+    rdNotificationArgsProps,
+    notificationInstance
+) => {
     let message = rdNotificationArgsProps.message;
+
     if (notification.globalConfigExtend.defaultMessage) {
         typeof notification.globalConfigExtend.defaultMessage === 'string' &&
             (message = notification.globalConfigExtend.defaultMessage);
@@ -12,7 +19,7 @@ const rdNotificationStaticFunc: RdNotificationStaticFn = (rdNotificationArgsProp
         if (typeof notification.globalConfigExtend.defaultMessage === 'object') {
             const { success, info, warning, error } =
                 notification.globalConfigExtend.defaultMessage;
-            switch (type) {
+            switch (rdNotificationArgsProps.type) {
                 case 'success':
                     message = success || message;
                     break;
@@ -35,9 +42,11 @@ const rdNotificationStaticFunc: RdNotificationStaticFn = (rdNotificationArgsProp
         ...rdNotificationArgsProps,
     };
 
-    antdNotification.open({
+    const currentNotification = notificationInstance ?? antdNotification;
+
+    currentNotification.open({
         ...notificationArgsProps,
-        type,
+        type: rdNotificationArgsProps.type,
     });
 };
 
@@ -54,19 +63,31 @@ notification.destroy = config => {
     antdNotification.destroy(config);
 };
 notification.open = config => {
-    rdNotificationStaticFunc(config);
+    __rdNotificationStaticFunc(config);
 };
 notification.error = config => {
-    rdNotificationStaticFunc(config, 'error');
+    __rdNotificationStaticFunc({
+        ...config,
+        type: 'error',
+    });
 };
 notification.info = config => {
-    rdNotificationStaticFunc(config, 'info');
+    __rdNotificationStaticFunc({
+        ...config,
+        type: 'info',
+    });
 };
 notification.success = config => {
-    rdNotificationStaticFunc(config, 'success');
+    __rdNotificationStaticFunc({
+        ...config,
+        type: 'success',
+    });
 };
 notification.warning = config => {
-    rdNotificationStaticFunc(config, 'warning');
+    __rdNotificationStaticFunc({
+        ...config,
+        type: 'warning',
+    });
 };
 notification.useNotification = antdNotification.useNotification;
 notification._InternalPanelDoNotUseOrYouWillBeFired =

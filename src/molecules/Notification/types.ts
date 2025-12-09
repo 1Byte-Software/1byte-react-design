@@ -1,15 +1,19 @@
-import { GetProps, notification } from 'antd';
-import { ArgsProps, GlobalConfigProps, IconType } from 'antd/es/notification/interface';
+import {
+    GlobalConfigProps,
+    ArgsProps as NotificationArgProps,
+    NotificationConfig,
+    NotificationInstance,
+} from 'antd/es/notification/interface';
 import PurePanel from 'antd/es/notification/PurePanel';
 import { ComponentToken as NotificationComponentTokenAntd } from 'antd/es/notification/style';
 import useNotification from 'antd/es/notification/useNotification';
 
 //#region Define Ant Design types
-type NotificationPropsAntd = Omit<GetProps<typeof notification>, 'config'>;
-
+type NotificationArgsPropsAntd = NotificationArgProps;
 type NotificationGlobalConfigAntd = GlobalConfigProps;
+type NotificationConfigAntd = NotificationConfig;
 
-type NotificationArgsPropsAntd = Omit<ArgsProps, 'message'>;
+// type NotificationArgsPropsAntd = Omit<ArgsProps, 'message'>;
 //#endregion
 
 //#region Define extended component tokens
@@ -45,20 +49,24 @@ type RdNotificationPropsExtend = RdBaseMethods & RdNoticeMethods;
 type NotificationGlobalConfigExtend = {
     defaultMessage?: string | NoticeDefaultMessage;
 };
-
+type NotificationConfigExtend = {};
 type NotificationArgsPropsExtend = {
     message?: React.ReactNode;
 };
-
-export type RdNotificationStaticFn = (config: RdNotificationArgsProps, type?: IconType) => void;
 //#endregion
 
 //#region Export types
 export type RdNotificationProps = RdNotificationPropsExtend;
 export type RdNotificationGlobalConfig = NotificationGlobalConfigAntd &
     NotificationGlobalConfigExtend;
+export type RdNotificationConfig = NotificationConfigAntd & NotificationConfigExtend;
 
-export type RdNotificationArgsProps = NotificationArgsPropsAntd & NotificationArgsPropsExtend;
+export type RdNotificationArgsProps = Omit<NotificationArgsPropsAntd, 'message'> &
+    NotificationArgsPropsExtend;
+export type RdNotificationStaticFn = (
+    args: RdNotificationArgsProps,
+    notificationInstance?: NotificationInstance
+) => void;
 
 export type RdNotificationComponentToken = NotificationComponentTokenAntd &
     NotificationComponentTokenExtend;
