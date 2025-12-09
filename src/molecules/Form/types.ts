@@ -31,7 +31,39 @@ export type FormComponentToken = ComponentToken & {};
 //#endregion
 
 //#region Define extended types
-type FormPropsExtend = {};
+type FormPropsExtend = {
+    /**
+     * Determines whether a `Form.Item` should be marked as required.
+     *
+     * This function receives the field name (the `name` prop of `Form.Item`)
+     * and should return `true` if the field is required, or `false` otherwise.
+     *
+     * This allows consumers to define custom rules for determining required
+     * status globally at the Form level instead of configuring each Form.Item.
+     *
+     * @example
+     * ```tsx
+     * <Form
+     *   requiredResolver={(name) => ["username", "password"].includes(name)}
+     * >
+     *   <Form.Item name="username" label="Username">
+     *     <Input />
+     *   </Form.Item>
+     *
+     *   <Form.Item name="email" label="Email">
+     *     <Input />
+     *   </Form.Item>
+     * </Form>
+     * ```
+     *
+     * In the example above, only "username" and "password" will be treated
+     * as required fields automatically.
+     *
+     * @param name - The name of the field being evaluated.
+     * @returns `true` if the field should be required, otherwise `false`.
+     */
+    requiredResolver?: (name: string) => boolean;
+};
 
 type FormItemPropsExtend = {
     /**
