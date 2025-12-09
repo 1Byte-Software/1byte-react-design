@@ -6,9 +6,20 @@ import { FormList } from './FormList';
 import { FormProvider } from './FormProvider';
 import { FormStyles } from './styles';
 import { RdFormComponent, RdFormCompoundedComponent, RdFormProps } from './types';
+import { rdFormContext } from './context';
 
 export const FormInternal: RdFormComponent = (props: RdFormProps) => {
-    return <FormStyles {...props} />;
+    const { requiredResolver, ...formProps } = props;
+
+    return (
+        <rdFormContext.Provider
+            value={{
+                requiredResolver,
+            }}
+        >
+            <FormStyles {...formProps} />
+        </rdFormContext.Provider>
+    );
 };
 
 export const Form = FormInternal as RdFormCompoundedComponent;
