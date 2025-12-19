@@ -1,3 +1,4 @@
-export interface RdFormContextValue {
-    requiredResolver?: (name: string) => boolean;
-}
+import { RdFormProps } from '../types';
+
+export interface RdFormContextValue<Values = any>
+    extends Pick<RdFormProps, 'requiredResolver' | 'onUserValuesChange'> {}
