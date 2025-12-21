@@ -65,6 +65,46 @@ type FormPropsExtend<Values = any> = {
     requiredResolver?: (name: string) => boolean;
 
     /**
+     * Determines the placeholder text for a form field based on its name.
+     *
+     * This function receives the field name (the `name` prop of `Form.Item` or `Form.ItemControl`)
+     * and should return a string to be used as the `placeholder` prop of the input component,
+     * or `undefined` if no placeholder should be applied.
+     *
+     * This allows consumers to define custom placeholder text globally at the Form level,
+     * avoiding the need to specify `placeholder` manually on each input component.
+     *
+     * @example
+     * ```tsx
+     * <Form
+     *   placeholderResolver={(name) => {
+     *     const placeholders: Record<string, string> = {
+     *       username: "Enter your username",
+     *       password: "Enter your password (at least 8 characters)",
+     *       email: "example@domain.com",
+     *     };
+     *     return placeholders[name];
+     *   }}
+     * >
+     *   <Form.Item name="username" label="Username">
+     *     <Input />
+     *   </Form.Item>
+     *
+     *   <Form.Item name="phone" label="Phone number">
+     *     <Input />
+     *   </Form.Item>
+     * </Form>
+     * ```
+     *
+     * In the example above, only fields with defined keys in the resolver will receive a placeholder.
+     * Other fields will remain without placeholder unless manually specified.
+     *
+     * @param name - The name of the field being evaluated.
+     * @returns The placeholder string if one should be applied, or `undefined` to skip.
+     */
+    placeholderResolver?: (name: string) => string | undefined;
+
+    /**
      * Callback invoked **only when the user interactively changes a form value** (e.g., typing, selecting, checking a checkbox).
      *
      * This callback is **not** triggered when values are changed programmatically

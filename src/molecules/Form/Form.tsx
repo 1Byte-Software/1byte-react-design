@@ -9,12 +9,13 @@ import { FormStyles } from './styles';
 import { RdFormComponent, RdFormCompoundedComponent, RdFormProps } from './types';
 
 export const FormInternal: RdFormComponent = (props: RdFormProps) => {
-    const { requiredResolver, onUserValuesChange, ...formProps } = props;
+    const { requiredResolver, placeholderResolver, onUserValuesChange, ...formProps } = props;
 
     return (
         <rdFormContext.Provider
             value={{
                 requiredResolver,
+                placeholderResolver,
                 onUserValuesChange,
             }}
         >
