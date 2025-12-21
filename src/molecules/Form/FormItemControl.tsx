@@ -4,6 +4,7 @@ import {
     isValidElement,
     ReactElement,
     ReactNode,
+    Ref,
     useContext,
     useEffect,
 } from 'react';
@@ -18,6 +19,7 @@ import {
     useFormState,
     UseFormStateReturn,
 } from 'react-hook-form';
+import { mergeRefs } from '../../helpers/mergeRefs';
 import { rdFormContext } from './context';
 import { Form } from './Form';
 import { FormItem } from './FormItem';
@@ -27,6 +29,7 @@ import { RdFormItemProps } from './types';
 type ChildWithHandlers = {
     onChange?: (...args: any[]) => void;
     onBlur?: (...args: any[]) => void;
+    ref?: Ref<any>;
     [key: string]: any;
 };
 
@@ -202,6 +205,11 @@ export const FormItemControl = <
                               child.props.onBlur?.(...params);
                               field.onBlur();
                           },
+
+                          ref: mergeRefs(
+                              field.ref, // ref of react-hook-form
+                              (child as any).ref // ref from child component
+                          ),
                       })
                     : child
             )}
