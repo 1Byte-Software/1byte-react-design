@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Add `onUserValuesChange` for `Form` components.
 -   Add `placeholderResolver` for `Form` components.
 
+### Fixed
+
+-   Fixed an issue where `FormItemControl` overwrote forwarded refs from child components, causing imperative APIs (e.g. focus, reset) to be unavailable when used with react-hook-form.
+
 ## [1.13.0]
 
 ### Added
