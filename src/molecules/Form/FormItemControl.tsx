@@ -1,4 +1,13 @@
-import { Children, cloneElement, isValidElement, ReactElement, ReactNode, useEffect } from 'react';
+import {
+    Children,
+    cloneElement,
+    isValidElement,
+    ReactElement,
+    ReactNode,
+    Ref,
+    useContext,
+    useEffect,
+} from 'react';
 import {
     Control,
     ControllerFieldState,
@@ -10,6 +19,8 @@ import {
     useFormState,
     UseFormStateReturn,
 } from 'react-hook-form';
+import { mergeRefs } from '../../helpers/mergeRefs';
+import { rdFormContext } from './context';
 import { Form } from './Form';
 import { FormItem } from './FormItem';
 import { RdFormItemProps } from './types';
@@ -18,6 +29,7 @@ import { RdFormItemProps } from './types';
 type ChildWithHandlers = {
     onChange?: (...args: any[]) => void;
     onBlur?: (...args: any[]) => void;
+    ref?: Ref<any>;
     [key: string]: any;
 };
 
@@ -82,6 +94,8 @@ export const FormItemControl = <
         shouldUnregister,
         defaultValue,
     });
+
+    const rdCtx = useContext(rdFormContext);
 
     // Subscribe to the entire form state (errors, isSubmitting, isDirty, etc.)
     const formState = useFormState({ control });
@@ -174,6 +188,16 @@ export const FormItemControl = <
                               // Then call the child's original onChange (if any)
                               // Child can now safely read the latest value from RHF or Antd if needed
                               child.props.onChange?.(normalizedValue);
+
+                              // LAST STEP: Notify parent Form component via context
+                              // This callback (onUserValuesChange) is only triggered when user interacts
+                              // (e.g., typing, selecting, checking), NOT when value is set programmatically.
+                              // It passes the changed field in the same format as Antd's onValuesChange.
+                              if (rdCtx?.onUserValuesChange) {
+                                  rdCtx.onUserValuesChange({
+                                      [name]: normalizedValue,
+                                  });
+                              }
                           },
 
                           // onBlur: call child's handler first, then mark field as touched in RHF
@@ -181,6 +205,11 @@ export const FormItemControl = <
                               child.props.onBlur?.(...params);
                               field.onBlur();
                           },
+
+                          ref: mergeRefs(
+                              field.ref, // ref of react-hook-form
+                              (child as any).ref // ref from child component
+                          ),
                       })
                     : child
             )}
