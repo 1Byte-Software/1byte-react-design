@@ -1,11 +1,10 @@
-import { Image, GetProps } from 'antd';
+import { GetProps, Image } from 'antd';
 import { CompositionImage, ImageProps } from 'antd/es/image';
 import { ComponentToken as ImageComponentTokenAntd } from 'antd/es/image/style';
-import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 
 //#region Define Ant Design types
 type ImagePropsAntd = ImageProps;
-type PreviewGroupPropsAntd = GroupConsumerProps;
+type PreviewGroupPropsAntd = GetProps<typeof Image.PreviewGroup>;
 //#endregion
 
 //#region Define extended component tokens

@@ -2,10 +2,9 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FormInternal } from '../../molecules';
 import { getAliasToken } from '../../utils';
-import { FilterFooterWrapper } from './components/Footer/styles';
 import { RdFilterProps } from './types';
 
-export const filterWrapperFunc = () => styled(FormInternal)<{
+export const filterWrapperFunc = () => styled(FormInternal as any)<{
     header: RdFilterProps<string>['headerProps'];
 }>`
     ${() => css`

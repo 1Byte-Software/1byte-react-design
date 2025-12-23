@@ -1,10 +1,8 @@
 import { FloatButton, FloatButtonRef, GetProps } from 'antd';
 import { ComponentToken as BackTopComponentTokenAntd } from 'antd/es/back-top/style';
+import { FloatButtonElement } from 'antd/es/float-button/FloatButton';
 import { ComponentToken as FloatButtonComponentTokenAntd } from 'antd/es/float-button/style';
 import { FloatButtonInternal } from './FloatButton';
-import { FloatButtonGroup } from './FloatButtonGroup';
-import { BackTop } from './BackTop';
-import { FloatButtonElement } from 'antd/es/float-button/interface';
 
 //#region Define Ant Design types
 type FloatButtonPropsAntd = GetProps<typeof FloatButton>;
